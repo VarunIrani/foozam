@@ -50,7 +50,7 @@ export default class RecipeInfo extends LitElement {
       </head>
       <div class="row" style="text-align: center">
         <div class="col-lg-6 col-md-12">
-          <img src="${this.image || this.defaultImage}" alt="Recipe Image" />
+          <img src="${this.image || this.defaultImage}" alt="Recipe Image" width="200"/>
         </div>
         <div class="col-lg-6 col-md-12 pt-3">
           <h4 class="card-title">${this.label}</h4>
