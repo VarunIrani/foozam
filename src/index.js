@@ -143,6 +143,7 @@ for (let i = 0; i < 3; i += 1) {
   pred[i].addEventListener('click', () => {
     resultTitle.innerHTML = 'Foozam Results For ';
     resultTitle.innerHTML = resultTitle.innerHTML.concat(pred[i].innerHTML);
+    recipes(pred[i]);
     restaurants(pred[i]);
   });
 }
