@@ -56,7 +56,7 @@ export function addRecipes(data) {
 
 export function addRestaurants(data) {
   const restRef = database.child('restaurants');
-  const restTabPane = document.getElementById('link3');
+  const restTabPane = document.getElementById('link2');
   const res = data.restaurants;
   const resComps = [];
   let row;
