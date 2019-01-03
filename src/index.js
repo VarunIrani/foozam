@@ -65,14 +65,14 @@ for (let i = 1; i <= 3; i += 1) {
   pred.push(document.getElementById(`pred-${i}`));
 }
 
-for (let i = 0; i < 3; i += 1) {
-  pred[i].addEventListener('click', () => {
+pred.forEach((prediction) => {
+  prediction.addEventListener('click', () => {
     resultTitle.innerHTML = 'Foozam Results For ';
-    resultTitle.innerHTML = resultTitle.innerHTML.concat(pred[i].innerHTML);
-    recipes(pred[i]);
-    restaurants(pred[i]);
+    resultTitle.innerHTML = resultTitle.innerHTML.concat(prediction.innerHTML);
+    recipes(prediction);
+    restaurants(prediction);
   });
-}
+});
 
 function predict(image) {
   const results = [];

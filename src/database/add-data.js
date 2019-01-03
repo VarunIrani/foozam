@@ -1,3 +1,6 @@
+/* eslint-disable no-param-reassign */
+/* eslint-disable func-names */
+/* eslint-disable no-console */
 /* eslint-disable eol-last */
 /* eslint-disable no-undef */
 
@@ -11,11 +14,17 @@ import RecipeInfo from '../components/recipe-info';
 import database from './database';
 // const users = database.child('users');
 
+const resComps = [];
+const recipeComps = [];
+
+function setKnowMore(data) {
+  console.log(data);
+}
+
 export function addRecipes(data) {
   const recipesRef = database.child('recipes');
   const recipeTabPane = document.getElementById('link1');
   const res = data.hits;
-  const recipeComps = [];
   let row;
   const tempRecipes = [];
 
@@ -41,6 +50,8 @@ export function addRecipes(data) {
       'defaultImage',
       'https://foozam.ml/assets/img/recipe-default.png',
     );
+    recipeComps[i].setAttribute('data-toggle', 'modal');
+    recipeComps[i].setAttribute('data-target', '#knowMoreModal');
   }
 
   for (let j = 0; j < recipeComps.length - 1; j += 1) {
@@ -52,13 +63,18 @@ export function addRecipes(data) {
       recipeTabPane.appendChild(row);
     }
   }
+
+  recipeComps.forEach((recipe) => {
+    recipe.onclick = function () {
+      setKnowMore(recipe);
+    };
+  });
 }
 
 export function addRestaurants(data) {
   const restRef = database.child('restaurants');
   const restTabPane = document.getElementById('link2');
   const res = data.restaurants;
-  const resComps = [];
   let row;
   const tempRest = [];
 
@@ -82,6 +98,8 @@ export function addRestaurants(data) {
     resComps[i].setAttribute('image', res[i].restaurant.thumb);
     resComps[i].setAttribute('userRating', res[i].restaurant.user_rating.aggregate_rating);
     resComps[i].setAttribute('defaultImage', 'https://foozam.ml/assets/img/rest-default.png');
+    resComps[i].setAttribute('data-toggle', 'modal');
+    resComps[i].setAttribute('data-target', '#knowMoreModal');
   }
 
   for (let j = 0; j < resComps.length - 1; j += 1) {
@@ -93,4 +111,10 @@ export function addRestaurants(data) {
       restTabPane.appendChild(row);
     }
   }
+
+  resComps.forEach((restaurant) => {
+    restaurant.onclick = function () {
+      setKnowMore(restaurant);
+    };
+  });
 }

@@ -39,10 +39,6 @@ export default class RecipeInfo extends LitElement {
     };
   }
 
-  knowMore() {
-    console.log(this);
-  }
-
   render() {
     return html `
       <head>
@@ -58,7 +54,6 @@ export default class RecipeInfo extends LitElement {
             type="button"
             id="know-more"
             class="btn btn-warning btn-simple"
-            @click="${this.knowMore}"
           >
             Know More
           </button>

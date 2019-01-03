@@ -1,3 +1,5 @@
+/* eslint-disable no-undef */
+/* eslint-disable class-methods-use-this */
 /* eslint-disable no-console */
 /* eslint-disable template-tag-spacing */
 /* eslint-disable eol-last */
@@ -39,10 +41,6 @@ export default class RestaurantInfo extends LitElement {
     };
   }
 
-  knowMore() {
-    console.log(this);
-  }
-
   render() {
     return html `
       <head>
@@ -58,7 +56,6 @@ export default class RestaurantInfo extends LitElement {
             type="button"
             id="know-more"
             class="btn btn-warning btn-simple"
-            @click="${this.knowMore}"
           >
             Know More
           </button>
