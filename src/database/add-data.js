@@ -18,7 +18,8 @@ const resComps = [];
 const recipeComps = [];
 
 function setKnowMore(data) {
-  console.log(data);
+  const knowMoreModal = document.getElementById('knowMoreModal');
+  console.log(knowMoreModal.children);
 }
 
 export function addRecipes(data) {
