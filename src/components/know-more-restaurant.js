@@ -39,7 +39,7 @@ export default class KnowMoreRestaurant extends LitElement {
   }
 
   render() {
-    const name = this.name.replace(/\s/g, '+');
+    const address = this.address.replace(/\s/g, '+');
     return html `
       <head>
         <link href="./assets/css/black-dashboard.css?v=1.0.0" rel="stylesheet" />
@@ -56,7 +56,7 @@ export default class KnowMoreRestaurant extends LitElement {
       </div>
       <div class="row pt-4">
         <div class="col-lg-12 col-md-12 embed-responsive embed-responsive-16by9" id="map">
-          <iframe src="https://www.google.com/maps?q=${name}&output=embed"
+          <iframe src="https://www.google.com/maps?q=${address}&output=embed"
             frameborder="0" 
             style="border:0" 
             allowfullscreen>
