@@ -2,11 +2,6 @@
 /* eslint-disable no-undef */
 /* eslint-disable no-console */
 /* eslint-disable func-names */
-// Clarifai Imports
-import {
-  App,
-} from 'clarifai';
-
 // API imports
 import KEYS from './api/keys';
 import {
@@ -15,10 +10,12 @@ import {
 import {
   getRecipes,
 } from './api/recipe-search';
+import app from './api/clarifai';
 
 // Component imports
 import RestaurantInfo from './components/restaurant-info';
 import RecipeInfo from './components/recipe-info';
+import KnowMoreRestaurant from './components/know-more-restaurant';
 
 // Database imports
 import database from './database/database';
@@ -34,10 +31,7 @@ const imageRef = database.child('image');
 
 customElements.define('restaurant-info', RestaurantInfo);
 customElements.define('recipe-info', RecipeInfo);
-
-const app = new App({
-  apiKey: KEYS.CLARIFAI,
-});
+customElements.define('know-more-restaurant', KnowMoreRestaurant);
 
 const pred = [];
 
@@ -61,7 +55,7 @@ function restaurants(prediction) {
   }
 }
 
-for (let i = 1; i <= 3; i += 1) {
+for (let i = 1; i <= 5; i += 1) {
   pred.push(document.getElementById(`pred-${i}`));
 }
 
@@ -81,7 +75,7 @@ function predict(image) {
       for (let i = 0; i < 5; i += 1) {
         results.push(response.outputs[0].data.concepts[i].name);
       }
-      for (let i = 0; i < 3; i += 1) {
+      for (let i = 0; i < 5; i += 1) {
         pred[i].innerHTML = results[i].toUpperCase();
       }
       resultTitle.innerHTML = 'Foozam Results For ';

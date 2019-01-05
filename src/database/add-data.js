@@ -3,7 +3,7 @@
 /* eslint-disable no-console */
 /* eslint-disable eol-last */
 /* eslint-disable no-undef */
-
+import $ from 'jquery';
 // Database Imports
 import {
   setRecipeValues,
@@ -12,15 +12,12 @@ import {
 import RestaurantInfo from '../components/restaurant-info';
 import RecipeInfo from '../components/recipe-info';
 import database from './database';
+import KnowMoreRestaurant from '../components/know-more-restaurant';
 // const users = database.child('users');
 
 const resComps = [];
 const recipeComps = [];
 
-function setKnowMore(data) {
-  const knowMoreModal = document.getElementById('knowMoreModal');
-  console.log(knowMoreModal.children);
-}
 
 export function addRecipes(data) {
   const recipesRef = database.child('recipes');
@@ -66,9 +63,11 @@ export function addRecipes(data) {
   }
 
   recipeComps.forEach((recipe) => {
-    recipe.onclick = function () {
-      setKnowMore(recipe);
-    };
+    const $recipe = recipe;
+    $($recipe).click(() => {
+      const title = recipe.getAttribute('label');
+      $('#knowMoreTitle').html(title);
+    });
   });
 }
 
@@ -114,8 +113,21 @@ export function addRestaurants(data) {
   }
 
   resComps.forEach((restaurant) => {
-    restaurant.onclick = function () {
-      setKnowMore(restaurant);
-    };
+    const $rest = restaurant;
+    const knowMoreRest = new KnowMoreRestaurant();
+    $($rest).click(() => {
+      const title = restaurant.getAttribute('name');
+      knowMoreRest.setAttribute('cuisines', restaurant.getAttribute('cuisines'));
+      knowMoreRest.setAttribute('latitude', restaurant.getAttribute('latitude'));
+      knowMoreRest.setAttribute('longitude', restaurant.getAttribute('longitude'));
+      knowMoreRest.setAttribute('address', restaurant.getAttribute('address'));
+      knowMoreRest.setAttribute('userRating', restaurant.getAttribute('userRating'));
+      knowMoreRest.setAttribute('image', restaurant.getAttribute('image'));
+      knowMoreRest.setAttribute('defaultImage', restaurant.getAttribute('defaultImage'));
+      knowMoreRest.setAttribute('name', restaurant.getAttribute('name'));
+      $('#knowMoreTitle').html(title);
+      $('#knowMoreBody').html(knowMoreRest);
+      // knowMoreRest.renderMap();
+    });
   });
 }
