@@ -55,7 +55,7 @@ export default class KnowMoreRestaurant extends LitElement {
         </div>
       </div>
       <div class="row pt-4">
-        <div class="col-lg-12 col-md-12 embed-responsive embed-responsive-21by9" id="map">
+        <div class="col-lg-12 col-md-12 embed-responsive embed-responsive-16by9" id="map">
           <iframe src="https://www.google.com/maps?q=${name}&output=embed"
             frameborder="0" 
             style="border:0" 
