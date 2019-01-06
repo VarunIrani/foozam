@@ -107,11 +107,16 @@ function previewFile() {
   }
 }
 
+const loader = document.getElementById('loader');
+
+function hideLoader() {
+  loader.style.visibility = 'hidden';
+}
+
 window.addEventListener('load', () => {
   const img = document.getElementById('foozam-img');
   predict(img.src);
-  const loader = document.getElementById('loader');
-  loader.style.visibility = 'hidden';
+  setTimeout(hideLoader, 5 * 1000);
   $('body').removeClass('fade-out');
 });
 
