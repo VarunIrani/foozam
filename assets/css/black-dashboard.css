@@ -87,6 +87,8 @@ section {
 }
 
 body {
+  opacity: 1;
+  transition: 1s opacity;
   margin: 0;
   font-family: "Poppins", sans-serif;
   font-size: 0.875rem;
@@ -95,6 +97,11 @@ body {
   color: #525f7f;
   text-align: left;
   background-color: #1e1e2f;
+}
+
+body.fade-out {
+  opacity: 0;
+  transition: none;
 }
 
 [tabindex="-1"]:focus {
