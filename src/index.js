@@ -112,6 +112,7 @@ window.addEventListener('load', () => {
   predict(img.src);
   const loader = document.getElementById('loader');
   loader.style.visibility = 'hidden';
+  $('body').removeClass('fade-out');
 });
 
 file.addEventListener('change', () => {
