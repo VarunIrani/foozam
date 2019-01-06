@@ -3,12 +3,8 @@
 /* eslint-disable no-console */
 /* eslint-disable func-names */
 import KEYS from './api/keys';
-import {
-  getRestaurants,
-} from './api/zomato-search';
-import {
-  getRecipes,
-} from './api/recipe-search';
+import { getRestaurants } from './api/zomato-search';
+import { getRecipes } from './api/recipe-search';
 import app from './api/clarifai';
 
 // Component imports
@@ -18,10 +14,7 @@ import KnowMoreRestaurant from './components/know-more-restaurant';
 
 // Database imports
 import database from './database/database';
-import {
-  addRestaurants,
-  addRecipes,
-} from './database/add-data';
+import { addRestaurants, addRecipes } from './database/add-data';
 
 const file = document.getElementById('img-file');
 const resultTitle = document.getElementById('result-title');
@@ -109,8 +102,14 @@ function previewFile() {
 
 const loader = document.getElementById('loader');
 
+function showBody() {
+  $('body').removeClass('fade-out');
+}
+
 function hideLoader() {
   loader.style.visibility = 'hidden';
+  $('body').addClass('fade-out');
+  setTimeout(showBody, 0.1 * 1000);
 }
 
 window.addEventListener('load', () => {
