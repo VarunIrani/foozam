@@ -2,7 +2,6 @@
 /* eslint-disable no-undef */
 /* eslint-disable no-console */
 /* eslint-disable func-names */
-// API imports
 import KEYS from './api/keys';
 import {
   getRestaurants,
@@ -111,6 +110,8 @@ function previewFile() {
 window.addEventListener('load', () => {
   const img = document.getElementById('foozam-img');
   predict(img.src);
+  const loader = document.getElementById('loader');
+  loader.style.visibility = 'hidden';
 });
 
 file.addEventListener('change', () => {

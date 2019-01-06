@@ -15,10 +15,11 @@
   <!-- CSS Files -->
   <link href="./assets/css/black-dashboard.css?v=1.0.0" rel="stylesheet" />
   <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.52.0/mapbox-gl.css' rel='stylesheet' />
-
+  <link rel="stylesheet" href="./assets/css/loading.css">
 </head>
 
 <body class="">
+  <div id="loader"></div>
   <div class="wrapper">
     <div class="sidebar">
       <!--
@@ -278,6 +279,7 @@
   <!-- Control Center for Black Dashboard: parallax effects, scripts for the example pages etc -->
   <script src="./assets/js/black-dashboard.min.js?v=1.0.0"></script>
   <script>
+    document.body.className += ' fade-out';
     $(document).ready(function () {
       $().ready(function () {
         $sidebar = $(".sidebar");
@@ -383,6 +385,8 @@
             }
           }
         );
+
+        $('body').removeClass('fade-out');
 
         $(".light-badge").click(function () {
           $("body").addClass("white-content");
