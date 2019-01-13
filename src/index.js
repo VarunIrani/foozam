@@ -1,10 +1,16 @@
+/* eslint-disable no-alert */
 /* eslint-disable eol-last */
 /* eslint-disable no-undef */
 /* eslint-disable no-console */
 /* eslint-disable func-names */
+import $ from 'jquery';
 import KEYS from './api/keys';
-import { getRestaurants } from './api/zomato-search';
-import { getRecipes } from './api/recipe-search';
+import {
+  getRestaurants,
+} from './api/zomato-search';
+import {
+  getRecipes,
+} from './api/recipe-search';
 import app from './api/clarifai';
 
 // Component imports
@@ -14,7 +20,10 @@ import KnowMoreRestaurant from './components/know-more-restaurant';
 
 // Database imports
 import database from './database/database';
-import { addRestaurants, addRecipes } from './database/add-data';
+import {
+  addRestaurants,
+  addRecipes,
+} from './database/add-data';
 
 const file = document.getElementById('img-file');
 const resultTitle = document.getElementById('result-title');

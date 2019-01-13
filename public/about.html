@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, user-scalable=0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
   <link rel="apple-touch-icon" sizes="76x76" href="./assets/img/apple-icon.png" />
   <link rel="icon" type="image/png" href="./assets/img/favicon.png" />
   <title>Foozam</title>
@@ -14,30 +14,25 @@
   <link href="./assets/css/nucleo-icons.css" rel="stylesheet" />
   <!-- CSS Files -->
   <link href="./assets/css/black-dashboard.css?v=1.0.0" rel="stylesheet" />
-  <link rel="stylesheet" href="./assets/css/loading.css">
 </head>
 
 <body class="">
-  <div id="loader"></div>
   <div class="wrapper">
     <div class="sidebar">
-      <!--
-        Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red"
-    -->
-      <div class="sidebar-wrapper" data-color="blue">
+      <div class="sidebar-wrapper">
         <div class="logo">
-          <a href="index.html" class="simple-text logo-mini">
+          <a href="./index.html" class="simple-text logo-mini">
             <img src="./assets/img/favicon.png" alt="Foozam Logo" />
           </a>
-          <a href="https://foozam.ml" class="simple-text logo-normal" style="text-transform: capitalize">
-            Foozam
+          <a href="./index.html" class="simple-text logo-normal">
+            <a class="simple-text logo-normal"> Foozam </a>
           </a>
         </div>
         <ul class="nav">
-          <li class="active ">
-            <a href="https://foozam.ml">
+          <li>
+            <a href="./index.html">
               <i class="tim-icons icon-atom"></i>
-              <p>Know Your Food</p>
+              <p>Know your FOOD</p>
             </a>
           </li>
           <li>
@@ -65,7 +60,7 @@
             </a>
           </li>
           <li>
-            <a href="#">
+            <a href="./contact.html">
               <i class="tim-icons icon-align-center"></i>
               <p>Contact Us</p>
             </a>
@@ -91,7 +86,7 @@
                 <span class="navbar-toggler-bar bar3"></span>
               </button>
             </div>
-            <a class="navbar-brand" href="javascript:void(0)">Know Your Food</a>
+            <a class="navbar-brand" href="javascript:void(0)">ABOUT US</a>
           </div>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-expanded="false"
             aria-label="Toggle navigation">
@@ -99,6 +94,7 @@
             <span class="navbar-toggler-bar navbar-kebab"></span>
             <span class="navbar-toggler-bar navbar-kebab"></span>
           </button>
+
           <div class="collapse navbar-collapse" id="navigation">
             <ul class="navbar-nav ml-auto">
               <li class="search-bar input-group">
@@ -170,39 +166,76 @@
           </div>
         </div>
       </div>
-      <!-- End Navbar -->
-      <label class="btn btn-primary btn-fab btn-icon btn-round btn-lg" style="position: fixed; bottom: 15px; z-index: 10; right: 15px;">
-        <input type="file" name="img-file" id="img-file" style="display: none" />
-        <img src="./assets/img/favicon.png" alt="Foozam Logo" width="35px" style="margin-top: 12px" />
-      </label>
       <div class="content">
-        <div class="row">
-          <div class="col-lg-12 col-md-12">
-            <div class="card">
-              <div class="card-header">
-                <h4 class="card-title">Your Foozam</h4>
+        <div class="row d-md-flex">
+          <div class="col-md-6 ftco-animate img about-image" style="background-image: url(images/about.jpg);"></div>
+          <div class="col-md-6 ftco-animate p-md-5">
+            <div class="row">
+              <div class="col-md-12 nav-link-wrap mb-5">
+                <div class="nav ftco-animate nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                  <a class="nav-link active" id="v-pills-whatwedo-tab" data-toggle="pill" href="#v-pills-whatwedo" role="tab"
+                    aria-controls="v-pills-whatwedo" aria-selected="true">What we do</a>
+
+                  <a class="nav-link" id="v-pills-mission-tab" data-toggle="pill" href="#v-pills-mission" role="tab"
+                    aria-controls="v-pills-mission" aria-selected="false">Our mission</a>
+
+                  <a class="nav-link" id="v-pills-goal-tab" data-toggle="pill" href="#v-pills-goal" role="tab"
+                    aria-controls="v-pills-goal" aria-selected="false">Our goal</a>
+                </div>
               </div>
-              <div class="card-body">
-                <div class="row" style="text-align: center">
-                  <div class="col-lg-5 col-md-12">
-                    <img src="./assets/img/recipes_image.jpg" alt="Foozam Image" id="foozam-img" class="pb-3" />
+              <div class="col-md-12 d-flex align-items-center">
+                <div class="tab-content ftco-animate" id="v-pills-tabContent">
+                  <div class="tab-pane fade show active" id="v-pills-whatwedo" role="tabpanel" aria-labelledby="v-pills-whatwedo-tab">
+                    <div>
+                      <h2 class="mb-4">Offering Reliable Hosting</h2>
+                      <p>
+                        Far far away, behind the word mountains, far from the
+                        countries Vokalia and Consonantia, there live the
+                        blind texts. Separated they live in Bookmarksgrove
+                        right at the coast of the Semantics, a large language
+                        ocean.
+                      </p>
+                      <p>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing
+                        elit. Nesciunt voluptate, quibusdam sunt iste dolores
+                        consequatur
+                      </p>
+                    </div>
                   </div>
-                  <div class="col-lg-7 col-md-12">
-                    <h4>Foozam guesses that the image contains . . .</h4>
-                    <div class="row justify-content-center">
-                      <button class="btn btn-danger" id="pred-1"></button>
+
+                  <div class="tab-pane fade" id="v-pills-mission" role="tabpanel" aria-labelledby="v-pills-mission-tab">
+                    <div>
+                      <h2 class="mb-4">Exceptional Web Solutions</h2>
+                      <p>
+                        Far far away, behind the word mountains, far from the
+                        countries Vokalia and Consonantia, there live the
+                        blind texts. Separated they live in Bookmarksgrove
+                        right at the coast of the Semantics, a large language
+                        ocean.
+                      </p>
+                      <p>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing
+                        elit. Nesciunt voluptate, quibusdam sunt iste dolores
+                        consequatur
+                      </p>
                     </div>
-                    <div class="row justify-content-center">
-                      <button class="btn btn-info" id="pred-2"></button>
-                    </div>
-                    <div class="row justify-content-center">
-                      <button class="btn btn-primary" id="pred-3"></button>
-                    </div>
-                    <div class="row justify-content-center">
-                      <button class="btn btn-success" id="pred-4"></button>
-                    </div>
-                    <div class="row justify-content-center">
-                      <button class="btn btn-default" id="pred-5"></button>
+                  </div>
+
+                  <div class="tab-pane fade" id="v-pills-goal" role="tabpanel" aria-labelledby="v-pills-goal-tab">
+                    <div>
+                      <h2 class="mb-4">Help Our Customer</h2>
+                      <p>
+                        Far far away, behind the word mountains, far from the
+                        countries Vokalia and Consonantia, there live the
+                        blind texts. Separated they live in Bookmarksgrove
+                        right at the coast of the Semantics, a large language
+                        ocean.
+                      </p>
+                      <p>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing
+                        elit. Nesciunt voluptate, quibusdam sunt iste dolores
+                        consequatur
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -210,95 +243,59 @@
             </div>
           </div>
         </div>
+        <div class="row justify-content-center mb-5 pb-5">
+          <div class="col-md-7 text-center heading-section ftco-animate">
+            <span class="subheading">Team</span>
+            <h2 class="mb-4">Our Team</h2>
+            <p>
+              Far far away, behind the word mountains, far from the countries
+              Vokalia and Consonantia, there live the blind texts. Separated
+              they live in
+            </p>
+          </div>
+        </div>
         <div class="row">
-          <div class="col-lg-12 col-md-12">
-            <div class="card ">
-              <div class="card-header">
-                <h4 class="card-title" id="result-title">
-                  Foozam Results for
-                </h4>
+          <div class="col-md-4 mb-5 ftco-animate">
+            <div class="block-10">
+              <div class="person-info mb-2">
+                <span class="name">Jacob Smith</span>
+                <span class="position">Co Designer</span>
               </div>
-              <div class="card-body">
-                <ul class="nav nav-pills" role="tablist">
-                  <li class="nav-item">
-                    <a class="nav-link active" data-toggle="tab" href="#link1" role="tablist" aria-expanded="true" id="reci-tab">
-                      Recipes
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" data-toggle="tab" href="#link2" role="tablist" aria-expanded="false" id="rest-tab">
-                      Restaurants
-                    </a>
-                  </li>
-                </ul>
-                <div class="tab-content tab-space pt-3">
-                  <div class="tab-pane active" id="link1" aria-expanded="true">
-                    <!-- Recipe Components Go Here : 2 per row -->
-                  </div>
-                  <div class="tab-pane" id="link2" aria-expanded="false">
-                    <!-- Restaurant Components Go Here : 2 per row-->
-                  </div>
-                  <!-- Modal -->
-                  <div class="modal fade" id="knowMoreModal" tabindex="-1" role="dialog" aria-labelledby="knowMore"
-                    aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                      <div class="modal-content">
-                        <div class="modal-header">
-                          <h5 class="modal-title font-weight-bold" id="knowMoreTitle">Know More</h5>
-                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true" id="closeCross">&times;</span>
-                          </button>
-                        </div>
-                        <div class="modal-body" id="knowMoreBody">. . .</div>
-                        <div class="modal-footer">
-                          <button type="button" class="btn btn-danger" data-dismiss="modal" id="closeButton">
-                            Close
-                          </button>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+              <img src="images/person_1.jpg" alt="" class="img-fluid mb-3" />
+              <p>
+                A small river named Duden flows by their place and supplies it
+                with the necessary regelialia.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-4 mb-5 ftco-animate">
+            <div class="block-10">
+              <div class="person-info mb-2">
+                <span class="name">Aldin Henderson</span>
+                <span class="position">Web Developer</span>
               </div>
+              <img src="images/person_3.jpg" alt="" class="img-fluid mb-3" />
+              <p>
+                A small river named Duden flows by their place and supplies it
+                with the necessary regelialia.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-4 mb-5 ftco-animate">
+            <div class="block-10">
+              <div class="person-info mb-2">
+                <span class="name">Mark Willis</span>
+                <span class="position">Lead Web Developer</span>
+              </div>
+              <img src="images/person_2.jpg" alt="" class="img-fluid mb-3" />
+              <p>
+                A small river named Duden flows by their place and supplies it
+                with the necessary regelialia.
+              </p>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </div>
-  <!-- Settings panel -->
-  <div class="fixed-plugin">
-    <div class="dropdown show-dropdown">
-      <a href="#" data-toggle="dropdown">
-        <i class="fa fa-cog fa-2x"> </i>
-      </a>
-      <ul class="dropdown-menu">
-        <li class="header-title"> Sidebar Background</li>
-        <li class="adjustments-line">
-          <a href="javascript:void(0)" class="switch-trigger background-color">
-            <div class="badge-colors text-center">
-              <span class="badge filter badge-primary active" data-color="primary"></span>
-              <span class="badge filter badge-info" data-color="blue"></span>
-              <span class="badge filter badge-success" data-color="green"></span>
-            </div>
-            <div class="clearfix"></div>
-          </a>
-        </li>
-        <li class="adjustments-line text-center color-change">
-          <span class="color-label">LIGHT MODE</span>
-          <span class="badge light-badge mr-2"></span>
-          <span class="badge dark-badge ml-2"></span>
-          <span class="color-label">DARK MODE</span>
-        </li>
-        <li class="button-container">
-          <a href="" target="_blank" class="btn btn-default btn-block btn-round">
-            Default Settings
-          </a>
-          <a href="" target="_blank" class="btn btn-primary btn-block btn-round">
-            Reset Account
-          </a>
-        </li>
-      </ul>
     </div>
   </div>
   <!--   Core JS Files   -->
@@ -306,6 +303,9 @@
   <script src="./assets/js/core/popper.min.js"></script>
   <script src="./assets/js/core/bootstrap.min.js"></script>
   <script src="./assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
+  <!--  Google Maps Plugin    -->
+  <!-- Place this tag in your head or just before your close body tag. -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
   <!-- Chart JS -->
   <script src="./assets/js/plugins/chartjs.min.js"></script>
   <!--  Notifications Plugin    -->
@@ -313,7 +313,6 @@
   <!-- Control Center for Black Dashboard: parallax effects, scripts for the example pages etc -->
   <script src="./assets/js/black-dashboard.min.js?v=1.0.0"></script>
   <script>
-    document.body.className += ' fade-out';
     $(document).ready(function () {
       $().ready(function () {
         $sidebar = $(".sidebar");
@@ -426,13 +425,6 @@
 
         $(".dark-badge").click(function () {
           $("body").removeClass("white-content");
-        });
-
-        $('closeButton').click(() => {
-          $('knowMoreBody').html('. . .');
-        });
-        $('closeButton').click(() => {
-          $('knowMoreBody').html('. . .');
         });
       });
     });

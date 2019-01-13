@@ -55,7 +55,7 @@ export default class RecipeInfo extends LitElement {
             id="know-more"
             class="btn btn-warning btn-simple"
           >
-            Know More
+            View
           </button>
         </div>
       </div>

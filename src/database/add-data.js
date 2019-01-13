@@ -127,7 +127,6 @@ export function addRestaurants(data) {
       knowMoreRest.setAttribute('name', restaurant.getAttribute('name'));
       $('#knowMoreTitle').html(title);
       $('#knowMoreBody').html(knowMoreRest);
-      // knowMoreRest.renderMap();
     });
   });
 }

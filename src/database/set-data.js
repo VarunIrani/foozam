@@ -18,5 +18,8 @@ export function setRecipeValues(resData) {
   tempObj.image = resData.image;
   tempObj.ingredientLines = resData.ingredientLines;
   tempObj.nutrients = resData.digest;
+  tempObj.dietLabels = resData.dietLabels;
+  tempObj.healthLabels = resData.healthLabels;
+  tempObj.cautions = resData.cautions;
   return tempObj;
 }
