@@ -1,3 +1,4 @@
+/* eslint-disable prefer-destructuring */
 /* eslint-disable no-param-reassign */
 /* eslint-disable func-names */
 /* eslint-disable no-console */
@@ -13,11 +14,10 @@ import RestaurantInfo from '../components/restaurant-info';
 import RecipeInfo from '../components/recipe-info';
 import database from './database';
 import KnowMoreRestaurant from '../components/know-more-restaurant';
-// const users = database.child('users');
+import KnowMoreRecipe from '../components/know-more-recipe';
 
 const resComps = [];
 const recipeComps = [];
-
 
 export function addRecipes(data) {
   const recipesRef = database.child('recipes');
@@ -25,10 +25,6 @@ export function addRecipes(data) {
   const res = data.hits;
   let row;
   const tempRecipes = [];
-
-  while (recipeTabPane.firstChild) {
-    recipeTabPane.removeChild(recipeTabPane.firstChild);
-  }
 
   recipesRef.remove();
 
@@ -41,15 +37,21 @@ export function addRecipes(data) {
     recipeComps[i].setAttribute('id', i);
     recipeComps[i].setAttribute('label', res[i].recipe.label);
     recipeComps[i].setAttribute('source', res[i].recipe.source);
-    recipeComps[i].setAttribute('sourceUrl', res[i].recipe.url);
+    recipeComps[i].setAttribute('url', res[i].recipe.url);
     recipeComps[i].setAttribute('image', res[i].recipe.image);
-    recipeComps[i].setAttribute('ingredients', res[i].recipe.ingredientLines);
-    recipeComps[i].setAttribute(
-      'defaultImage',
-      'https://foozam.ml/assets/img/recipe-default.png',
-    );
+    recipeComps[i].setAttribute('defaultImage', 'https://foozam.ml/assets/img/recipe-default.png');
     recipeComps[i].setAttribute('data-toggle', 'modal');
     recipeComps[i].setAttribute('data-target', '#knowMoreModal');
+  }
+
+  if (recipeComps.length > 20) {
+    for (let i = 0; i < 20; i += 1) {
+      recipeComps.pop();
+    }
+  } else {
+    while (recipeTabPane.firstChild) {
+      recipeTabPane.removeChild(recipeTabPane.firstChild);
+    }
   }
 
   for (let j = 0; j < recipeComps.length - 1; j += 1) {
@@ -64,9 +66,52 @@ export function addRecipes(data) {
 
   recipeComps.forEach((recipe) => {
     const $recipe = recipe;
+    const knowMoreRecipe = new KnowMoreRecipe();
+    let ingredients;
+    let dietLabels;
+    let healthLabels;
+    let nutrients;
+    const tempNut = [];
     $($recipe).click(() => {
-      const title = recipe.getAttribute('label');
+      const title = `${recipe.getAttribute('label')} : ${recipe.getAttribute('source')}`;
+      const recipeData = recipesRef
+        .orderByChild('label')
+        .equalTo(recipe.getAttribute('label'))
+        .limitToFirst(1);
+      recipeData.on('value', (snap) => {
+        const key = Object.keys(snap.val())[0];
+        const result = snap.child(key).val();
+        ingredients = result.ingredientLines ? result.ingredientLines.join('|') : 'Sorry. No Ingredients Here.';
+        dietLabels = result.dietLabels ? result.dietLabels.join('|') : 'Sorry. No Diet Labels Here.';
+        healthLabels = result.healthLabels ? result.healthLabels.join('|') : 'Sorry. No Health Labels Here.';
+        for (let i = 0; i < 5; i += 1) {
+          tempNut.push(result.nutrients[i]);
+        }
+        nutrients = tempNut ? JSON.stringify(tempNut) : '';
+        knowMoreRecipe.setAttribute('nutrients', nutrients);
+        knowMoreRecipe.setAttribute('ingredients', ingredients);
+        knowMoreRecipe.setAttribute('dietLabels', dietLabels);
+        knowMoreRecipe.setAttribute('healthLabels', healthLabels);
+        if (ingredients) {
+          knowMoreRecipe.getIngredients();
+        }
+        if (dietLabels) {
+          knowMoreRecipe.getDietLabels();
+        }
+        if (healthLabels) {
+          knowMoreRecipe.getHealthLabels();
+        }
+        if (nutrients) {
+          knowMoreRecipe.getNutrients();
+        }
+      });
+      knowMoreRecipe.setAttribute('source', recipe.getAttribute('source'));
+      knowMoreRecipe.setAttribute('url', recipe.getAttribute('url'));
+      knowMoreRecipe.setAttribute('image', recipe.getAttribute('image'));
+      knowMoreRecipe.setAttribute('defaultImage', recipe.getAttribute('defaultImage'));
+      knowMoreRecipe.setAttribute('label', recipe.getAttribute('label'));
       $('#knowMoreTitle').html(title);
+      $('#knowMoreBody').html(knowMoreRecipe);
     });
   });
 }
@@ -77,10 +122,6 @@ export function addRestaurants(data) {
   const res = data.restaurants;
   let row;
   const tempRest = [];
-
-  while (restTabPane.firstChild) {
-    restTabPane.removeChild(restTabPane.firstChild);
-  }
 
   restRef.remove();
 
@@ -100,6 +141,16 @@ export function addRestaurants(data) {
     resComps[i].setAttribute('defaultImage', 'https://foozam.ml/assets/img/rest-default.png');
     resComps[i].setAttribute('data-toggle', 'modal');
     resComps[i].setAttribute('data-target', '#knowMoreModal');
+  }
+
+  if (resComps.length > 20) {
+    for (let i = 0; i < 20; i += 1) {
+      resComps.pop();
+    }
+  } else {
+    while (restTabPane.firstChild) {
+      restTabPane.removeChild(restTabPane.firstChild);
+    }
   }
 
   for (let j = 0; j < resComps.length - 1; j += 1) {

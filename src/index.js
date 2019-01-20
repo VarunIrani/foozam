@@ -17,6 +17,7 @@ import app from './api/clarifai';
 import RestaurantInfo from './components/restaurant-info';
 import RecipeInfo from './components/recipe-info';
 import KnowMoreRestaurant from './components/know-more-restaurant';
+import KnowMoreRecipe from './components/know-more-recipe';
 
 // Database imports
 import database from './database/database';
@@ -33,6 +34,7 @@ const imageRef = database.child('image');
 customElements.define('restaurant-info', RestaurantInfo);
 customElements.define('recipe-info', RecipeInfo);
 customElements.define('know-more-restaurant', KnowMoreRestaurant);
+customElements.define('know-more-recipe', KnowMoreRecipe);
 
 const pred = [];
 

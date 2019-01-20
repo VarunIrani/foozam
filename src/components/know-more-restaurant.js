@@ -43,9 +43,6 @@ export default class KnowMoreRestaurant extends LitElement {
     const address = this.address.replace(/\s/g, '+');
     name.concat(`+,+${address}`);
     return html `
-      <head>
-        <link href="./assets/css/black-dashboard.css?v=1.0.0" rel="stylesheet" />
-      </head>
       <div class="row">
         <div class="col-lg-4 col-md-12"  style="text-align: center">
           <img src="${this.image || this.defaultImage}" alt="Restaurant Image" />
@@ -56,7 +53,7 @@ export default class KnowMoreRestaurant extends LitElement {
           <p style="color: var(--dark)"><b class="font-weight-bold">Rating</b> : ${this.userRating}</p>
         </div>
       </div>
-      <div class="row pt-4">
+      <div class="row pt-4 pl-3 pr-3">
         <div class="col-lg-12 col-md-12 embed-responsive embed-responsive-16by9" id="map">
           <iframe src="https://www.google.com/maps?q=${name}&output=embed"
             frameborder="0" 
@@ -66,5 +63,9 @@ export default class KnowMoreRestaurant extends LitElement {
         </div>
       </div>
     `;
+  }
+
+  createRenderRoot() {
+    return this;
   }
 }
