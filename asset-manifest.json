@@ -1,11 +1,11 @@
 {
-  "main.js": "/static/js/main.27a49bbe.chunk.js",
-  "main.js.map": "/static/js/main.27a49bbe.chunk.js.map",
-  "static/js/1.f0ab8fad.chunk.js": "/static/js/1.f0ab8fad.chunk.js",
-  "static/js/1.f0ab8fad.chunk.js.map": "/static/js/1.f0ab8fad.chunk.js.map",
-  "runtime~main.js": "/static/js/runtime~main.229c360f.js",
-  "runtime~main.js.map": "/static/js/runtime~main.229c360f.js.map",
-  "index.html": "/index.html",
-  "precache-manifest.d064b045f636f9050d703f0d0ae11f5c.js": "/precache-manifest.d064b045f636f9050d703f0d0ae11f5c.js",
-  "service-worker.js": "/service-worker.js"
+  "main.js": "/foozam/static/js/main.27a49bbe.chunk.js",
+  "main.js.map": "/foozam/static/js/main.27a49bbe.chunk.js.map",
+  "static/js/1.7b3f53c6.chunk.js": "/foozam/static/js/1.7b3f53c6.chunk.js",
+  "static/js/1.7b3f53c6.chunk.js.map": "/foozam/static/js/1.7b3f53c6.chunk.js.map",
+  "runtime~main.js": "/foozam/static/js/runtime~main.a41216a2.js",
+  "runtime~main.js.map": "/foozam/static/js/runtime~main.a41216a2.js.map",
+  "index.html": "/foozam/index.html",
+  "precache-manifest.4da53e468b194008693fd9e5801e1293.js": "/foozam/precache-manifest.4da53e468b194008693fd9e5801e1293.js",
+  "service-worker.js": "/foozam/service-worker.js"
 }
