@@ -1,11 +1,11 @@
 {
-  "main.js": "/foozam/static/js/main.27a49bbe.chunk.js",
-  "main.js.map": "/foozam/static/js/main.27a49bbe.chunk.js.map",
-  "static/js/1.7b3f53c6.chunk.js": "/foozam/static/js/1.7b3f53c6.chunk.js",
-  "static/js/1.7b3f53c6.chunk.js.map": "/foozam/static/js/1.7b3f53c6.chunk.js.map",
+  "main.js": "/foozam/static/js/main.487c6bea.chunk.js",
+  "main.js.map": "/foozam/static/js/main.487c6bea.chunk.js.map",
+  "static/js/1.c3a0dd0a.chunk.js": "/foozam/static/js/1.c3a0dd0a.chunk.js",
+  "static/js/1.c3a0dd0a.chunk.js.map": "/foozam/static/js/1.c3a0dd0a.chunk.js.map",
   "runtime~main.js": "/foozam/static/js/runtime~main.a41216a2.js",
   "runtime~main.js.map": "/foozam/static/js/runtime~main.a41216a2.js.map",
   "index.html": "/foozam/index.html",
-  "precache-manifest.4da53e468b194008693fd9e5801e1293.js": "/foozam/precache-manifest.4da53e468b194008693fd9e5801e1293.js",
+  "precache-manifest.830725a01e8f7cc909120a41c2dd926c.js": "/foozam/precache-manifest.830725a01e8f7cc909120a41c2dd926c.js",
   "service-worker.js": "/foozam/service-worker.js"
 }
