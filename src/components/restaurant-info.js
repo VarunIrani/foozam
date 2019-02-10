@@ -1,48 +1,46 @@
+/* eslint-disable key-spacing */
 /* eslint-disable no-undef */
 /* eslint-disable class-methods-use-this */
 /* eslint-disable no-console */
 /* eslint-disable template-tag-spacing */
 /* eslint-disable eol-last */
-import {
-  LitElement,
-  html,
-} from '@polymer/lit-element';
+import { LitElement, html } from '@polymer/lit-element';
 
 export default class RestaurantInfo extends LitElement {
   static get properties() {
     return {
-      id: {
-        type: Number,
+      id           : {
+        type : Number,
       },
-      name: {
-        type: String,
+      name         : {
+        type : String,
       },
-      cuisines: {
-        type: String,
+      cuisines     : {
+        type : String,
       },
-      latitude: {
-        type: Number,
+      latitude     : {
+        type : Number,
       },
-      longitude: {
-        type: Number,
+      longitude    : {
+        type : Number,
       },
-      address: {
-        type: String,
+      address      : {
+        type : String,
       },
-      userRating: {
-        type: Object,
+      userRating   : {
+        type : Object,
       },
-      image: {
-        type: String,
+      image        : {
+        type : String,
       },
-      defaultImage: {
-        type: String,
+      defaultImage : {
+        type : String,
       },
     };
   }
 
   render() {
-    return html `
+    return html`
       <head>
         <link href="./assets/css/black-dashboard.css?v=1.0.0" rel="stylesheet" />
       </head>

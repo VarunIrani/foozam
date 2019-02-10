@@ -1,46 +1,44 @@
+/* eslint-disable key-spacing */
 /* eslint-disable no-console */
 /* eslint-disable template-tag-spacing */
 /* eslint-disable eol-last */
-import {
-  LitElement,
-  html,
-} from '@polymer/lit-element';
+import { LitElement, html } from '@polymer/lit-element';
 
 export default class RecipeInfo extends LitElement {
   static get properties() {
     return {
-      id: {
-        type: Number,
+      id           : {
+        type : Number,
       },
-      label: {
-        type: String,
+      label        : {
+        type : String,
       },
-      source: {
-        type: String,
+      source       : {
+        type : String,
       },
-      sourceUrl: {
-        type: String,
+      sourceUrl    : {
+        type : String,
       },
-      ingredients: {
-        type: Array,
+      ingredients  : {
+        type : Array,
       },
-      image: {
-        type: String,
+      image        : {
+        type : String,
       },
-      defaultImage: {
-        type: String,
+      defaultImage : {
+        type : String,
       },
-      dietLabels: {
-        type: Array,
+      dietLabels   : {
+        type : Array,
       },
-      healthLabels: {
-        type: Array,
+      healthLabels : {
+        type : Array,
       },
     };
   }
 
   render() {
-    return html `
+    return html`
       <head>
         <link href="./assets/css/black-dashboard.css?v=1.0.0" rel="stylesheet" />
       </head>

@@ -5,12 +5,8 @@
 /* eslint-disable func-names */
 import $ from 'jquery';
 import KEYS from './api/keys';
-import {
-  getRestaurants,
-} from './api/zomato-search';
-import {
-  getRecipes,
-} from './api/recipe-search';
+import { getRestaurants } from './api/zomato-search';
+import { getRecipes } from './api/recipe-search';
 import app from './api/clarifai';
 
 // Component imports
@@ -21,10 +17,7 @@ import KnowMoreRecipe from './components/know-more-recipe';
 
 // Database imports
 import database from './database/database';
-import {
-  addRestaurants,
-  addRecipes,
-} from './database/add-data';
+import { addRestaurants, addRecipes } from './database/add-data';
 
 const file = document.getElementById('img-file');
 const resultTitle = document.getElementById('result-title');
@@ -97,7 +90,9 @@ function previewFile() {
 
   let currFile = document.getElementById('img-file').files[0]; // sames as here
   const reader = new FileReader();
-  currFile = new Blob([currFile]);
+  currFile = new Blob([
+    currFile,
+  ]);
 
   reader.addEventListener('loadend', () => {
     preview.src = reader.result;

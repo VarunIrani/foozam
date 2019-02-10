@@ -4,7 +4,8 @@
 import axios from 'axios';
 
 export function getRecipes(apiKey, appID, query, from, to, callback) {
-  axios.get(`https://api.edamam.com/search?app_id=${appID}&app_key=${apiKey}&q=${query}&from=${from}&to=${to}`)
+  axios
+    .get(`https://api.edamam.com/search?app_id=${appID}&app_key=${apiKey}&q=${query}&from=${from}&to=${to}`)
     .then((res) => {
       callback(res.data);
     });

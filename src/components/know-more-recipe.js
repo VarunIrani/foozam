@@ -1,57 +1,55 @@
+/* eslint-disable key-spacing */
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-undef */
 /* eslint-disable class-methods-use-this */
 /* eslint-disable no-console */
 /* eslint-disable template-tag-spacing */
 /* eslint-disable eol-last */
-import {
-  LitElement,
-  html,
-} from '@polymer/lit-element';
+import { LitElement, html } from '@polymer/lit-element';
 
 import Chart from 'chart.js';
 
 export default class KnowMoreRecipe extends LitElement {
   static get properties() {
     return {
-      label: {
-        type: String,
+      label             : {
+        type : String,
       },
-      ingredients: {
-        type: String,
+      ingredients       : {
+        type : String,
       },
-      dietLabels: {
-        type: String,
+      dietLabels        : {
+        type : String,
       },
-      healthLabels: {
-        type: String,
+      healthLabels      : {
+        type : String,
       },
-      nutrients: {
-        type: String,
+      nutrients         : {
+        type : String,
       },
-      source: {
-        type: String,
+      source            : {
+        type : String,
       },
-      url: {
-        type: String,
+      url               : {
+        type : String,
       },
-      image: {
-        type: String,
+      image             : {
+        type : String,
       },
-      defaultImage: {
-        type: String,
+      defaultImage      : {
+        type : String,
       },
-      ingredientsArray: {
-        type: Array,
+      ingredientsArray  : {
+        type : Array,
       },
-      dietLabelsArray: {
-        type: Array,
+      dietLabelsArray   : {
+        type : Array,
       },
-      healthLabelsArray: {
-        type: Array,
+      healthLabelsArray : {
+        type : Array,
       },
-      nutrientsArray: {
-        type: Array,
+      nutrientsArray    : {
+        type : Array,
       },
     };
   }
@@ -99,32 +97,34 @@ export default class KnowMoreRecipe extends LitElement {
       labels.push(`${nutrient.label} (${nutrient.unit})`);
     });
     const data = {
-      datasets: [{
-        data: values,
-        label: 'Nutrients',
-        backgroundColor: [
-          '#003f5c',
-          '#58508d',
-          '#bc5090',
-          '#ff6361',
-          '#ffa600',
-        ],
-        borderWidth: 1,
-      }],
+      datasets : [
+        {
+          data            : values,
+          label           : 'Nutrients',
+          backgroundColor : [
+            '#003f5c',
+            '#58508d',
+            '#bc5090',
+            '#ff6361',
+            '#ffa600',
+          ],
+          borderWidth     : 1,
+        },
+      ],
       labels,
     };
     const options = {
-      animation: {
-        animateScale: true,
+      animation : {
+        animateScale : true,
       },
-      legend: {
-        labels: {
-          fontSize: 16,
+      legend    : {
+        labels : {
+          fontSize : 16,
         },
       },
     };
     const pieChart = new Chart(pieCanvas, {
-      type: 'pie',
+      type    : 'pie',
       data,
       options,
     });
@@ -132,7 +132,7 @@ export default class KnowMoreRecipe extends LitElement {
 
   render() {
     const query = this.label.replace(/\s/g, '+');
-    return html `
+    return html`
       <div class="row">
         <div class="col-lg-4 col-md-12" style="text-align: center">
           <img src="${this.image || this.defaultImage}" alt="Recipe Image" />
