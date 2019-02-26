@@ -90,9 +90,7 @@ function previewFile() {
 
   let currFile = document.getElementById('img-file').files[0]; // sames as here
   const reader = new FileReader();
-  currFile = new Blob([
-    currFile,
-  ]);
+  currFile = new Blob([currFile]);
 
   reader.addEventListener('loadend', () => {
     preview.src = reader.result;
