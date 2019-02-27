@@ -4,15 +4,15 @@ self.__precacheManifest = [
     "url": "/foozam/static/js/runtime~main.a41216a2.js"
   },
   {
-    "revision": "fc896df0cd94aae8a34c",
-    "url": "/foozam/static/js/main.fc896df0.chunk.js"
+    "revision": "950d935c1dcbbc29ade3",
+    "url": "/foozam/static/js/main.950d935c.chunk.js"
   },
   {
     "revision": "c3a0dd0ab04e4e0199f8",
     "url": "/foozam/static/js/1.c3a0dd0a.chunk.js"
   },
   {
-    "revision": "0433a78094c145c13d83d9b42489385f",
+    "revision": "883be3c5de15bcb70e9b3b17ba544e6d",
     "url": "/foozam/index.html"
   }
 ];

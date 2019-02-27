@@ -1,11 +1,11 @@
 {
-  "main.js": "/foozam/static/js/main.fc896df0.chunk.js",
-  "main.js.map": "/foozam/static/js/main.fc896df0.chunk.js.map",
+  "main.js": "/foozam/static/js/main.950d935c.chunk.js",
+  "main.js.map": "/foozam/static/js/main.950d935c.chunk.js.map",
   "static/js/1.c3a0dd0a.chunk.js": "/foozam/static/js/1.c3a0dd0a.chunk.js",
   "static/js/1.c3a0dd0a.chunk.js.map": "/foozam/static/js/1.c3a0dd0a.chunk.js.map",
   "runtime~main.js": "/foozam/static/js/runtime~main.a41216a2.js",
   "runtime~main.js.map": "/foozam/static/js/runtime~main.a41216a2.js.map",
   "index.html": "/foozam/index.html",
-  "precache-manifest.6eb114005bec2cf398a378a94ac32440.js": "/foozam/precache-manifest.6eb114005bec2cf398a378a94ac32440.js",
+  "precache-manifest.86626b58d952f86395a788f68574e1e0.js": "/foozam/precache-manifest.86626b58d952f86395a788f68574e1e0.js",
   "service-worker.js": "/foozam/service-worker.js"
 }
