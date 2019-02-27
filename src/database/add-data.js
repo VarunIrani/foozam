@@ -71,7 +71,10 @@ export function addRecipes(data) {
     const tempNut = [];
     $($recipe).click(() => {
       const title = `${recipe.getAttribute('label')} : ${recipe.getAttribute('source')}`;
-      const recipeData = recipesRef.orderByChild('label').equalTo(recipe.getAttribute('label')).limitToFirst(1);
+      const recipeData = recipesRef
+        .orderByChild('label')
+        .equalTo(recipe.getAttribute('label'))
+        .limitToFirst(1);
       recipeData.on('value', (snap) => {
         const key = Object.keys(snap.val())[0];
         const result = snap.child(key).val();
