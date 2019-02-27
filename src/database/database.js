@@ -1,5 +1,5 @@
 /* eslint-disable eol-last */
-import { initializeApp } from 'firebase/app';
+import { initializeApp } from 'firebase';
 import config from './firebase-config';
 
 const firebase = initializeApp(config);
