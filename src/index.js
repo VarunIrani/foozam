@@ -4,10 +4,11 @@
 /* eslint-disable no-console */
 /* eslint-disable func-names */
 import $ from 'jquery';
+// import axios from 'axios';
+import image2base64 from 'image-to-base64';
 import KEYS from './api/keys';
 import { getRestaurants } from './api/zomato-search';
 import { getRecipes } from './api/recipe-search';
-import app from './api/clarifai';
 
 // Component imports
 import RestaurantInfo from './components/restaurant-info';
@@ -51,9 +52,8 @@ function restaurants(prediction) {
   }
 }
 
-for (let i = 1; i <= 5; i += 1) {
-  pred.push(document.getElementById(`pred-${i}`));
-}
+pred.push(document.getElementById(`pred-${1}`));
+pred[0].setAttribute('style', 'opacity: 0');
 
 pred.forEach((prediction) => {
   prediction.addEventListener('click', () => {
@@ -64,25 +64,24 @@ pred.forEach((prediction) => {
   });
 });
 
-function predict(image) {
-  const results = [];
-  app.models.predict('bd367be194cf45149e75f01d59f77ba7', image).then(
-    (response) => {
-      for (let i = 0; i < 5; i += 1) {
-        results.push(response.outputs[0].data.concepts[i].name);
-      }
-      for (let i = 0; i < 5; i += 1) {
-        pred[i].innerHTML = results[i].toUpperCase();
-      }
-      resultTitle.innerHTML = 'Foozam Results For ';
-      resultTitle.innerHTML = resultTitle.innerHTML.concat(pred[0].innerHTML);
-      recipes(pred[0]);
-      restaurants(pred[0]);
+function predict(image, callback) {
+  const url = 'https://foozam.ml/predict';
+  const settings = {
+    async: true,
+    crossDomain: true,
+    url,
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Access-Control-Allow-Origin': '*',
     },
-    (err) => {
-      console.log(err);
-    },
-  );
+    data: `{"img": "${image}"}`,
+  };
+
+  $.ajax(settings).done((response) => {
+    console.log(response);
+    callback(response);
+  });
 }
 
 function previewFile() {
@@ -95,8 +94,20 @@ function previewFile() {
   reader.addEventListener('loadend', () => {
     preview.src = reader.result;
     imageRef.push(reader.result);
-    const base64String = reader.result.replace('data:application/octet-stream;base64,', '');
-    predict(base64String);
+    image2base64(preview.src).then((image) => {
+      predict(image, (res) => {
+        const foozamGuess = document.getElementById('foozam-guess');
+        foozamGuess.innerHTML = 'Foozam Guesses That The Image Contains . . .';
+        // const results = [];
+        // results.push(res.predictions[0]);
+        // pred[0].innerHTML = results[0].toUpperCase();
+        // resultTitle.innerHTML = 'Foozam Results For ';
+        // resultTitle.innerHTML = resultTitle.innerHTML.concat(pred[0].innerHTML);
+        // recipes(pred[0]);
+        // restaurants(pred[0]);
+        pred[0].setAttribute('style', 'opacity: 1');
+      });
+    });
   });
 
   if (currFile) {
@@ -117,8 +128,6 @@ function hideLoader() {
 }
 
 window.addEventListener('load', () => {
-  const img = document.getElementById('foozam-img');
-  predict(img.src);
   setTimeout(hideLoader, 5 * 1000);
   $('body').removeClass('fade-out');
 });
