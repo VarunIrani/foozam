@@ -1,48 +1,48 @@
 {
-  "name": "foozam",
-  "version": "0.0.5",
-  "description": "Foozam",
-  "main": "index.html",
-  "directories": {
-    "example": "root"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "predeploy": "yarn build",
-    "deploy": "gh-pages -d build"
-  },
-  "author": "Foozam Inc.",
-  "license": "MIT",
-  "devDependencies": {
-    "eslint": "5.6.0",
-    "eslint-config-airbnb-base": "^13.1.0",
-    "eslint-plugin-import": "^2.14.0",
-    "gh-pages": "^2.0.1",
-    "gulp": "^4.0.0",
-    "gulp-autoprefixer": "^6.0.0",
-    "gulp-clean": "^0.4.0",
-    "gulp-install": "^1.1.0",
-    "gulp-open": "^3.0.1",
-    "gulp-sass": "^4.0.2",
-    "gulp-sourcemaps": "^2.6.4"
-  },
-  "homepage": "https://varunirani.github.io/foozam/",
-  "dependencies": {
-    "@polymer/lit-element": "^0.7.1",
-    "axios": "^0.18.0",
-    "chart.js": "^2.7.3",
-    "clarifai": "^2.9.0",
-    "firebase": "^5.7.3",
-    "image-to-base64": "^2.0.1",
-    "jquery": "^3.3.1",
-    "react-scripts": "^2.1.3",
-    "request": "^2.88.0"
-  },
-  "browserslist": [
-    ">0.2%",
-    "not dead",
-    "not ie <= 11",
-    "not op_mini all"
-  ]
+	"name": "foozam",
+	"version": "0.0.5",
+	"description": "Foozam",
+	"main": "index.html",
+	"directories": {
+		"example": "root"
+	},
+	"scripts": {
+		"start": "react-scripts start",
+		"build": "react-scripts build",
+		"predeploy": "yarn build",
+		"deploy": "gh-pages -d build"
+	},
+	"author": "Foozam Inc.",
+	"license": "MIT",
+	"devDependencies": {
+		"eslint": "5.6.0",
+		"eslint-config-airbnb-base": "^13.1.0",
+		"eslint-plugin-import": "^2.14.0",
+		"gh-pages": "^2.0.1",
+		"gulp": "^4.0.0",
+		"gulp-autoprefixer": "^6.0.0",
+		"gulp-clean": "^0.4.0",
+		"gulp-install": "^1.1.0",
+		"gulp-open": "^3.0.1",
+		"gulp-sass": "^4.0.2",
+		"gulp-sourcemaps": "^2.6.4"
+	},
+	"homepage": "https://foozam.ml",
+	"dependencies": {
+		"@polymer/lit-element": "^0.7.1",
+		"axios": "^0.18.0",
+		"chart.js": "^2.7.3",
+		"clarifai": "^2.9.0",
+		"firebase": "^5.7.3",
+		"image-to-base64": "^2.0.1",
+		"jquery": "^3.3.1",
+		"react-scripts": "^2.1.3",
+		"request": "^2.88.0"
+	},
+	"browserslist": [
+		">0.2%",
+		"not dead",
+		"not ie <= 11",
+		"not op_mini all"
+	]
 }
