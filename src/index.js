@@ -65,7 +65,7 @@ pred.forEach((prediction) => {
 });
 
 function predict(image, callback) {
-  const url = 'http://127.0.0.1:5000/predict';
+  const url = 'https://a04c55b7.ngrok.io/predict';
   const settings = {
     async: true,
     crossDomain: true,
