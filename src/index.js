@@ -64,8 +64,25 @@ pred.forEach((prediction) => {
   });
 });
 
+const modelButton = document.getElementById('model-dropdown-button');
+const modelTypes = [];
+let modelIndex;
+for (let i = 0; i < 4; i += 1) {
+  modelTypes.push(document.getElementById(`type-${i}`));
+}
+modelTypes.forEach((modelType) => {
+  modelType.addEventListener('click', () => {
+    modelButton.innerHTML = modelType.innerHTML;
+    modelIndex = modelTypes.indexOf(modelType);
+  });
+});
+
 function predict(image, callback) {
-  const url = 'https://a04c55b7.ngrok.io/predict';
+  const ports = [5000, 7001, 7000, 8000];
+  let url;
+  if (modelIndex) url = `http://localhost:${ports[modelIndex]}/predict`;
+  else url = 'http://localhost:5000/predict';
+  console.log(url);
   const settings = {
     async: true,
     crossDomain: true,
@@ -98,13 +115,13 @@ function previewFile() {
       predict(image, (res) => {
         const foozamGuess = document.getElementById('foozam-guess');
         foozamGuess.innerHTML = 'Foozam Guesses That The Image Contains . . .';
-        // const results = [];
-        // results.push(res.predictions[0]);
-        // pred[0].innerHTML = results[0].toUpperCase();
-        // resultTitle.innerHTML = 'Foozam Results For ';
-        // resultTitle.innerHTML = resultTitle.innerHTML.concat(pred[0].innerHTML);
-        // recipes(pred[0]);
-        // restaurants(pred[0]);
+        const results = [];
+        results.push(res.predictions[0].label);
+        pred[0].innerHTML = results[0].toUpperCase();
+        resultTitle.innerHTML = 'Foozam Results For ';
+        resultTitle.innerHTML = resultTitle.innerHTML.concat(pred[0].innerHTML);
+        recipes(pred[0]);
+        restaurants(pred[0]);
         pred[0].setAttribute('style', 'opacity: 1');
       });
     });

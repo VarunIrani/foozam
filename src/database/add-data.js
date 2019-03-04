@@ -36,7 +36,7 @@ export function addRecipes(data) {
     recipeComps[i].setAttribute('source', res[i].recipe.source);
     recipeComps[i].setAttribute('url', res[i].recipe.url);
     recipeComps[i].setAttribute('image', res[i].recipe.image);
-    recipeComps[i].setAttribute('defaultImage', 'https://varunirani.github.io/foozam/assets/img/recipe-default.png');
+    recipeComps[i].setAttribute('defaultImage', 'https://foozam.ml/assets/img/recipe-default.png');
     recipeComps[i].setAttribute('data-toggle', 'modal');
     recipeComps[i].setAttribute('data-target', '#knowMoreModal');
   }
@@ -135,7 +135,7 @@ export function addRestaurants(data) {
     resComps[i].setAttribute('cuisines', res[i].restaurant.cuisines);
     resComps[i].setAttribute('image', res[i].restaurant.thumb);
     resComps[i].setAttribute('userRating', res[i].restaurant.user_rating.aggregate_rating);
-    resComps[i].setAttribute('defaultImage', 'https://varunirani.github.io/foozam/assets/img/rest-default.png');
+    resComps[i].setAttribute('defaultImage', 'https://foozam.ml/assets/img/rest-default.png');
     resComps[i].setAttribute('data-toggle', 'modal');
     resComps[i].setAttribute('data-target', '#knowMoreModal');
   }

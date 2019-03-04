@@ -183,12 +183,27 @@
                 <h4 class="card-title">Your Foozam</h4>
               </div>
               <div class="card-body">
-                <div class="row" style="text-align: center">
+                <div class="row">
                   <div class="col-lg-5 col-md-12">
-                    <img src="" alt="" id="foozam-img" class="pb-3" />
+                    <div class="row">
+                      <div class="col-lg-12 col-md-12">
+                        <div class="btn-group">
+                          <button id="model-dropdown-button" type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Indian
+                          </button>
+                          <div id="model-dropdown" class="dropdown-menu">
+                            <a class="dropdown-item" id="type-0">Indian</a>
+                            <a class="dropdown-item" id="type-1">Fast Food</a>
+                            <a class="dropdown-item" id="type-2">Desserts</a>
+                            <a class="dropdown-item" id="type-3">Italian</a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <img src="" alt="" id="foozam-img" class="pb-3 pt-3" />
                   </div>
-                  <div class="col-lg-7 col-md-12">
-                    <h4 id="foozam-guess">Tap the brain to upload an image</h4>
+                  <div class="col-lg-7 col-md-12" >
+                    <h4 id="foozam-guess">Pick a Category & tap the brain to upload an image</h4>
                     <div class="row justify-content-center">
                       <button class="btn btn-danger" id="pred-1"></button>
                     </div>
