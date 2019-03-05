@@ -4,7 +4,6 @@
 /* eslint-disable no-console */
 /* eslint-disable func-names */
 import $ from 'jquery';
-// import axios from 'axios';
 import image2base64 from 'image-to-base64';
 import KEYS from './api/keys';
 import { getRestaurants } from './api/zomato-search';
@@ -89,10 +88,9 @@ function predict(image, callback) {
     url,
     method: 'POST',
     headers: {
-      'Content-Type': 'application/json',
-      'Access-Control-Allow-Origin': '*',
+      'Content-Type': 'application/x-www-form-urlencoded',
     },
-    data: `{"img": "${image}"}`,
+    data: { img: image },
   };
 
   $.ajax(settings).done((response) => {

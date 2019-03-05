@@ -4,13 +4,9 @@
 import axios from 'axios';
 
 export function getRestaurants(apiKey, query, cityID, entityType, count, lat, long, callback) {
-  const headers = {
-    'Access-Control-Allow-Origin': '*',
-  };
   axios
     .get(
       `https://developers.zomato.com/api/v2.1/search?apikey=${apiKey}&entity_id=${cityID}&entity_type=${entityType}&q=${query}&count=${count}&lat=${lat}&lon=${long}&sort=real_distance&order=asc`,
-      { headers },
     )
     .then((res) => {
       callback(res.data);

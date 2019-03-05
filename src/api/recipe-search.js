@@ -12,9 +12,6 @@ export function getRecipes(apiKey, appID, query, from, to, callback) {
     crossDomain: true,
     url,
     method: 'GET',
-    headers: {
-      'Access-Control-Allow-Headers': '*',
-    },
   };
 
   $.ajax(settings).done((response) => {
