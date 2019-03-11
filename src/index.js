@@ -77,7 +77,7 @@ modelTypes.forEach((modelType) => {
 });
 
 function predict(image, callback) {
-  const ports = [5000, 7001, 7000, 8000];
+  const ports = [5000, 5500, 7000, 7500, 8000];
   let url;
   if (modelIndex) url = `http://localhost:${ports[modelIndex]}/predict`;
   else url = 'http://localhost:5000/predict';
