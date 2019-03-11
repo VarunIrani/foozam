@@ -66,7 +66,7 @@ pred.forEach((prediction) => {
 const modelButton = document.getElementById('model-dropdown-button');
 const modelTypes = [];
 let modelIndex;
-for (let i = 0; i < 4; i += 1) {
+for (let i = 0; i < 5; i += 1) {
   modelTypes.push(document.getElementById(`type-${i}`));
 }
 modelTypes.forEach((modelType) => {
