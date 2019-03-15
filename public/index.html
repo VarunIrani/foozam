@@ -15,6 +15,9 @@
   <!-- CSS Files -->
   <link href="./assets/css/black-dashboard.css?v=1.0.0" rel="stylesheet" />
   <link rel="stylesheet" href="./assets/css/loading.css">
+  <link rel="stylesheet" href="./assets/css/main.css">
+  <link rel="stylesheet" href="./assets/css/owl.carousel.min.css">
+  <link rel="stylesheet" href="./assets/css/owl.theme.green.min.css">
 </head>
 
 <body class="">
@@ -171,13 +174,72 @@
         </div>
       </div>
       <!-- End Navbar -->
-      <label class="btn btn-primary btn-fab btn-icon btn-round btn-lg" style="position: fixed; bottom: 15px; z-index: 10; right: 15px;">
+      <!-- <label class="btn btn-primary btn-fab btn-icon btn-round btn-lg" style="position: fixed; bottom: 15px; z-index: 10; right: 15px;">
         <input type="file" name="img-file" id="img-file" style="display: none" />
         <img src="./assets/img/favicon.png" alt="Foozam Logo" width="35px" style="margin-top: 12px" />
-      </label>
+      </label> -->
       <div class="content">
         <div class="row">
           <div class="col-lg-12 col-md-12">
+            <div class="card">
+              <label id="backButton" class="btn btn-success btn-icon btn-round" style="display:none" onclick="location.reload()">
+                <img src="./assets/img/left-arrow.svg" alt="Foozam Logo" style="margin-top: 5px; width: 70%;" />
+              </label>
+              <div class="card-header" style="text-align: center">
+                <h3 class="title" id="grp-card-title">Which one of these food groups does your food item belong to?</h3>
+              </div>
+              <div class="card-body" >
+                <div class="row">
+                  <div class="col-lg-12" id="category-carousel">
+                    <div class="owl-carousel owl-theme">
+                      <div>1</div>
+                      <div>1</div>
+                      <div>1</div>
+                      <div>1</div>
+                      <div>1</div>
+                      <div>1</div>
+                      <div>1</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row" id="classify-menu" style="display: none">
+                  <div class="col-lg-12 col-md-12" style="text-align: center;">
+                    <label class="btn btn-info btn-icon btn-round btn-lg">
+                      <input type="file" name="img-file" id="img-file" style="display: none" />
+                      <img src="./assets/img/camera.svg" alt="Foozam Logo" width="35px" style="margin-top: 10px; filter: invert(100%);" />
+                    </label>
+                  </div>
+                </div>
+                <div class="row" style="text-align: center">
+                  <div class="col-md-12 col-lg-12 col-sm-12" style="text-align: center">
+                    <div id="grp-menu" class="grp-menu">
+                      <div class="grp" id="grp-0">
+                        <img class="grp-image" src="./assets/img/grp-images/indian food.svg">
+                        <h3 class="card-title grp-title" >Indian Snacks</h3>
+                      </div>
+                      <div class="grp" id="grp-1">
+                        <img class="grp-image" src="./assets/img/grp-images/indian sweet.svg">
+                        <h3 class="card-title grp-title" >Indian Sweets</h3>
+                      </div>
+                      <div class="grp" id="grp-2">
+                        <img class="grp-image" src="./assets/img/grp-images/fast-food.svg">
+                        <h3 class="card-title grp-title" >Fast Food</h3>
+                      </div>
+                      <div class="grp" id="grp-3">
+                        <img class="grp-image" src="./assets/img/grp-images/desert.svg">
+                        <h3 class="card-title grp-title" >Foreign Desserts</h3>
+                      </div>
+                      <div class="grp" id="grp-4">
+                        <img class="grp-image" src="./assets/img/grp-images/italian.svg">
+                        <h3 class="card-title grp-title" >Italian Food</h3>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-12 col-md-12" id="classificationRow">
             <div class="card">
               <div class="card-header">
                 <h4 class="card-title">Your Foozam</h4>
@@ -193,10 +255,10 @@
                           </button>
                           <div id="model-dropdown" class="dropdown-menu">
                             <a class="dropdown-item" id="type-0">Indian Snacks</a>
-                            <a class="dropdown-item" id="type-0">Indian Desserts</a>
-                            <a class="dropdown-item" id="type-1">Fast Food</a>
-                            <a class="dropdown-item" id="type-2">Foreign Desserts</a>
-                            <a class="dropdown-item" id="type-3">Italian Food</a>
+                            <a class="dropdown-item" id="type-1">Indian Desserts</a>
+                            <a class="dropdown-item" id="type-2">Fast Food</a>
+                            <a class="dropdown-item" id="type-3">Foreign Desserts</a>
+                            <a class="dropdown-item" id="type-4">Italian Food</a>
                           </div>
                         </div>
                       </div>
@@ -214,7 +276,7 @@
             </div>
           </div>
         </div>
-        <div class="row">
+        <div class="row" id="resultsRow">
           <div class="col-lg-12 col-md-12">
             <div class="card ">
               <div class="card-header">
@@ -314,10 +376,128 @@
   <script src="./assets/js/plugins/bootstrap-notify.js"></script>
   <!-- Control Center for Black Dashboard: parallax effects, scripts for the example pages etc -->
   <script src="./assets/js/black-dashboard.min.js?v=1.0.0"></script>
+  <script src="./assets/js/plugins/owl.carousel.min.js"></script>
   <script>
     document.body.className += ' fade-out';
+    let currentGroup = 'indian_snacks';
+    const GROUPS = [
+      'indian_snacks',
+      'indian_desserts',
+      'fast_food',
+      'foreign_desserts',
+      'italian_food',
+    ];
+    function createCarousel(content) {
+      const $categoryCarousel = $('.owl-carousel');
+      const $categoryCarouselContainer = $('#category-carousel');
+      const carouselOptions = {
+        loop:true,
+        margin:10,
+        autoplay: true,
+        autoplayTimeout: 2000,
+        responsiveClass:true,
+        responsive:{
+          0:{
+            items:1,
+            nav:false
+          },
+          600:{
+            items:3,
+            nav:false
+          },
+          1000:{
+            items:5,
+            nav:false,
+            loop:true
+          }
+        }
+      }
+      $categoryCarousel.owlCarousel(carouselOptions);
+      $categoryCarouselContainer.attr('style', 'display: none');
+      $categoryCarousel.trigger('destroy.owl.carousel');
+
+      $categoryCarousel.html(content);
+      $categoryCarousel.owlCarousel(carouselOptions);
+      $categoryCarousel.trigger('initialize.owl.carousel');
+    }
+
+    function storeContent(currentGroup) {
+      const CAROUSEL_COUNT = 10;
+      let content = '';
+      
+      for (let i = 0; i < CAROUSEL_COUNT; i += 1) {
+        let imgURL = `http://localhost:3000/assets/img/${currentGroup}/img-${i}.jpg`;
+        content += `<div><img src="${imgURL}" alt="${currentGroup}"></div>`;
+      }
+
+      localStorage.setItem('carouselContent', content);
+    }
+    const groups = [];
+    for (let i = 0; i < 5; i += 1) {
+      groups.push(document.getElementById(`grp-${i}`));
+    }
+    function updateCarousel() {
+      const grpCardTitle = document.getElementById('grp-card-title');
+      const grpMenu = document.getElementById('grp-menu');
+      const classifyMenu = document.getElementById('classify-menu');
+      const categoryCarousel = document.querySelector('#category-carousel');
+
+      for (let i = 0; i < groups.length; i += 1) {
+        groups[i].addEventListener('click', () => {
+          grpCardTitle.setAttribute('style', 'opacity: 0');
+          grpMenu.setAttribute('style', 'opacity: 0;');
+          const title = groups[i].getElementsByTagName('h3');
+          const groupTitle = title[0].innerHTML;
+          window.setTimeout(() => {
+            localStorage.setItem('currentGroup', GROUPS[i]);
+            localStorage.setItem('previousI', i);
+            storeContent(GROUPS[i]);
+            localStorage.setItem('clicked', '1')
+            location.reload();
+            grpMenu.setAttribute('style', 'display: none');
+          }, 1000);
+        });
+      }
+    }
+
+    function hideGroups(i) {
+      const grpCardTitle = document.getElementById('grp-card-title');
+      const grpMenu = document.getElementById('grp-menu');
+      const classifyMenu = document.getElementById('classify-menu');
+      const categoryCarousel = document.querySelector('#category-carousel');
+      const backButton = document.querySelector('#backButton');
+
+      backButton.setAttribute('style', 'display: none')
+      grpCardTitle.setAttribute('style', 'opacity: 0');
+      grpMenu.setAttribute('style', 'opacity: 0;');
+      const title = groups[i].getElementsByTagName('h3');
+      const groupTitle = title[0].innerHTML;
+      window.setTimeout(() => {
+        grpCardTitle.innerHTML = `We classify the following ${groupTitle}`;
+        grpCardTitle.setAttribute('style', 'opacity: 1');
+        classifyMenu.setAttribute('style', 'opacity: 1');
+        categoryCarousel.setAttribute('style', 'opacity: 1;');
+        backButton.setAttribute('style', 'display: inline; opacity: 1')
+        grpMenu.setAttribute('style', 'display: none');
+        $('#model-dropdown-button').html($(`#type-${i}`).html());
+      }, 1000);
+
+      localStorage.setItem('clicked', '0')
+    }
+
     $(document).ready(function () {
       $().ready(function () {
+        updateCarousel();
+        const previousI = localStorage.getItem('previousI');
+        createCarousel(localStorage.getItem('carouselContent'));
+        if (localStorage.getItem('clicked') == '1') {
+          $('#resultsRow').attr('style', 'display: block');
+          $('#classificationRow').attr('style', 'display: block');
+          hideGroups(previousI)
+        } else {
+          $('#resultsRow').attr('style', 'display: none');
+          $('#classificationRow').attr('style', 'display: none');
+        }
         $sidebar = $(".sidebar");
         $navbar = $(".navbar");
         $main_panel = $(".main-panel");
@@ -438,6 +618,7 @@
         });
       });
     });
+    
   </script>
 </body>
 

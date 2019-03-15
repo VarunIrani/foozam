@@ -1,3 +1,4 @@
+/* eslint-disable no-loop-func */
 /* eslint-disable no-alert */
 /* eslint-disable eol-last */
 /* eslint-disable no-undef */
@@ -69,7 +70,9 @@ let modelIndex;
 for (let i = 0; i < 5; i += 1) {
   modelTypes.push(document.getElementById(`type-${i}`));
 }
+const groups = [];
 modelTypes.forEach((modelType) => {
+  groups.push(modelType.innerHTML);
   modelType.addEventListener('click', () => {
     modelButton.innerHTML = modelType.innerHTML;
     modelIndex = modelTypes.indexOf(modelType);
