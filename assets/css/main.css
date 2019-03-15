@@ -1,0 +1,53 @@
+.grp-title {
+	font-size: 160%;
+}
+.grp {
+	width: 250px;
+	height: 300px;
+	float: left;
+	margin: 0 10px;
+	transition: 1s;
+	opacity: 0.6;
+}
+
+.grp-image {
+	margin-bottom: 1rem;
+	width: 60%;
+}
+
+.grp:hover {
+	transform: scale(1.25);
+	opacity: 1;
+	cursor: pointer;
+}
+
+.grp-menu,
+#grp-card-title,
+#classify-menu {
+	opacity: 1;
+	-webkit-transition: all 0.5s ease-in-out;
+	-moz-transition: all 0.5s ease-in-out;
+	-ms-transition: all 0.5s ease-in-out;
+	-o-transition: all 0.5s ease-in-out;
+	transition: all 0.5s ease-in-out;
+}
+
+#category-carousel {
+	opacity: 0;
+	-webkit-transition: all 0.5s ease-in-out;
+	-moz-transition: all 0.5s ease-in-out;
+	-ms-transition: all 0.5s ease-in-out;
+	-o-transition: all 0.5s ease-in-out;
+	transition: all 0.5s ease-in-out;
+}
+
+#backButton {
+	opacity: 0;
+	-webkit-transition: all 0.5s ease-in-out;
+	-moz-transition: all 0.5s ease-in-out;
+	-ms-transition: all 0.5s ease-in-out;
+	-o-transition: all 0.5s ease-in-out;
+	transition: all 0.5s ease-in-out;
+	margin-left: 1rem;
+	margin-top: 1rem;
+}
