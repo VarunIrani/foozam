@@ -31,13 +31,13 @@
           <a href="index.html" class="simple-text logo-mini">
             <img src="./assets/img/favicon.png" alt="Foozam Logo" />
           </a>
-          <a href="https://varunirani.github.io/foozam" class="simple-text logo-normal" style="text-transform: capitalize">
+          <a href="index.html" class="simple-text logo-normal" style="text-transform: capitalize">
             Foozam
           </a>
         </div>
         <ul class="nav">
           <li>
-            <a href="https://varunirani.github.io/foozam">
+            <a href="index.html">
               <i class="tim-icons icon-atom"></i>
               <p>Know Your Food</p>
             </a>
@@ -109,35 +109,9 @@
                 </button>
               </li>
               <li class="dropdown nav-item">
-                <a href="javascript:void(0)" class="dropdown-toggle nav-link" data-toggle="dropdown">
-                  <div class="notification d-none d-lg-block d-xl-block"></div>
-                  <i class="tim-icons icon-sound-wave"></i>
-                  <p class="d-lg-none">
-                    Notifications
-                  </p>
-                </a>
-                <ul class="dropdown-menu dropdown-menu-right dropdown-navbar">
-                  <li class="nav-link">
-                    <a href="#" class="nav-item dropdown-item">Mike John responded to your email</a>
-                  </li>
-                  <li class="nav-link">
-                    <a href="javascript:void(0)" class="nav-item dropdown-item">You have 5 more tasks</a>
-                  </li>
-                  <li class="nav-link">
-                    <a href="javascript:void(0)" class="nav-item dropdown-item">Your friend Michael is in town</a>
-                  </li>
-                  <li class="nav-link">
-                    <a href="javascript:void(0)" class="nav-item dropdown-item">Another notification</a>
-                  </li>
-                  <li class="nav-link">
-                    <a href="javascript:void(0)" class="nav-item dropdown-item">Another one</a>
-                  </li>
-                </ul>
-              </li>
-              <li class="dropdown nav-item">
                 <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
                   <div class="photo">
-                    <img src="./assets/img/anime3.png" alt="Profile Photo">
+                    <img src="./assets/img/anime3.png" alt="Profile Photo" id="userProfilePhoto">
                   </div>
                   <b class="caret d-none d-lg-block d-xl-block"></b>
                   <p class="d-lg-none">
@@ -146,14 +120,11 @@
                 </a>
                 <ul class="dropdown-menu dropdown-navbar">
                   <li class="nav-link">
-                    <a href="javascript:void(0)" class="nav-item dropdown-item">Profile</a>
-                  </li>
-                  <li class="nav-link">
-                    <a href="javascript:void(0)" class="nav-item dropdown-item">Settings</a>
+                    <a href="user.html" class="nav-item dropdown-item">Profile</a>
                   </li>
                   <li class="dropdown-divider"></li>
                   <li class="nav-link">
-                    <a href="javascript:void(0)" class="nav-item dropdown-item">Log out</a>
+                    <a href="#" class="nav-item dropdown-item">Log out</a>
                   </li>
                 </ul>
               </li>
@@ -386,47 +357,8 @@
                 <h4>Email:</h4>
               </span> <a href="mailto:info@yoursite.com">info@yoursite.com</a></p>
           </div>
-
         </div>
       </div>
-
-
-
-
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <footer class="footer">
-        <div class="container-fluid">
-          <!-- <ul class="nav">
-            <li class="nav-item">
-              <a href="javascript:void(0)" class="nav-link">
-                Foozam
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="javascript:void(0)" class="nav-link">
-                About Us
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="javascript:void(0)" class="nav-link">
-                Blog
-              </a>
-            </li>
-          </ul> -->
-          <div class="copyright">
-            ©
-            <script>
-              document.write(new Date().getFullYear())
-            </script> made with <i class="tim-icons icon-heart-2"></i> by
-            <a href="javascript:void(0)" target="_blank">Foozam</a> for a better web.
-          </div>
-        </div>
-      </footer>
     </div>
   </div>
   <div class="fixed-plugin">
@@ -489,8 +421,17 @@
   <!-- Black Dashboard DEMO methods, don't include it in your project! -->
   <script src="./assets/demo/demo.js"></script>
   <script>
+    function loggedInUser() {
+      const googleLoggedIn = parseInt(sessionStorage.getItem('googleLoggedIn'));
+      if (googleLoggedIn) {
+        const user = JSON.parse(sessionStorage.getItem('googleUser'));
+        const userProfilePhoto = document.getElementById('userProfilePhoto');
+        userProfilePhoto.setAttribute('src', user.photoURL);
+      }
+    }
     $(document).ready(function () {
       $().ready(function () {
+        loggedInUser();
         $sidebar = $('.sidebar');
         $navbar = $('.navbar');
         $main_panel = $('.main-panel');

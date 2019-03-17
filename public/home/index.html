@@ -159,12 +159,12 @@
             </div>
             <div class="modal-body">
               <div class="btn-wrapper text-center">
-                <a href="#" class="btn btn-neutral btn-icon">
+                <button class="btn btn-neutral btn-icon btn-lg" id="googleAuthButton">
                   <img src="../assets/img/google.svg">
-                </a>
+                </button>
               </div>
               <div class="text-center text-muted mb-4 mt-3">
-                <small>Or sign in with credentials</small>
+                <h4>Or sign in with credentials</h4>
               </div>
               <form role="form">
                 <div class="form-group mb-3">
@@ -215,7 +215,10 @@
   <script src="../assets/js/plugins/bootstrap-datetimepicker.js" type="text/javascript"></script>
   <!-- Control Center for Black UI Kit: parallax effects, scripts for the example pages etc -->
   <script src="../assets/js/blk-design-system.min.js?v=1.0.0" type="text/javascript"></script>
-  <script>
+  <script src="https://www.gstatic.com/firebasejs/5.9.0/firebase.js"></script>
+  <script type="module">
+    import config from '../database/firebase-config.js';
+
     $(document).ready(function() {
       blackKit.initDatePicker();
       blackKit.initSliders();
@@ -229,6 +232,24 @@
         }, 1000);
       }
     }
+
+    firebase.initializeApp(config);
+
+    $('#googleAuthButton').on('click', () => {
+      const provider = new firebase.auth.GoogleAuthProvider();
+      firebase.auth().useDeviceLanguage();
+      firebase.auth().signInWithPopup(provider)
+        .then((result) => {
+          const user = result.user.providerData[0];
+          sessionStorage.setItem('googleUser', JSON.stringify(user));
+          sessionStorage.setItem('googleLoggedIn', '1');
+          location.replace(`http://localhost:3000`);
+        })
+        .catch((e) => {
+          console.log(e);
+        });
+    });
+
   </script>
 </body>
 

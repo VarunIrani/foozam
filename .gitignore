@@ -1,3 +1,4 @@
 node_modules
 src/api/keys.js
 build
+.DS_Store

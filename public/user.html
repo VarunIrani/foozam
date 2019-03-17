@@ -31,13 +31,13 @@
           <a href="index.html" class="simple-text logo-mini">
             <img src="./assets/img/favicon.png" alt="Foozam Logo" />
           </a>
-          <a href="https://varunirani.github.io/foozam" class="simple-text logo-normal" style="text-transform: capitalize">
+          <a href="index.html" class="simple-text logo-normal" style="text-transform: capitalize">
             Foozam
           </a>
         </div>
         <ul class="nav">
           <li>
-            <a href="https://varunirani.github.io/foozam">
+            <a href="index.html">
               <i class="tim-icons icon-atom"></i>
               <p>Know Your Food</p>
             </a>
@@ -72,12 +72,6 @@
               <p>Contact Us</p>
             </a>
           </li>
-          <li>
-            <a href="#">
-              <i class="tim-icons icon-settings-gear-63"></i>
-              <p>Settings</p>
-            </a>
-          </li>
         </ul>
       </div>
     </div>
@@ -109,35 +103,9 @@
                 </button>
               </li>
               <li class="dropdown nav-item">
-                <a href="javascript:void(0)" class="dropdown-toggle nav-link" data-toggle="dropdown">
-                  <div class="notification d-none d-lg-block d-xl-block"></div>
-                  <i class="tim-icons icon-sound-wave"></i>
-                  <p class="d-lg-none">
-                    Notifications
-                  </p>
-                </a>
-                <ul class="dropdown-menu dropdown-menu-right dropdown-navbar">
-                  <li class="nav-link">
-                    <a href="#" class="nav-item dropdown-item">Mike John responded to your email</a>
-                  </li>
-                  <li class="nav-link">
-                    <a href="javascript:void(0)" class="nav-item dropdown-item">You have 5 more tasks</a>
-                  </li>
-                  <li class="nav-link">
-                    <a href="javascript:void(0)" class="nav-item dropdown-item">Your friend Michael is in town</a>
-                  </li>
-                  <li class="nav-link">
-                    <a href="javascript:void(0)" class="nav-item dropdown-item">Another notification</a>
-                  </li>
-                  <li class="nav-link">
-                    <a href="javascript:void(0)" class="nav-item dropdown-item">Another one</a>
-                  </li>
-                </ul>
-              </li>
-              <li class="dropdown nav-item">
                 <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
                   <div class="photo">
-                    <img src="./assets/img/anime3.png" alt="Profile Photo">
+                    <img src="./assets/img/anime3.png" alt="Profile Photo" id="userProfilePhoto">
                   </div>
                   <b class="caret d-none d-lg-block d-xl-block"></b>
                   <p class="d-lg-none">
@@ -146,14 +114,11 @@
                 </a>
                 <ul class="dropdown-menu dropdown-navbar">
                   <li class="nav-link">
-                    <a href="javascript:void(0)" class="nav-item dropdown-item">Profile</a>
-                  </li>
-                  <li class="nav-link">
-                    <a href="javascript:void(0)" class="nav-item dropdown-item">Settings</a>
+                    <a href="user.html" class="nav-item dropdown-item">Profile</a>
                   </li>
                   <li class="dropdown-divider"></li>
                   <li class="nav-link">
-                    <a href="javascript:void(0)" class="nav-item dropdown-item">Log out</a>
+                    <a href="#" class="nav-item dropdown-item">Log out</a>
                   </li>
                 </ul>
               </li>
@@ -186,12 +151,6 @@
               <div class="card-body">
                 <form autocomplete="off">
                   <div class="row">
-                    <!-- <div class="col-md-5 pr-md-1">
-                      <div class="form-group">
-                        <label>Company (disabled)</label>
-                        <input type="text" class="form-control" disabled="" placeholder="Company" value="Foozam Inc.">
-                      </div>
-                    </div> -->
                     <div class="col-md-6 pr-md-1">
                       <div class="form-group">
                         <label>Username</label>
@@ -208,45 +167,11 @@
                   <div class="row">
                     <div class="col-md-6 pr-md-1">
                       <div class="form-group">
-                        <label>First Name</label>
-                        <input id="firstName" type="text" class="form-control" placeholder="First Name" value="">
-                      </div>
-                    </div>
-                    <div class="col-md-6 pl-md-1">
-                      <div class="form-group">
-                        <label>Last Name</label>
-                        <input id="lastName" type="text" class="form-control" placeholder="Last Name" value="">
+                        <label>Phone Number</label>
+                        <input id="phoneNumber" type="text" class="form-control" placeholder="Phone Number" value="">
                       </div>
                     </div>
                   </div>
-                  <!-- <div class="row">
-                    <div class="col-md-12">
-                      <div class="form-group">
-                        <label>Address</label>
-                        <input type="text" class="form-control" placeholder="Home Address" value="">
-                      </div>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-md-4 pr-md-1">
-                      <div class="form-group">
-                        <label>City</label>
-                        <input type="text" class="form-control" placeholder="City" value="">
-                      </div>
-                    </div>
-                    <div class="col-md-4 px-md-1">
-                      <div class="form-group">
-                        <label>Country</label>
-                        <input type="text" class="form-control" placeholder="Country" value="">
-                      </div>
-                    </div>
-                    <div class="col-md-4 pl-md-1">
-                      <div class="form-group">
-                        <label>Postal Code</label>
-                        <input type="number" class="form-control" placeholder="ZIP Code">
-                      </div>
-                    </div>
-                  </div> -->
                   <div class="row">
                     <div class="col-md-8">
                       <div class="form-group">
@@ -259,10 +184,7 @@
                 </form>
               </div>
               <div class="card-footer">
-                <!-- <button type="submit" class="btn btn-fill btn-primary">Upload Image</button> -->
-
                 <button id="save" type="submit" class="btn btn-fill btn-primary">Save</button>
-
               </div>
             </div>
           </div>
@@ -271,105 +193,32 @@
               <div class="card-body">
                 <p class="card-text">
                   <div class="author">
-                    <div class="title">
-                      <h4 style="color: rgba(255, 255, 255, 0.8)">Your Profile</h4>
+                    <div class="card-title">
+                      <h3 class="card-title" id="userName">Your Profile</h3>
                     </div>
                     <div class="block block-one"></div>
                     <div class="block block-two"></div>
                     <div class="block block-three"></div>
                     <div class="block block-four"></div>
-                    <a href="javascript:void(0)">
-                      <img id="profile" class="avatar" src="./assets/img/anime3.png" alt="...">
-                      <!-- Userinfo displayed in form -->
-                      <div class="row">
-                        <div class="col-md-6 pr-md-1">
-                          <div class="form-group">
-                            <label></label>
-                            <!-- <input id="f_name" style="border: none; font-size: 14px; text-align: center;" type="text" class="form-control" placeholder="First Name" value=""> -->
-                          </div>
-                        </div>
-                        <div class="col-md-6 pl-md-1">
-                          <div class="form-group">
-                            <label></label>
-                            <!-- <input id="l_name" style="border: none; font-size: 14px;  text-align: center;" type="text" class="form-control" placeholder="Last Name" value=""> -->
-                          </div>
-                        </div>
-                      </div>
-                      <div class="row">
-                        <div class="col-md-8">
-                          <div class="form-group">
-                            <label></label>
-                            <textarea id="about" style="border: none; text-align: center; font-size: 14px;" rows="4"
-                              cols="80" class="form-control" placeholder="" value=""></textarea>
-                          </div>
-                        </div>
-                      </div>
+                    <a href="#">
+                      <img id="userProfile" class="avatar" src="./assets/img/anime3.png" alt="...">
                       <div class="row" style="text-align:center">
                         <div class="col-lg-12">
                           <label>
-                            <input type="file" onchange="previewimg()" name="input-name" style="display: none;" />
+                            <input type="file" name="input-name" style="display: none;" />
                             <!-- Update profile pic -->
                             <span id="upload" class="btn btn-fill btn-primary">Upload Image</span>
                           </label>
                         </div>
                       </div>
-
-                      <!-- <h5  id ="u" class="title">Username</h5> -->
                     </a>
-                    <p class="description">
-
-                    </p>
                   </div>
                 </p>
-                <!-- <div class="card-description">
-                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Incidunt, voluptas dolore. Fugiat nemo quia, quasi, ut laborum magni fugit aliquid architecto illum qui suscipit et possimus incidunt. Quia, eum incidunt.
-                </div> -->
-              </div>
-              <div class="card-footer">
-                <!-- <div class="button-container">
-                  <button href="javascript:void(0)" class="btn btn-icon btn-round btn-facebook">
-                    <i class="fab fa-facebook"></i>
-                  </button>
-                  <button href="javascript:void(0)" class="btn btn-icon btn-round btn-twitter">
-                    <i class="fab fa-twitter"></i>
-                  </button>
-                  <button href="javascript:void(0)" class="btn btn-icon btn-round btn-google">
-                    <i class="fab fa-google-plus"></i>
-                  </button>
-                </div> -->
               </div>
             </div>
           </div>
         </div>
       </div>
-      <footer class="footer">
-        <div class="container-fluid">
-          <ul class="nav">
-            <li class="nav-item">
-              <a href="javascript:void(0)" class="nav-link">
-                Foozam
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="javascript:void(0)" class="nav-link">
-                About Us
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="javascript:void(0)" class="nav-link">
-                Blog
-              </a>
-            </li>
-          </ul>
-          <div class="copyright">
-            ©
-            <script>
-              document.write(new Date().getFullYear())
-            </script> made with <i class="tim-icons icon-heart-2"></i> by
-            <a href="javascript:void(0)" target="_blank">Foozam</a> for a better web.
-          </div>
-        </div>
-      </footer>
     </div>
   </div>
   <!-- Settings panel -->
@@ -405,15 +254,6 @@
           <a href="" target="_blank" class="btn btn-primary btn-block btn-round ">Reset Account
           </a>
         </li>
-        <!-- <li class="header-title">Thank you for 95 shares!</li>
-        <li class="button-container text-center">
-          <button id="twitter" class="btn btn-round btn-info"><i class="fab fa-twitter"></i> &middot; 45</button>
-          <button id="facebook" class="btn btn-round btn-info"><i class="fab fa-facebook-f"></i> &middot; 50</button>
-          <br>
-          <br>
-          <a class="github-button" href="https://github.com/creativetimofficial/black-dashboard" data-icon="octicon-star"
-            data-size="large" data-show-count="true" aria-label="Star ntkme/github-buttons on GitHub">Star</a>
-        </li> -->
       </ul>
     </div>
   </div>
@@ -430,11 +270,38 @@
   <script src="./assets/js/plugins/bootstrap-notify.js"></script>
   <!-- Control Center for Black Dashboard: parallax effects, scripts for the example pages etc -->
   <script src="./assets/js/black-dashboard.min.js?v=1.0.0"></script>
-  <script src="user.js"></script>
-
+  <script type="module">
+    import previewImg from './user.js'
+    function updateProfilePicture() {
+      const uploadButton = document.getElementById('upload');
+      uploadButton.addEventListener('click', () => {
+        previewImg();
+      });
+    }
+  </script>
   <script>
+    function loggedInUser() {
+      const googleLoggedIn = parseInt(sessionStorage.getItem('googleLoggedIn'));
+      if (googleLoggedIn) {
+        const user = JSON.parse(sessionStorage.getItem('googleUser'));
+        const userProfilePhoto = document.getElementById('userProfilePhoto');
+        const userProfile = document.getElementById('userProfile')
+        const userName = document.getElementById('userName');
+        const uname = document.getElementById('uname');
+        const email = document.getElementById('email');
+        const phoneNumber = document.getElementById('phoneNumber');
+        userProfilePhoto.setAttribute('src', user.photoURL);
+        userProfile.setAttribute('src', user.photoURL);
+        console.log(user);
+        userName.innerHTML = user.displayName;
+        uname.setAttribute('value', user.displayName);
+        email.setAttribute('value', user.email);
+        phoneNumber.setAttribute('value', user.phoneNumber == null ? '' : user.phoneNumber);
+      }
+    }
     $(document).ready(function () {
       $().ready(function () {
+        loggedInUser();
         $sidebar = $('.sidebar');
         $navbar = $('.navbar');
         $main_panel = $('.main-panel');
@@ -448,8 +315,6 @@
         window_width = $(window).width();
 
         fixed_plugin_open = $('.sidebar .sidebar-wrapper .nav li.active a p').html();
-
-
 
         $('.fixed-plugin a').click(function (event) {
           if ($(this).hasClass('switch-trigger')) {
@@ -529,8 +394,6 @@
 
             white_color = true;
           }
-
-
         });
 
         $('.light-badge').click(function () {
@@ -543,42 +406,5 @@
       });
     });
   </script>
-
-  <!-- Update Image -->
-  <script>
-    function previewimg() {
-      var preview = document.getElementById("profile"); //selects the query named img
-      var file = document.querySelector('input[type=file]').files[0]; //sames as here
-      var reader = new FileReader();
-
-      reader.onloadend = function () {
-        preview.src = reader.result;
-      }
-
-      if (file) {
-        reader.readAsDataURL(file); //reads the data as a URL
-      } else {
-        preview.src = "./assets/img/anime3.png";
-      }
-    }
-    previewimg();
-  </script>
-
-  <!-- Update Username and info -->
-  <!-- <script>
-      function username(){
-        var val= document.getElementById("firstname").value;
-        document.getElementById("f_name").value=val;
-        var last=document.getElementById("lastname").value;
-        document.getElementById("l_name").value=last;
-        var text=document.getElementById("txtarea").value;
-        document.getElementById("about").value=text; 
-
-        
-      }
-    </script> -->
-
-
 </body>
-
 </html>

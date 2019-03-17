@@ -111,47 +111,20 @@
                 </button>
               </li>
               <li class="dropdown nav-item">
-                <a href="javascript:void(0)" class="dropdown-toggle nav-link" data-toggle="dropdown">
-                  <div class="notification d-none d-lg-block d-xl-block"></div>
-                  <i class="tim-icons icon-sound-wave"></i>
-                  <p class="d-lg-none">Notifications</p>
-                </a>
-                <ul class="dropdown-menu dropdown-menu-right dropdown-navbar">
-                  <li class="nav-link">
-                    <a href="#" class="nav-item dropdown-item">Mike John responded to your email</a>
-                  </li>
-                  <li class="nav-link">
-                    <a href="javascript:void(0)" class="nav-item dropdown-item">You have 5 more tasks</a>
-                  </li>
-                  <li class="nav-link">
-                    <a href="javascript:void(0)" class="nav-item dropdown-item">Your friend Michael is in town</a>
-                  </li>
-                  <li class="nav-link">
-                    <a href="javascript:void(0)" class="nav-item dropdown-item">Another notification</a>
-                  </li>
-                  <li class="nav-link">
-                    <a href="javascript:void(0)" class="nav-item dropdown-item">Another one</a>
-                  </li>
-                </ul>
-              </li>
-              <li class="dropdown nav-item">
                 <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
                   <div class="photo">
-                    <img src="./assets/img/anime3.png" alt="Profile Photo" />
+                    <img src="./assets/img/anime3.png" alt="Profile Photo" id="userProfilePhoto"/>
                   </div>
                   <b class="caret d-none d-lg-block d-xl-block"></b>
                   <p class="d-lg-none">Log out</p>
                 </a>
                 <ul class="dropdown-menu dropdown-navbar">
                   <li class="nav-link">
-                    <a href="javascript:void(0)" class="nav-item dropdown-item">Profile</a>
-                  </li>
-                  <li class="nav-link">
-                    <a href="javascript:void(0)" class="nav-item dropdown-item">Settings</a>
+                    <a href="user.html" class="nav-item dropdown-item">Profile</a>
                   </li>
                   <li class="dropdown-divider"></li>
                   <li class="nav-link">
-                    <a href="javascript:void(0)" class="nav-item dropdown-item">Log out</a>
+                    <a href="#" class="nav-item dropdown-item">Log out</a>
                   </li>
                 </ul>
               </li>
@@ -174,10 +147,9 @@
         </div>
       </div>
       <!-- End Navbar -->
-      <!-- <label class="btn btn-primary btn-fab btn-icon btn-round btn-lg" style="position: fixed; bottom: 15px; z-index: 10; right: 15px;">
-        <input type="file" name="img-file" id="img-file" style="display: none" />
+      <label class="btn btn-primary btn-fab btn-icon btn-round btn-lg" style="position: fixed; bottom: 15px; z-index: 10; right: 15px;">
         <img src="./assets/img/favicon.png" alt="Foozam Logo" width="35px" style="margin-top: 12px" />
-      </label> -->
+      </label>
       <div class="content">
         <div class="row">
           <div class="col-lg-12 col-md-12">
@@ -430,7 +402,7 @@
         content += `<div><img src="${imgURL}" alt="${currentGroup}"></div>`;
       }
 
-      localStorage.setItem('carouselContent', content);
+      sessionStorage.setItem('carouselContent', content);
     }
     const groups = [];
     for (let i = 0; i < 5; i += 1) {
@@ -449,10 +421,10 @@
           const title = groups[i].getElementsByTagName('h3');
           const groupTitle = title[0].innerHTML;
           window.setTimeout(() => {
-            localStorage.setItem('currentGroup', GROUPS[i]);
-            localStorage.setItem('previousI', i);
+            sessionStorage.setItem('currentGroup', GROUPS[i]);
+            sessionStorage.setItem('previousI', i);
             storeContent(GROUPS[i]);
-            localStorage.setItem('clicked', '1')
+            sessionStorage.setItem('clicked', '1')
             location.reload();
             grpMenu.setAttribute('style', 'display: none');
           }, 1000);
@@ -482,15 +454,25 @@
         $('#model-dropdown-button').html($(`#type-${i}`).html());
       }, 1000);
 
-      localStorage.setItem('clicked', '0')
+      sessionStorage.setItem('clicked', '0')
+    }
+
+    function loggedInUser() {
+      const googleLoggedIn = parseInt(sessionStorage.getItem('googleLoggedIn'));
+      if (googleLoggedIn) {
+        const user = JSON.parse(sessionStorage.getItem('googleUser'));
+        const userProfilePhoto = document.getElementById('userProfilePhoto');
+        userProfilePhoto.setAttribute('src', user.photoURL);
+      }
     }
 
     $(document).ready(function () {
       $().ready(function () {
+        loggedInUser();
         updateCarousel();
-        const previousI = localStorage.getItem('previousI');
-        createCarousel(localStorage.getItem('carouselContent'));
-        if (localStorage.getItem('clicked') == '1') {
+        const previousI = sessionStorage.getItem('previousI');
+        createCarousel(sessionStorage.getItem('carouselContent'));
+        if (sessionStorage.getItem('clicked') == '1') {
           $('#resultsRow').attr('style', 'display: block');
           $('#classificationRow').attr('style', 'display: block');
           hideGroups(previousI)
