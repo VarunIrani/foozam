@@ -243,7 +243,7 @@
           const user = result.user.providerData[0];
           sessionStorage.setItem('googleUser', JSON.stringify(user));
           sessionStorage.setItem('googleLoggedIn', '1');
-          location.replace(`http://localhost:3000`);
+          location.replace(`https://foozam.ml`);
         })
         .catch((e) => {
           console.log(e);
