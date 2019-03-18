@@ -153,8 +153,8 @@
                   <div class="row">
                     <div class="col-md-6 pr-md-1">
                       <div class="form-group">
-                        <label>Username</label>
-                        <input id="uname" type="text" class="form-control" placeholder="Username" value="">
+                        <label>Full Name</label>
+                        <input id="uname" type="text" class="form-control" placeholder="Full Name" value="">
                       </div>
                     </div>
                     <div class="col-md-6 pl-md-1">
@@ -272,6 +272,7 @@
   <script src="./assets/js/black-dashboard.min.js?v=1.0.0"></script>
   <script type="module">
     import previewImg from './user.js'
+
     function updateProfilePicture() {
       const uploadButton = document.getElementById('upload');
       uploadButton.addEventListener('click', () => {
@@ -282,6 +283,7 @@
   <script>
     function loggedInUser() {
       const googleLoggedIn = parseInt(sessionStorage.getItem('googleLoggedIn'));
+      const userLoggedIn = parseInt(sessionStorage.getItem('userLoggedIn'));
       if (googleLoggedIn) {
         const user = JSON.parse(sessionStorage.getItem('googleUser'));
         const userProfilePhoto = document.getElementById('userProfilePhoto');
@@ -293,6 +295,16 @@
         userProfilePhoto.setAttribute('src', user.photoURL);
         userProfile.setAttribute('src', user.photoURL);
         console.log(user);
+        userName.innerHTML = user.displayName;
+        uname.setAttribute('value', user.displayName);
+        email.setAttribute('value', user.email);
+        phoneNumber.setAttribute('value', user.phoneNumber == null ? '' : user.phoneNumber);
+      } else if (userLoggedIn) {
+        const user = JSON.parse(sessionStorage.getItem('loggedInUser'));
+        const userName = document.getElementById('userName');
+        const uname = document.getElementById('uname');
+        const email = document.getElementById('email');
+        const phoneNumber = document.getElementById('phoneNumber');
         userName.innerHTML = user.displayName;
         uname.setAttribute('value', user.displayName);
         email.setAttribute('value', user.email);

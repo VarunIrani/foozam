@@ -63,37 +63,37 @@
               <div class="card card-register">
                 <div class="card-header">
                   <img class="card-img" src="../assets/img/square1.png" alt="Card image">
-                  <h4 class="card-title">Register</h4>
+                  <h4 class="card-title ml-1 mt-1" style="color: white">Register</h4>
                 </div>
                 <div class="card-body">
                   <form class="form">
-                    <div class="input-group">
+                    <div class="input-group" id="fullNameInputGroup">
                       <div class="input-group-prepend">
                         <div class="input-group-text">
                           <i class="tim-icons icon-single-02"></i>
                         </div>
                       </div>
-                      <input type="text" class="form-control" placeholder="Full Name">
+                      <input id="fullName" required type="text" class="form-control form-control-lg" placeholder="Full Name">
                     </div>
-                    <div class="input-group">
+                    <div class="input-group" id="emailInputGroup">
                       <div class="input-group-prepend">
                         <div class="input-group-text">
                           <i class="tim-icons icon-email-85"></i>
                         </div>
                       </div>
-                      <input type="text" placeholder="Email" class="form-control">
+                      <input id="email" required type="text" placeholder="Email" class="form-control form-control-lg">
                     </div>
-                    <div class="input-group">
+                    <div class="input-group" id="passwordInputGroup">
                       <div class="input-group-prepend">
                         <div class="input-group-text">
                           <i class="tim-icons icon-lock-circle"></i>
                         </div>
                       </div>
-                      <input type="text" class="form-control" placeholder="Password">
+                      <input id="password" required type="password" class="form-control form-control-lg" placeholder="Password">
                     </div>
                     <div class="form-check text-left">
                       <label class="form-check-label">
-                        <input class="form-check-input" type="checkbox">
+                        <input id="termsCheck" class="form-check-input" type="checkbox">
                         <span class="form-check-sign"></span>
                         I agree to the
                         <a href="javascript:void(0)">terms and conditions</a>.
@@ -102,7 +102,8 @@
                   </form>
                 </div>
                 <div class="card-footer">
-                  <a href="javascript:void(0)" class="btn btn-info btn-round btn-lg">Get Started</a>
+                  <a href="javascript:void(0)" id="registerButton" class="btn btn-info btn-round btn-lg">Get Started</a>
+                  <button id="errorModal" style="opacity: 0;" data-toggle="modal" data-target="#myModal2">Error Modal</button>
                 </div>
               </div>
             </div>
@@ -114,6 +115,23 @@
           <div id="square4" class="square square-4"></div>
           <div id="square5" class="square square-5"></div>
           <div id="square6" class="square square-6"></div>
+        </div>
+      </div>
+      <div class="modal fade modal-black" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header justify-content-center">
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                <i class="tim-icons icon-simple-remove text-white"></i>
+              </button>
+              <div class="text-muted text-center ml-auto mr-auto">
+                <h3 class="mb-0">Welcome</h3>
+              </div>
+            </div>
+            <div class="modal-body">
+              
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -132,10 +150,121 @@
   <!--  Plugin for the DatePicker, full documentation here: https://github.com/uxsolutions/bootstrap-datepicker -->
   <script src="../assets/js/plugins/moment.min.js"></script>
   <script src="../assets/js/plugins/bootstrap-datetimepicker.js" type="text/javascript"></script>
-  <!-- Black Dashboard DEMO methods, don't include it in your project! -->
-  <script src="../assets/demo/demo.js"></script>
   <!-- Control Center for Black UI Kit: parallax effects, scripts for the example pages etc -->
   <script src="../assets/js/blk-design-system.min.js?v=1.0.0" type="text/javascript"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.9.0/firebase.js"></script>
+
+  <script type="module">
+    import config from '../database/firebase-config.js';
+    firebase.initializeApp(config);
+    const $fullNameInput = $('#fullName');
+    const $emailInput = $('#email');
+    const $passwordInput = $('#password');
+
+    function validPassword(password) {
+      /*
+      Strong passwords with min 8 - max 15 character length, at least two letters (not case sensitive), 
+      one number, one special character (all, not just defined), space is not allowed.
+      */
+      const regex = /^(?=(.*[a-zA-Z].*){2,})(?=.*\d.*)(?=.*\W.*)[a-zA-Z0-9\S]{8,15}$/;
+      return regex.test(password);
+    }
+
+    function isEmail(email) {
+      const regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+      return regex.test(email);
+    }
+
+    let fullName;
+    let email;
+    let password;
+    let fullNameOK = false;
+    let emailOK = false;
+    let passwordOK = false;
+
+    $fullNameInput.keyup(() => {
+      fullName = $fullNameInput.val();
+      if (fullName == '') {
+        $('#fullNameInputGroup').removeClass('has-success');
+        $('#fullNameInputGroup').addClass('has-danger');
+        fullNameOK = false;
+      }
+      else if (fullName) {
+        $('#fullNameInputGroup').removeClass('has-danger');
+        $('#fullNameInputGroup').addClass('has-success');
+        fullNameOK = true;
+      }  
+    });
+
+    $emailInput.keyup(() => {
+      email = $emailInput.val();
+      if (isEmail(email)) {
+        $('#emailInputGroup').addClass('has-success');
+        $('#emailInputGroup').removeClass('has-danger');
+        emailOK = true;
+      } else {
+        $('#emailInputGroup').removeClass('has-success');
+        $('#emailInputGroup').addClass('has-danger');
+        emailOK = false;
+      }
+    });
+
+    $passwordInput.keyup(() => {
+      password = $passwordInput.val();
+      if (validPassword(password)) {
+        $('#passwordInputGroup').addClass('has-success');
+        $('#passwordInputGroup').removeClass('has-danger');
+        passwordOK = true;
+      } else {
+        $('#passwordInputGroup').removeClass('has-success');
+        $('#passwordInputGroup').addClass('has-danger');
+        passwordOK = false;
+      }
+    });
+
+    let user = {};
+
+    function writeUserData(user) {
+      const userRef = firebase.database().ref(`users/${user.uid}`);
+      userRef.set(user);
+    }
+
+    function redirectToMain() {
+      const userLoggedIn = parseInt(sessionStorage.getItem('userLoggedIn'));
+      if (userLoggedIn)
+        location.replace('../');
+    }
+
+    function login() {
+      firebase.auth().signInWithEmailAndPassword(email, password);
+      firebase.auth().onAuthStateChanged((firebaseUser) => {
+        if (firebaseUser) {
+          user = {
+            uid: firebaseUser.uid,
+            displayName: fullName,
+            email,
+            phoneNumber: '',
+            photoURL: '',
+            providerId: 'password',
+          }
+          writeUserData(user);
+          sessionStorage.setItem('loggedInUser', JSON.stringify(user));
+          sessionStorage.setItem('userLoggedIn', '1');
+          window.setTimeout(redirectToMain, 3000);
+        }
+      });
+    }
+
+    $('#registerButton').on('click', () => {
+      const termsCheck = document.getElementById('termsCheck').checked;
+      if (termsCheck && fullNameOK && emailOK && passwordOK) {
+        const auth = firebase.auth();
+        auth.createUserWithEmailAndPassword(email, password)
+          .catch((e) => console.log(e));
+      }
+      login();
+    });
+  </script>
 </body>
 
 </html>

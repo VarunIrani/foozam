@@ -168,27 +168,27 @@
               </div>
               <form role="form">
                 <div class="form-group mb-3">
-                  <div class="input-group input-group-alternative">
+                  <div id="emailInputGroup" class="input-group input-group-alternative">
                     <div class="input-group-prepend">
                       <span class="input-group-text">
                         <i class="tim-icons icon-email-85"></i>
                       </span>
                     </div>
-                    <input class="form-control" placeholder="Email" type="email">
+                    <input id="emailInput" class="form-control form-control-lg" placeholder="Email" type="email">
                   </div>
                 </div>
                 <div class="form-group">
-                  <div class="input-group input-group-alternative">
+                  <div id="passwordInputGroup" class="input-group input-group-alternative">
                     <div class="input-group-prepend">
                       <span class="input-group-text">
                         <i class="tim-icons icon-key-25"></i>
                       </span>
                     </div>
-                    <input class="form-control" placeholder="Password" type="password">
+                    <input id="passwordInput" class="form-control form-control-lg" placeholder="Password" type="password">
                   </div>
                 </div>
                 <div class="text-center">
-                  <button type="button" class="btn btn-primary my-4 mr-2">Sign In</button>
+                  <button id="logInButton" type="button" class="btn btn-primary my-4 mr-2">Sign In</button>
                   <a href="register.html" class="btn btn-danger my-4">Register</a>
                 </div>
               </form>
@@ -220,6 +220,8 @@
     import config from '../database/firebase-config.js';
 
     $(document).ready(function() {
+      sessionStorage.setItem('googleLoggedIn', '0');
+      sessionStorage.setItem('userLoggedIn', '0');
       blackKit.initDatePicker();
       blackKit.initSliders();
     });
@@ -235,19 +237,85 @@
 
     firebase.initializeApp(config);
 
+    function writeUserData(uid, user) {
+      const userRef = firebase.database().ref(`users/${uid}`);
+      userRef.set(user);
+    }
+
+    function redirectToMain() {
+      const loggedIn = parseInt(sessionStorage.getItem('googleLoggedIn')) || parseInt(sessionStorage.getItem('userLoggedIn'));
+      if (loggedIn)
+        location.replace('../');
+    }
+
     $('#googleAuthButton').on('click', () => {
       const provider = new firebase.auth.GoogleAuthProvider();
       firebase.auth().useDeviceLanguage();
       firebase.auth().signInWithPopup(provider)
         .then((result) => {
           const user = result.user.providerData[0];
+          const uid = result.user.uid;
           sessionStorage.setItem('googleUser', JSON.stringify(user));
           sessionStorage.setItem('googleLoggedIn', '1');
-          location.replace(`https://foozam.ml`);
+          writeUserData(uid, user);
+          window.setTimeout(redirectToMain, 3000);
         })
         .catch((e) => {
           console.log(e);
         });
+    });
+
+    const $emailInput = $('#emailInput');
+    const $passInput = $('#passwordInput');
+    let email;
+    let password;
+    let emailOK = false;
+
+    function isEmail(email) {
+      const regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+      return regex.test(email);
+    }
+
+    $emailInput.keyup(() => {
+      email = $emailInput.val();
+      if (isEmail(email)) {
+        $('#emailInputGroup').addClass('has-success');
+        $('#emailInputGroup').removeClass('has-danger');
+        emailOK = true;
+      } else {
+        $('#emailInputGroup').removeClass('has-success');
+        $('#emailInputGroup').addClass('has-danger');
+        emailOK = false;
+      }
+    });
+
+    $passInput.keyup(() => {
+      password = $passInput.val();
+    });
+
+    $('#logInButton').on('click', () => {
+      if (emailOK) {
+        const auth = firebase.auth();
+        auth.signInWithEmailAndPassword(email, password)
+          .then(() => {
+            firebase.auth().onAuthStateChanged((firebaseUser) => {
+              const userEmail = firebaseUser.providerData[0].email;
+              const usersRef = firebase.database().ref().child('users');
+              const query = usersRef.orderByChild('email').equalTo(userEmail).limitToFirst(1);
+              query.on('value', (snap) => {
+                const key = Object.keys(snap.val())[0];
+                const result = snap.child(key).val();
+                console.log(result);
+                sessionStorage.setItem('loggedInUser', JSON.stringify(result))
+              });
+            });
+            sessionStorage.setItem('userLoggedIn', '1');
+            window.setTimeout(redirectToMain, 3000);
+          })
+          .catch((e) => {
+            alert(e.message);
+          });
+      }
     });
 
   </script>
