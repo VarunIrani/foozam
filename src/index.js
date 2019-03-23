@@ -64,6 +64,8 @@ pred.forEach((prediction) => {
   });
 });
 
+const GROUPS = ['indian_snacks', 'indian_desserts', 'fast_food', 'foreign_desserts', 'italian_food'];
+
 const modelButton = document.getElementById('model-dropdown-button');
 const modelTypes = [];
 let modelIndex;
@@ -74,16 +76,16 @@ const groups = [];
 modelTypes.forEach((modelType) => {
   groups.push(modelType.innerHTML);
   modelType.addEventListener('click', () => {
-    modelButton.innerHTML = modelType.innerHTML;
-    modelIndex = modelTypes.indexOf(modelType);
+    window.location.reload();
   });
 });
 
 function predict(image, callback) {
   const ports = [5000, 5500, 7000, 7500, 8000];
   let url;
+  const currentIndex = GROUPS.indexOf(sessionStorage.getItem('currentGroup'));
   if (modelIndex) url = `http://localhost:${ports[modelIndex]}/predict`;
-  else url = 'http://localhost:5000/predict';
+  else url = `http://localhost:${ports[currentIndex]}/predict`;
   console.log(url);
   const settings = {
     async: true,
@@ -97,7 +99,6 @@ function predict(image, callback) {
   };
 
   $.ajax(settings).done((response) => {
-    console.log(response);
     callback(response);
   });
 }
@@ -114,16 +115,21 @@ function previewFile() {
     imageRef.push(reader.result);
     image2base64(preview.src).then((image) => {
       predict(image, (res) => {
-        const foozamGuess = document.getElementById('foozam-guess');
-        foozamGuess.innerHTML = 'Foozam Guesses That The Image Contains . . .';
-        const results = [];
-        results.push(res.predictions[0].label);
-        pred[0].innerHTML = results[0].toUpperCase();
-        resultTitle.innerHTML = 'Foozam Results For ';
-        resultTitle.innerHTML = resultTitle.innerHTML.concat(pred[0].innerHTML);
-        recipes(pred[0]);
-        restaurants(pred[0]);
-        pred[0].setAttribute('style', 'opacity: 1');
+        if (res.success) {
+          const foozamGuess = document.getElementById('foozam-guess');
+          foozamGuess.innerHTML = 'Foozam Guesses That The Image Contains . . .';
+          const results = [];
+          results.push(res.predictions[0].label);
+          pred[0].innerHTML = results[0].toUpperCase();
+          resultTitle.innerHTML = 'Foozam Results For ';
+          resultTitle.innerHTML = resultTitle.innerHTML.concat(pred[0].innerHTML);
+          recipes(pred[0]);
+          restaurants(pred[0]);
+          pred[0].setAttribute('style', 'opacity: 1');
+        } else {
+          pred[0].innerHTML = 'The image you uploaded is not one of the above categories'.toUpperCase();
+          pred[0].setAttribute('style', 'opacity: 1');
+        }
       });
     });
   });

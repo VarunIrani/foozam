@@ -423,10 +423,13 @@
   <script>
     function loggedInUser() {
       const googleLoggedIn = parseInt(sessionStorage.getItem('googleLoggedIn'));
+      const userLoggedIn = parseInt(sessionStorage.getItem('userLoggedIn'));
       if (googleLoggedIn) {
         const user = JSON.parse(sessionStorage.getItem('googleUser'));
         const userProfilePhoto = document.getElementById('userProfilePhoto');
         userProfilePhoto.setAttribute('src', user.photoURL);
+      } else if (userLoggedIn) {
+        const user = JSON.parse(sessionStorage.getItem('loggedInUser'));
       }
     }
     $(document).ready(function () {

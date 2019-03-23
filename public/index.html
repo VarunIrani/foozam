@@ -95,6 +95,7 @@
               </button>
             </div>
             <a class="navbar-brand" href="javascript:void(0)">Know Your Food</a>
+            <button data-toggle="modal" data-target="#myModal2" style="opacity: 0">Login Modal</button>
           </div>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-expanded="false"
             aria-label="Toggle navigation">
@@ -238,7 +239,7 @@
                     <img src="" alt="" id="foozam-img" class="pb-3 pt-3" />
                   </div>
                   <div class="col-lg-7 col-md-12" >
-                    <h4 id="foozam-guess">Pick a Category & tap the brain to upload an image</h4>
+                    <h4 id="foozam-guess">Awesome Results 😎</h4>
                     <div class="row justify-content-center">
                       <button class="btn btn-danger" id="pred-1"></button>
                     </div>
@@ -339,6 +340,53 @@
       </ul>
     </div>
   </div>
+  <div class="modal fade modal-black" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header justify-content-center">
+          <div class="text-muted text-center ml-auto mr-auto">
+            <h3 class="mb-0">Sign in with</h3>
+          </div>
+        </div>
+        <div class="modal-body">
+          <div class="btn-wrapper text-center">
+            <button class="btn btn-neutral btn-icon btn-lg" id="googleAuthButton">
+              <img src="../assets/img/google.svg">
+            </button>
+          </div>
+          <div class="text-center text-muted mb-4 mt-3">
+            <h4>Or sign in with credentials</h4>
+          </div>
+          <form role="form">
+            <div class="form-group mb-3">
+              <div id="emailInputGroup" class="input-group input-group-alternative">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">
+                    <i class="tim-icons icon-email-85"></i>
+                  </span>
+                </div>
+                <input id="emailInput" class="form-control form-control-lg" placeholder="Email" type="email">
+              </div>
+            </div>
+            <div class="form-group">
+              <div id="passwordInputGroup" class="input-group input-group-alternative">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">
+                    <i class="tim-icons icon-key-25"></i>
+                  </span>
+                </div>
+                <input id="passwordInput" class="form-control form-control-lg" placeholder="Password" type="password">
+              </div>
+            </div>
+            <div class="text-center">
+              <button id="logInButton" type="button" class="btn btn-primary my-4 mr-2">Sign In</button>
+              <a href="home/register.html" class="btn btn-danger my-4">Register</a>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
   <!--   Core JS Files   -->
   <script src="./assets/js/core/jquery.min.js"></script>
   <script src="./assets/js/core/popper.min.js"></script>
@@ -349,7 +397,9 @@
   <!-- Control Center for Black Dashboard: parallax effects, scripts for the example pages etc -->
   <script src="./assets/js/black-dashboard.min.js?v=1.0.0"></script>
   <script src="./assets/js/plugins/owl.carousel.min.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.9.0/firebase.js"></script>
   <script>
+    // import config from './database/firebase-config.js';
     document.body.className += ' fade-out';
     let currentGroup = 'indian_snacks';
     const GROUPS = [
@@ -457,15 +507,86 @@
       sessionStorage.setItem('clicked', '0')
     }
 
+    // firebase.initializeApp(config);
+
     function loggedInUser() {
       const googleLoggedIn = parseInt(sessionStorage.getItem('googleLoggedIn'));
+      const userLoggedIn = parseInt(sessionStorage.getItem('userLoggedIn'));
       if (googleLoggedIn) {
         const user = JSON.parse(sessionStorage.getItem('googleUser'));
         const userProfilePhoto = document.getElementById('userProfilePhoto');
         userProfilePhoto.setAttribute('src', user.photoURL);
+      } else if (userLoggedIn) {
+        const user = JSON.parse(sessionStorage.getItem('loggedInUser'));
       }
     }
 
+    // function checkLoggedIn() {
+    //   const googleLoggedIn = parseInt(sessionStorage.getItem('googleLoggedIn'));
+    //   const userLoggedIn = parseInt(sessionStorage.getItem('userLoggedIn'));
+    //   const loggedIn = !googleLoggedIn && !userLoggedIn;
+    //   return loggedIn;
+    // }
+
+    function redirectToMain() {
+      const loggedIn = parseInt(sessionStorage.getItem('googleLoggedIn')) || parseInt(sessionStorage.getItem('userLoggedIn'));
+      if (loggedIn)
+        location.replace('../');
+    }
+
+    // const $emailInput = $('#emailInput');
+    // const $passInput = $('#passwordInput');
+    // let email;
+    // let password;
+    // let emailOK = false;
+
+    // function isEmail(email) {
+    //   const regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+    //   return regex.test(email);
+    // }
+
+    // $emailInput.keyup(() => {
+    //   email = $emailInput.val();
+    //   if (isEmail(email)) {
+    //     $('#emailInputGroup').addClass('has-success');
+    //     $('#emailInputGroup').removeClass('has-danger');
+    //     emailOK = true;
+    //   } else {
+    //     $('#emailInputGroup').removeClass('has-success');
+    //     $('#emailInputGroup').addClass('has-danger');
+    //     emailOK = false;
+    //   }
+    // });
+
+    // $passInput.keyup(() => {
+    //   password = $passInput.val();
+    // });
+
+    // $('#logInButton').on('click', () => {
+    //   if (emailOK) {
+    //     const auth = firebase.auth();
+    //     auth.signInWithEmailAndPassword(email, password)
+    //       .then(() => {
+    //         firebase.auth().onAuthStateChanged((firebaseUser) => {
+    //           const userEmail = firebaseUser.providerData[0].email;
+    //           const usersRef = firebase.database().ref().child('users');
+    //           const query = usersRef.orderByChild('email').equalTo(userEmail).limitToFirst(1);
+    //           query.on('value', (snap) => {
+    //             const key = Object.keys(snap.val())[0];
+    //             const result = snap.child(key).val();
+    //             console.log(result);
+    //             sessionStorage.setItem('loggedInUser', JSON.stringify(result))
+    //           });
+    //         });
+    //         sessionStorage.setItem('userLoggedIn', '1');
+    //         window.setTimeout(redirectToMain, 3000);
+    //       })
+    //       .catch((e) => {
+    //         alert(e.message);
+    //       });
+    //   }
+    // });
+    
     $(document).ready(function () {
       $().ready(function () {
         loggedInUser();
@@ -600,7 +721,6 @@
         });
       });
     });
-    
   </script>
 </body>
 
