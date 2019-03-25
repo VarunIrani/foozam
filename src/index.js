@@ -52,10 +52,12 @@ function restaurants(prediction) {
   }
 }
 
-pred.push(document.getElementById(`pred-${1}`));
-pred[0].setAttribute('style', 'opacity: 0');
+for (let i = 1; i <= 2; i += 1) {
+  pred.push(document.getElementById(`pred-${i}`));
+}
 
 pred.forEach((prediction) => {
+  prediction.setAttribute('style', 'opacity: 0');
   prediction.addEventListener('click', () => {
     resultTitle.innerHTML = 'Foozam Results For ';
     resultTitle.innerHTML = resultTitle.innerHTML.concat(prediction.innerHTML);
@@ -66,7 +68,7 @@ pred.forEach((prediction) => {
 
 const GROUPS = ['indian_snacks', 'indian_desserts', 'fast_food', 'foreign_desserts', 'italian_food'];
 
-const modelButton = document.getElementById('model-dropdown-button');
+// const modelButton = document.getElementById('model-dropdown-button');
 const modelTypes = [];
 let modelIndex;
 for (let i = 0; i < 5; i += 1) {
@@ -126,9 +128,12 @@ function previewFile() {
           recipes(pred[0]);
           restaurants(pred[0]);
           pred[0].setAttribute('style', 'opacity: 1');
+          pred[1].setAttribute('style', 'opacity: 0');
         } else {
-          pred[0].innerHTML = 'The image you uploaded is not one of the above categories'.toUpperCase();
+          pred[0].innerHTML = 'Try uploading a better image of the food item.'.toUpperCase();
+          pred[1].innerHTML = 'Or upload an image that is one of the above categories'.toUpperCase();
           pred[0].setAttribute('style', 'opacity: 1');
+          pred[1].setAttribute('style', 'opacity: 1');
         }
       });
     });
