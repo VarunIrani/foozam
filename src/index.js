@@ -66,11 +66,11 @@ pred.forEach((prediction) => {
   });
 });
 
-const GROUPS = ['indian_snacks', 'indian_desserts', 'fast_food', 'foreign_desserts', 'italian_food'];
+// const GROUPS = ['indian_snacks', 'indian_desserts', 'fast_food',
+// 'foreign_desserts', 'italian_food'];
 
 // const modelButton = document.getElementById('model-dropdown-button');
 const modelTypes = [];
-let modelIndex;
 for (let i = 0; i < 5; i += 1) {
   modelTypes.push(document.getElementById(`type-${i}`));
 }
@@ -83,12 +83,9 @@ modelTypes.forEach((modelType) => {
 });
 
 function predict(image, callback) {
-  const ports = [5000, 5500, 7000, 7500, 8000];
-  let url;
+  // const ports = [5000, 5500, 7000, 7500, 8000];
   const currentIndex = GROUPS.indexOf(sessionStorage.getItem('currentGroup'));
-  if (modelIndex) url = `http://localhost:${ports[modelIndex]}/predict`;
-  else url = `http://localhost:${ports[currentIndex]}/predict`;
-  console.log(url);
+  const url = `https://foozam-${currentIndex}.herokuapp.com/predict`;
   const settings = {
     async: true,
     crossDomain: true,
@@ -97,7 +94,7 @@ function predict(image, callback) {
     headers: {
       'Content-Type': 'application/x-www-form-urlencoded',
     },
-    data: { img: image },
+    data: { img: image, group: sessionStorage.getItem('currentGroup') },
   };
 
   $.ajax(settings).done((response) => {

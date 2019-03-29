@@ -5,7 +5,7 @@
 /* eslint-disable template-tag-spacing */
 /* eslint-disable eol-last */
 /* eslint-disable no-tabs */
-import { LitElement, html } from '@polymer/lit-element';
+import { LitElement, html } from 'lit-element';
 
 export default class KnowMoreRestaurant extends LitElement {
   static get properties() {

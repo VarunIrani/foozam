@@ -6,7 +6,7 @@
 import $ from 'jquery';
 
 export function getRecipes(apiKey, appID, query, from, to, callback) {
-  const url = `http://localhost:9000/recipe?app_id=${appID}&app_key=${apiKey}&q=${query}&from=${from}&to=${to}`;
+  const url = `https://foozam-recipe.herokuapp.com/recipe?app_id=${appID}&app_key=${apiKey}&q=${query}&from=${from}&to=${to}`;
   const settings = {
     async: true,
     crossDomain: true,
