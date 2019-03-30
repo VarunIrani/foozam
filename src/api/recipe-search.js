@@ -6,7 +6,7 @@
 import $ from 'jquery';
 
 export function getRecipes(apiKey, appID, query, from, to, callback) {
-  const url = `https://foozam-recipe.herokuapp.com/recipe?app_id=${appID}&app_key=${apiKey}&q=${query}&from=${from}&to=${to}`;
+  const url = `https://foozam-recipe.localtunnel.me/recipe?app_id=${appID}&app_key=${apiKey}&q=${query}&from=${from}&to=${to}`;
   const settings = {
     async: true,
     crossDomain: true,
@@ -15,7 +15,6 @@ export function getRecipes(apiKey, appID, query, from, to, callback) {
   };
 
   $.ajax(settings).done((response) => {
-    console.log(response);
     callback(response);
   });
 }
