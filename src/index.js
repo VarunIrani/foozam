@@ -127,8 +127,8 @@ function previewFile() {
           pred[0].setAttribute('style', 'opacity: 1');
           pred[1].setAttribute('style', 'opacity: 0');
         } else {
-          pred[0].innerHTML = 'Try uploading a better image of the food item.'.toUpperCase();
-          pred[1].innerHTML = 'Or upload an image that is one of the above categories'.toUpperCase();
+          pred[0].innerHTML = 'Try uploading a better picture.'.toUpperCase();
+          pred[1].innerHTML = 'Perhaps of the above food items'.toUpperCase();
           pred[0].setAttribute('style', 'opacity: 1');
           pred[1].setAttribute('style', 'opacity: 1');
         }
