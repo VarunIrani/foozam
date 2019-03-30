@@ -186,21 +186,21 @@
                 <div class="row" style="text-align: center">
                   <div class="col-md-12 col-lg-12 col-sm-12" style="text-align: center">
                     <div id="grp-menu" class="grp-menu">
-                      <div class="grp" id="grp-0">
+											<div class="grp" id="grp-0">
+												<img class="grp-image" src="./assets/img/grp-images/desert.svg">
+												<h3 class="card-title grp-title" >Foreign Desserts</h3>
+											</div>
+											<div class="grp" id="grp-1">
+												<img class="grp-image" src="./assets/img/grp-images/fast-food.svg">
+												<h3 class="card-title grp-title" >Fast Food</h3>
+											</div>
+											<div class="grp" id="grp-2">
+												<img class="grp-image" src="./assets/img/grp-images/indian sweet.svg">
+												<h3 class="card-title grp-title" >Indian Desserts</h3>
+											</div>
+                      <div class="grp" id="grp-3">
                         <img class="grp-image" src="./assets/img/grp-images/indian food.svg">
                         <h3 class="card-title grp-title" >Indian Snacks</h3>
-                      </div>
-                      <div class="grp" id="grp-1">
-                        <img class="grp-image" src="./assets/img/grp-images/indian sweet.svg">
-                        <h3 class="card-title grp-title" >Indian Sweets</h3>
-                      </div>
-                      <div class="grp" id="grp-2">
-                        <img class="grp-image" src="./assets/img/grp-images/fast-food.svg">
-                        <h3 class="card-title grp-title" >Fast Food</h3>
-                      </div>
-                      <div class="grp" id="grp-3">
-                        <img class="grp-image" src="./assets/img/grp-images/desert.svg">
-                        <h3 class="card-title grp-title" >Foreign Desserts</h3>
                       </div>
                       <div class="grp" id="grp-4">
                         <img class="grp-image" src="./assets/img/grp-images/italian.svg">
@@ -227,10 +227,10 @@
                             Indian Snacks
                           </button>
                           <div id="model-dropdown" class="dropdown-menu">
-                            <a class="dropdown-item" id="type-0">Indian Snacks</a>
-                            <a class="dropdown-item" id="type-1">Indian Desserts</a>
-                            <a class="dropdown-item" id="type-2">Fast Food</a>
-                            <a class="dropdown-item" id="type-3">Foreign Desserts</a>
+                            <a class="dropdown-item" id="type-0">Foreign Desserts</a>
+                            <a class="dropdown-item" id="type-1">Fast Food</a>
+                            <a class="dropdown-item" id="type-2">Indian Desserts</a>
+                            <a class="dropdown-item" id="type-3">Indian Snacks</a>
                             <a class="dropdown-item" id="type-4">Italian Food</a>
                           </div>
                         </div>
@@ -404,10 +404,10 @@
     document.body.className += ' fade-out';
     let currentGroup = 'indian_snacks';
     const GROUPS = [
+			'foreign_desserts',
+			'fast_food',
+			'indian_desserts',
       'indian_snacks',
-      'indian_desserts',
-      'fast_food',
-      'foreign_desserts',
       'italian_food',
     ];
     function createCarousel(content) {

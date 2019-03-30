@@ -66,7 +66,7 @@ pred.forEach((prediction) => {
   });
 });
 
-const GROUPS = ['indian_snacks', 'indian_desserts', 'fast_food', 'foreign_desserts', 'italian_food'];
+const GROUPS = ['foreign_desserts', 'fast_food', 'indian_desserts', 'indian_snacks', 'italian_food'];
 
 // const modelButton = document.getElementById('model-dropdown-button');
 const modelTypes = [];
