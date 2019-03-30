@@ -16418,41 +16418,95 @@ textarea.form-control:active {
   border-radius: 20%;
 }
 
-.index-page .squares.square1 {
-  animation: move-left-right 4s infinite;
-  height: 300px;
-  width: 300px;
-  opacity: 0.5;
-  left: 3%;
-  top: -21%;
+@media only screen and (max-width: 768px) {
+	.index-page .squares.square1 {
+		animation: move-left-right 4s infinite;
+		height: 150px;
+		width: 150px;
+		opacity: 0.9;
+		left: 3%;
+		top: 75%;
+	}	
 }
 
-.index-page .squares.square2 {
-  animation: move-left-right 6s infinite;
-  height: 400px;
-  width: 400px;
-  opacity: 0.4;
-  right: -5%;
-  top: -12%;
+@media only screen and (min-width: 768px) {
+	.index-page .squares.square1 {
+		animation: move-left-right 4s infinite;
+		height: 300px;
+		width: 300px;
+		opacity: 0.5;
+		left: 3%;
+		top: -21%;
+	}
 }
 
-.index-page .squares.square3 {
-  animation: move-left-right 5s infinite;
-  height: 200px;
-  width: 200px;
-  opacity: 0.1;
-  left: -5%;
-  bottom: 0%;
+@media only screen and (max-width: 768px) {
+	.index-page .squares.square2 {
+		animation: move-left-right 6s infinite;
+		height: 200px;
+		width: 200px;
+		opacity: 0.4;
+		right: -5%;
+		top: 12%;
+	}
 }
 
-.index-page .squares.square4 {
-  animation: move-left-right 10s infinite;
-  height: 100px;
-  width: 100px;
-  opacity: 0.9;
-  right: 27%;
-  top: 70%;
+@media only screen and (min-width: 768px) {
+	.index-page .squares.square2 {
+		animation: move-left-right 6s infinite;
+		height: 400px;
+		width: 400px;
+		opacity: 0.4;
+		right: -5%;
+		top: -12%;
+	}
 }
+
+@media only screen and (max-width: 768px) {
+	.index-page .squares.square3 {
+		animation: move-left-right 5s infinite;
+		height: 200px;
+		width: 200px;
+		opacity: 0.5;
+		display: none;
+		left: 5%;
+		bottom: 0%;
+	}
+}
+
+@media only screen and (min-width: 768px) {
+	.index-page .squares.square3 {
+		animation: move-left-right 5s infinite;
+		height: 200px;
+		width: 200px;
+		opacity: 0.5;
+		left: 5%;
+		bottom: 0%;
+	}
+}
+
+@media only screen and (max-width: 768px) {
+	.index-page .squares.square4 {
+		animation: move-left-right 10s infinite;
+		height: 150px;
+		width: 150px;
+		opacity: 0.6;
+		left: 5%;
+		top: 10%;
+	}
+}
+
+@media only screen and (min-width: 768px) {
+	.index-page .squares.square4 {
+		animation: move-left-right 10s infinite;
+		height: 150px;
+		width: 150px;
+		opacity: 0.9;
+		right: 27%;
+		top: 70%;
+	}
+}
+
 
 .index-page .squares.square5 {
   animation: move-left-right 6s infinite;
@@ -16463,22 +16517,48 @@ textarea.form-control:active {
   bottom: 29%;
 }
 
-.index-page .squares.square6 {
-  animation: move-left-right 9s infinite;
-  left: 10%;
-  top: 35%;
-  height: 80px;
-  width: 80px;
-  opacity: 0.8;
+@media only screen and (max-width: 768px) {
+	.index-page .squares.square6 {
+		animation: move-left-right 9s infinite;
+		left: 10%;
+		top: 35%;
+		height: 80px;
+		width: 80px;
+		opacity: 0.8;
+	}
 }
 
-.index-page .squares.square7 {
-  animation: move-left-right 3s infinite;
-  width: 300px;
-  height: 300px;
-  right: -5%;
-  bottom: 0%;
-  opacity: 0.1;
+@media only screen and (min-width: 768px) {
+	.index-page .squares.square6 {
+		animation: move-left-right 9s infinite;
+		left: 10%;
+		top: 35%;
+		height: 180px;
+		width: 180px;
+		opacity: 0.8;
+	}
+}
+
+@media only screen and (max-width: 768px) {
+	.index-page .squares.square7 {
+		animation: move-left-right 3s infinite;
+		width: 150px;
+		height: 150px;
+		right: -5%;
+		bottom: 0%;
+		opacity: 0.4;
+	}
+}
+
+@media only screen and (min-width: 768px) {
+	.index-page .squares.square7 {
+		animation: move-left-right 3s infinite;
+		width: 300px;
+		height: 300px;
+		right: -5%;
+		bottom: 0%;
+		opacity: 0.4;
+	}
 }
 
 .landing-page {
