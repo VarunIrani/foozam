@@ -84,7 +84,7 @@ modelTypes.forEach((modelType) => {
 function predict(image, callback) {
   // const ports = [5000, 5500, 7000, 7500, 8000];
   const currentIndex = GROUPS.indexOf(sessionStorage.getItem('currentGroup'));
-  const url = `https://foozam-${currentIndex}.localtunnel.me/predict`;
+  const url = `https://foozam-${currentIndex}.serveo.net/predict`;
   console.log(url);
   const settings = {
     async: true,

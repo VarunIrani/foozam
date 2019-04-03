@@ -6,7 +6,7 @@
 /* eslint-disable template-tag-spacing */
 /* eslint-disable eol-last */
 /* eslint-disable no-tabs */
-import { LitElement, html } from 'lit-element';
+import { LitElement, html, css } from 'lit-element';
 
 import Chart from 'chart.js';
 
@@ -56,6 +56,17 @@ export default class KnowMoreRecipe extends LitElement {
         type: Boolean,
       },
     };
+  }
+
+  static get styles() {
+    return css`
+			#favoriteIcon:hover {
+				color: gold;
+				font-size: 30px;
+				opacity: 0.6;
+				cursor: pointer;
+			}
+		`;
   }
 
   constructor() {
