@@ -34,7 +34,25 @@ export default class KnowMoreRestaurant extends LitElement {
       defaultImage: {
         type: String,
       },
+      favorite: {
+        type: Boolean,
+      },
     };
+  }
+
+  constructor() {
+    super();
+    this.favorite = false;
+  }
+
+  toggleFavorites() {
+    const favoriteIcon = this.renderRoot.querySelector('#favoriteIcon');
+    this.favorite = !this.favorite;
+    if (this.favorite) {
+      favoriteIcon.setAttribute('style', 'color: gold; font-size: 30px; opacity: 1');
+    } else {
+      favoriteIcon.setAttribute('style', 'color: grey; font-size: 30px; opacity: 0.6');
+    }
   }
 
   render() {
@@ -45,6 +63,9 @@ export default class KnowMoreRestaurant extends LitElement {
 			<div class="row">
 				<div class="col-lg-4 col-md-12" style="text-align: center">
 					<img src="${this.image || this.defaultImage}" alt="Restaurant Image" />
+					<div id="favoriteIcon" style="color: grey; font-size: 30px; opacity: 0.6;" @click="${this.toggleFavorites}">
+						<i class="fa fa-star"></i>
+					</div>
 				</div>
 				<div class="col-lg-8 col-md-12 pt-3" style="font-size: 12pt">
 					<p style="color: var(--dark)"><b class="font-weight-bold">Address</b> : ${this.address}</p>

@@ -52,7 +52,15 @@ export default class KnowMoreRecipe extends LitElement {
       nutrientsArray: {
         type: Array,
       },
+      favorite: {
+        type: Boolean,
+      },
     };
+  }
+
+  constructor() {
+    super();
+    this.favorite = false;
   }
 
   getIngredients() {
@@ -125,6 +133,16 @@ export default class KnowMoreRecipe extends LitElement {
     });
   }
 
+  toggleFavorites() {
+    const favoriteIcon = this.renderRoot.querySelector('#favoriteIcon');
+    this.favorite = !this.favorite;
+    if (this.favorite) {
+      favoriteIcon.setAttribute('style', 'color: gold; font-size: 30px; opacity: 1');
+    } else {
+      favoriteIcon.setAttribute('style', 'color: grey; font-size: 30px; opacity: 0.6');
+    }
+  }
+
   render() {
     const query = this.label.replace(/\s/g, '+');
     return html`
@@ -133,6 +151,9 @@ export default class KnowMoreRecipe extends LitElement {
 					<img src="${this.image || this.defaultImage}" alt="Recipe Image" />
 					<div class="row" style="text-align: center">
 						<div class="col-lg-12 col-md-12 pt-2">
+							<div id="favoriteIcon" style="color: grey; font-size: 30px; opacity: 0.6;" @click="${this.toggleFavorites}">
+								<i class="fa fa-star"></i>
+							</div>
 							<a href=${this.url} class="btn btn-success" target="_blank">Know More</a>
 						</div>
 					</div>

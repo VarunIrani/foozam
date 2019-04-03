@@ -141,15 +141,15 @@ function previewFile() {
   }
 }
 
-const loader = document.getElementById('loader');
+// const loader = document.getElementById('loader');
 
 function showBody() {
   $('body').removeClass('fade-out');
 }
 
 function hideLoader() {
-  loader.style.visibility = 'hidden';
-  $('body').addClass('fade-out');
+  // loader.style.visibility = 'hidden';
+  // $('body').addClass('fade-out');
   setTimeout(showBody, 0.1 * 1000);
 }
 
