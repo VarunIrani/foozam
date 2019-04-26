@@ -1,3 +1,4 @@
+/* eslint-disable radix */
 /* eslint-disable key-spacing */
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-undef */
@@ -6,9 +7,9 @@
 /* eslint-disable template-tag-spacing */
 /* eslint-disable eol-last */
 /* eslint-disable no-tabs */
-import { LitElement, html, css } from 'lit-element';
-
+import { LitElement, html } from 'lit-element';
 import Chart from 'chart.js';
+import database from '../database/database';
 
 export default class KnowMoreRecipe extends LitElement {
   static get properties() {
@@ -56,17 +57,6 @@ export default class KnowMoreRecipe extends LitElement {
         type: Boolean,
       },
     };
-  }
-
-  static get styles() {
-    return css`
-			#favoriteIcon:hover {
-				color: gold;
-				font-size: 30px;
-				opacity: 0.6;
-				cursor: pointer;
-			}
-		`;
   }
 
   constructor() {
@@ -144,9 +134,8 @@ export default class KnowMoreRecipe extends LitElement {
     });
   }
 
-  toggleFavorites() {
+  setFavorite() {
     const favoriteIcon = this.renderRoot.querySelector('#favoriteIcon');
-    this.favorite = !this.favorite;
     if (this.favorite) {
       favoriteIcon.setAttribute('style', 'color: gold; font-size: 30px; opacity: 1');
     } else {
@@ -154,16 +143,82 @@ export default class KnowMoreRecipe extends LitElement {
     }
   }
 
+  addToFavorites() {
+    const googleLoggedIn = parseInt(sessionStorage.getItem('googleLoggedIn'));
+    const userLoggedIn = parseInt(sessionStorage.getItem('userLoggedIn'));
+    let user;
+    if (googleLoggedIn) {
+      user = JSON.parse(sessionStorage.getItem('googleUser'));
+    } else if (userLoggedIn) {
+      user = JSON.parse(sessionStorage.getItem('loggedInUser'));
+    }
+    const favoriteRecipe = {
+      label: this.label,
+      ingredients: this.ingredients,
+      dietLabels: this.dietLabels,
+      healthLabels: this.healthLabels,
+      nutrients: this.nutrients,
+      source: this.source,
+      url: this.url,
+      image: this.image,
+      defaultImage: this.defaultImage,
+      favorite: this.favorite,
+    };
+    const favoritesRef = database.child('favorites');
+    favoritesRef
+      .child(`${user.uid}`)
+      .child('recipes')
+      .child(favoriteRecipe.label)
+      .set(favoriteRecipe);
+  }
+
+  removeFromFavorites() {
+    const googleLoggedIn = parseInt(sessionStorage.getItem('googleLoggedIn'));
+    const userLoggedIn = parseInt(sessionStorage.getItem('userLoggedIn'));
+    let user;
+    if (googleLoggedIn) {
+      user = JSON.parse(sessionStorage.getItem('googleUser'));
+    } else if (userLoggedIn) {
+      user = JSON.parse(sessionStorage.getItem('loggedInUser'));
+    }
+    const favoritesRef = database.child('favorites');
+    favoritesRef
+      .child(`${user.uid}`)
+      .child('recipes')
+      .child(this.label)
+      .remove();
+  }
+
+  toggleFavorites() {
+    const favoriteIcon = this.renderRoot.querySelector('#favoriteIcon');
+    this.favorite = !this.favorite;
+    if (this.favorite) {
+      this.addToFavorites();
+      favoriteIcon.setAttribute('style', 'color: gold; font-size: 30px; opacity: 1');
+    } else {
+      this.removeFromFavorites();
+      favoriteIcon.setAttribute('style', 'color: grey; font-size: 30px; opacity: 0.6');
+    }
+  }
+
   render() {
     const query = this.label.replace(/\s/g, '+');
     return html`
+			<style>
+				#favorite:hover {
+					color: gold; 
+					font-size: 30px; 
+					opacity: 0.6;
+					cursor: pointer;
+				}
+			</style>
 			<div class="row">
 				<div class="col-lg-4 col-md-12" style="text-align: center">
 					<img src="${this.image || this.defaultImage}" alt="Recipe Image" />
 					<div class="row" style="text-align: center">
 						<div class="col-lg-12 col-md-12 pt-2">
-							<div id="favoriteIcon" style="color: grey; font-size: 30px; opacity: 0.6;" @click="${this.toggleFavorites}">
-								<i class="fa fa-star"></i>
+							<div id="favoriteIcon" style="color: grey; font-size: 30px; opacity: 0.6;">
+								<i id="favorite" class="fa fa-star" @click="${this.toggleFavorites}"></i>
 							</div>
 							<a href=${this.url} class="btn btn-success" target="_blank">Know More</a>
 						</div>

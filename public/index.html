@@ -9,7 +9,7 @@
   <title>Foozam</title>
   <!--     Fonts and icons     -->
   <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,600,700,800" rel="stylesheet" />
-	<link href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" rel="stylesheet" />
+  <link href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" rel="stylesheet" />
   <!-- Nucleo Icons -->
   <link href="./assets/css/nucleo-icons.css" rel="stylesheet" />
   <!-- CSS Files -->
@@ -44,7 +44,7 @@
             </a>
           </li>
           <li>
-            <a href="#">
+            <a href="./favorites.html">
               <i class="tim-icons icon-shape-star"></i>
               <p>Favourites</p>
             </a>
@@ -89,10 +89,10 @@
               </button>
             </div>
             <a class="navbar-brand" href="javascript:void(0)">Know Your Food</a>
-						<button data-toggle="modal" data-target="#myModal2" style="opacity: 0">Login Modal</button>
-					</div>
-					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-expanded="false"
-            aria-label="Toggle navigation">
+            <button data-toggle="modal" data-target="#myModal2" style="opacity: 0">Login Modal</button>
+          </div>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation"
+            aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-bar navbar-kebab"></span>
             <span class="navbar-toggler-bar navbar-kebab"></span>
             <span class="navbar-toggler-bar navbar-kebab"></span>
@@ -108,7 +108,7 @@
               <li class="dropdown nav-item">
                 <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
                   <div class="photo">
-                    <img src="./assets/img/anime3.png" alt="Profile Photo" id="userProfilePhoto"/>
+                    <img src="./assets/img/anime3.png" alt="Profile Photo" id="userProfilePhoto" />
                   </div>
                   <b class="caret d-none d-lg-block d-xl-block"></b>
                   <p class="d-lg-none">Log out</p>
@@ -142,20 +142,22 @@
         </div>
       </div>
       <!-- End Navbar -->
-      <label class="btn btn-primary btn-fab btn-icon btn-round btn-lg" style="position: fixed; bottom: 15px; z-index: 10; right: 15px;">
+      <label class="btn btn-primary btn-fab btn-icon btn-round btn-lg"
+        style="position: fixed; bottom: 15px; z-index: 10; right: 15px;">
         <img src="./assets/img/favicon.png" alt="Foozam Logo" width="35px" style="margin-top: 12px" />
       </label>
       <div class="content">
         <div class="row">
           <div class="col-lg-12 col-md-12">
             <div class="card">
-              <label id="backButton" class="btn btn-success btn-icon btn-round" style="display:none" onclick="location.reload()">
+              <label id="backButton" class="btn btn-success btn-icon btn-round" style="display:none"
+                onclick="location.reload()">
                 <img src="./assets/img/left-arrow.svg" alt="Foozam Logo" style="margin-top: 5px; width: 70%;" />
               </label>
               <div class="card-header" style="text-align: center">
                 <h3 class="title" id="grp-card-title">Which one of these food groups does your food item belong to?</h3>
               </div>
-              <div class="card-body" >
+              <div class="card-body">
                 <div class="row">
                   <div class="col-lg-12" id="category-carousel">
                     <div class="owl-carousel owl-theme">
@@ -173,32 +175,33 @@
                   <div class="col-lg-12 col-md-12" style="text-align: center;">
                     <label class="btn btn-info btn-icon btn-round btn-lg">
                       <input type="file" name="img-file" id="img-file" style="display: none" />
-                      <img src="./assets/img/camera.svg" alt="Foozam Logo" width="35px" style="margin-top: 10px; filter: invert(100%);" />
+                      <img src="./assets/img/camera.svg" alt="Foozam Logo" width="35px"
+                        style="margin-top: 10px; filter: invert(100%);" />
                     </label>
                   </div>
                 </div>
                 <div class="row" style="text-align: center">
                   <div class="col-md-12 col-lg-12 col-sm-12">
                     <div id="grp-menu" class="grp-menu" style="float: none; margin: 0 auto;">
-											<div class="grp" id="grp-0">
-												<img class="grp-image" src="./assets/img/grp-images/desert.svg">
-												<h3 class="card-title grp-title" >Foreign Desserts</h3>
-											</div>
-											<div class="grp" id="grp-1">
-												<img class="grp-image" src="./assets/img/grp-images/fast-food.svg">
-												<h3 class="card-title grp-title" >Fast Food</h3>
-											</div>
-											<div class="grp" id="grp-2">
-												<img class="grp-image" src="./assets/img/grp-images/indian sweet.svg">
-												<h3 class="card-title grp-title" >Indian Desserts</h3>
-											</div>
+                      <div class="grp" id="grp-0">
+                        <img class="grp-image" src="./assets/img/grp-images/desert.svg">
+                        <h3 class="card-title grp-title">Foreign Desserts</h3>
+                      </div>
+                      <div class="grp" id="grp-1">
+                        <img class="grp-image" src="./assets/img/grp-images/fast-food.svg">
+                        <h3 class="card-title grp-title">Fast Food</h3>
+                      </div>
+                      <div class="grp" id="grp-2">
+                        <img class="grp-image" src="./assets/img/grp-images/indian sweet.svg">
+                        <h3 class="card-title grp-title">Indian Desserts</h3>
+                      </div>
                       <div class="grp" id="grp-3">
                         <img class="grp-image" src="./assets/img/grp-images/indian food.svg">
-                        <h3 class="card-title grp-title" >Indian Snacks</h3>
+                        <h3 class="card-title grp-title">Indian Snacks</h3>
                       </div>
                       <div class="grp" id="grp-4">
                         <img class="grp-image" src="./assets/img/grp-images/italian.svg">
-                        <h3 class="card-title grp-title" >Italian Food</h3>
+                        <h3 class="card-title grp-title">Italian Food</h3>
                       </div>
                     </div>
                   </div>
@@ -217,7 +220,8 @@
                     <div class="row">
                       <div class="col-lg-12 col-md-12">
                         <div class="btn-group">
-                          <button id="model-dropdown-button" type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          <button id="model-dropdown-button" type="button" class="btn btn-info dropdown-toggle"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Indian Snacks
                           </button>
                           <div id="model-dropdown" class="dropdown-menu">
@@ -233,9 +237,9 @@
                     <img src="" alt="" id="foozam-img" class="pb-3 pt-3" />
                   </div>
                   <div class="col-lg-7 col-md-12 justify-content-center">
-										<h4 id="foozam-guess">Awesome Results 😎</h4>
-										<button class="btn btn-danger btn-lg btn-block" id="pred-1"></button>
-										<button class="btn btn-info btn-lg btn-block" id="pred-2"></button>
+                    <h4 id="foozam-guess">Awesome Results 😎</h4>
+                    <button class="btn btn-danger btn-lg btn-block" id="pred-1"></button>
+                    <button class="btn btn-info btn-lg btn-block" id="pred-2"></button>
                   </div>
                 </div>
               </div>
@@ -253,12 +257,14 @@
               <div class="card-body">
                 <ul class="nav nav-pills" role="tablist">
                   <li class="nav-item">
-                    <a class="nav-link active" data-toggle="tab" href="#link1" role="tablist" aria-expanded="true" id="reci-tab">
+                    <a class="nav-link active" data-toggle="tab" href="#link1" role="tablist" aria-expanded="true"
+                      id="reci-tab">
                       Recipes
                     </a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" data-toggle="tab" href="#link2" role="tablist" aria-expanded="false" id="rest-tab">
+                    <a class="nav-link" data-toggle="tab" href="#link2" role="tablist" aria-expanded="false"
+                      id="rest-tab">
                       Restaurants
                     </a>
                   </li>
@@ -333,7 +339,8 @@
       </ul>
     </div>
   </div>
-  <div class="modal fade modal-black" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal fade modal-black" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+    aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header justify-content-center">
@@ -396,34 +403,35 @@
     document.body.className += ' fade-out';
     let currentGroup = 'indian_snacks';
     const GROUPS = [
-			'foreign_desserts',
-			'fast_food',
-			'indian_desserts',
+      'foreign_desserts',
+      'fast_food',
+      'indian_desserts',
       'indian_snacks',
       'italian_food',
     ];
+
     function createCarousel(content) {
       const $categoryCarousel = $('.owl-carousel');
       const $categoryCarouselContainer = $('#category-carousel');
       const carouselOptions = {
-        loop:true,
-        margin:10,
+        loop: true,
+        margin: 10,
         autoplay: true,
         autoplayTimeout: 2000,
-        responsiveClass:true,
-        responsive:{
-          0:{
-            items:1,
-            nav:false
+        responsiveClass: true,
+        responsive: {
+          0: {
+            items: 1,
+            nav: false
           },
-          600:{
-            items:3,
-            nav:false
+          600: {
+            items: 3,
+            nav: false
           },
-          1000:{
-            items:5,
-            nav:false,
-            loop:true
+          1000: {
+            items: 5,
+            nav: false,
+            loop: true
           }
         }
       }
@@ -435,11 +443,11 @@
       $categoryCarousel.owlCarousel(carouselOptions);
       $categoryCarousel.trigger('initialize.owl.carousel');
     }
-
+    // Carousel Logic Start: Select Associated Images
     function storeContent(currentGroup) {
       const CAROUSEL_COUNT = 10;
       let content = '';
-      
+
       for (let i = 0; i < CAROUSEL_COUNT; i += 1) {
         let imgURL = `https://foozam.ml/assets/img/${currentGroup}/img-${i}.jpg`;
         content += `<div><img src="${imgURL}" alt="${currentGroup}"></div>`;
@@ -451,6 +459,7 @@
     for (let i = 0; i < 5; i += 1) {
       groups.push(document.getElementById(`grp-${i}`));
     }
+    // Update carousel with images
     function updateCarousel() {
       const grpCardTitle = document.getElementById('grp-card-title');
       const grpMenu = document.getElementById('grp-menu');
@@ -474,6 +483,8 @@
         });
       }
     }
+
+
 
     function hideGroups(i) {
       const grpCardTitle = document.getElementById('grp-card-title');
@@ -522,7 +533,8 @@
     }
 
     function redirectToMain() {
-      const loggedIn = parseInt(sessionStorage.getItem('googleLoggedIn')) || parseInt(sessionStorage.getItem('userLoggedIn'));
+      const loggedIn = parseInt(sessionStorage.getItem('googleLoggedIn')) || parseInt(sessionStorage.getItem(
+        'userLoggedIn'));
       if (loggedIn)
         location.replace('../');
     }
@@ -579,13 +591,14 @@
           });
       }
     });
-    
+
     $(document).ready(function () {
       $().ready(function () {
-				console.log(checkLoggedIn());
-				if (!checkLoggedIn()) {
-					location.replace('home');
-				}
+        console.log(checkLoggedIn());
+        // Redirect to home page if not logged in
+        if (!checkLoggedIn()) {
+          location.replace('home');
+        }
         loggedInUser();
         updateCarousel();
         const previousI = sessionStorage.getItem('previousI');

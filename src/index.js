@@ -94,7 +94,10 @@ function predict(image, callback) {
     headers: {
       'Content-Type': 'application/x-www-form-urlencoded',
     },
-    data: { img: image, group: sessionStorage.getItem('currentGroup') },
+    data: {
+      img: image,
+      group: sessionStorage.getItem('currentGroup'),
+    },
   };
 
   $.ajax(settings).done((response) => {

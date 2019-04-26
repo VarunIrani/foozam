@@ -1,3 +1,4 @@
+/* eslint-disable radix */
 /* eslint-disable prefer-destructuring */
 /* eslint-disable no-param-reassign */
 /* eslint-disable func-names */
@@ -107,6 +108,30 @@ export function addRecipes(data) {
       knowMoreRecipe.setAttribute('image', recipe.getAttribute('image'));
       knowMoreRecipe.setAttribute('defaultImage', recipe.getAttribute('defaultImage'));
       knowMoreRecipe.setAttribute('label', recipe.getAttribute('label'));
+      const googleLoggedIn = parseInt(sessionStorage.getItem('googleLoggedIn'));
+      const userLoggedIn = parseInt(sessionStorage.getItem('userLoggedIn'));
+      let user;
+      if (googleLoggedIn) {
+        user = JSON.parse(sessionStorage.getItem('googleUser'));
+      } else if (userLoggedIn) {
+        user = JSON.parse(sessionStorage.getItem('loggedInUser'));
+      }
+      const favoritesRef = database.child('favorites');
+      favoritesRef
+        .child(`${user.uid}`)
+        .child('recipes')
+        .child(recipe.getAttribute('label'))
+        .once('value')
+        .then((snap) => {
+          if (snap.val() != null) {
+            if (snap.val().favorite) {
+              knowMoreRecipe.setAttribute('favorite', true);
+            } else {
+              knowMoreRecipe.setAttribute('favorite', false);
+            }
+            knowMoreRecipe.setFavorite();
+          }
+        });
       $('#knowMoreTitle').html(title);
       $('#knowMoreBody').html(knowMoreRecipe);
     });

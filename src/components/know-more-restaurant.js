@@ -60,11 +60,19 @@ export default class KnowMoreRestaurant extends LitElement {
     const address = this.address.replace(/\s/g, '+');
     name.concat(`+,+${address}`);
     return html`
+			<style>
+				#favorite:hover {
+					color: gold; 
+					font-size: 30px; 
+					opacity: 0.6;
+					cursor: pointer;
+				}
+			</style>
 			<div class="row">
 				<div class="col-lg-4 col-md-12" style="text-align: center">
 					<img src="${this.image || this.defaultImage}" alt="Restaurant Image" />
 					<div id="favoriteIcon" style="color: grey; font-size: 30px; opacity: 0.6;" @click="${this.toggleFavorites}">
-						<i class="fa fa-star"></i>
+						<i id="favorite" class="fa fa-star"></i>
 					</div>
 				</div>
 				<div class="col-lg-8 col-md-12 pt-3" style="font-size: 12pt">
