@@ -1,17 +1,13 @@
+/* eslint-disable no-alert */
 /* eslint-disable no-undef */
 import $ from 'jquery';
-import RecipeInfo from './components/recipe-info';
 
-alert('Favorites');
-
-function loadRecipes() {
-  alert('Favorites');
-  const comp = new RecipeInfo();
-}
+function loadRecipes() {}
 
 function loadRestaurants() {}
 
 $(document).ready(() => {
+  alert('favorites.js');
   loadRecipes();
   loadRestaurants();
   // loadBlogs();

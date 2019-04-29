@@ -9,6 +9,7 @@ import image2base64 from 'image-to-base64';
 import KEYS from './api/keys';
 import { getRestaurants } from './api/zomato-search';
 import { getRecipes } from './api/recipe-search';
+import runFavorites from './favorites';
 
 // Component imports
 import RestaurantInfo from './components/restaurant-info';
