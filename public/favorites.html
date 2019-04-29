@@ -14,9 +14,13 @@
 	<link href="./assets/css/nucleo-icons.css" rel="stylesheet" />
 	<!-- CSS Files -->
 	<link href="./assets/css/black-dashboard.css?v=1.0.0" rel="stylesheet" />
+	<link rel="stylesheet" href="./assets/css/loading.css">
+
 </head>
 
 <body class="">
+	<div id="loader"></div>
+
 	<div class="wrapper">
 		<div class="sidebar">
 			<!--
@@ -38,10 +42,10 @@
 							<p>Know Your Food</p>
 						</a>
 					</li>
-					<li>
+					<li class="active ">
 						<a href="./favorites.html">
 							<i class="tim-icons icon-shape-star"></i>
-							<p>Favourites</p>
+							<p>Favorites</p>
 						</a>
 					</li>
 					<li>
@@ -56,7 +60,7 @@
 							<p>Your Profile</p>
 						</a>
 					</li>
-					<li class="active ">
+					<li>
 						<a href="./about.html">
 							<i class="tim-icons icon-tie-bow"></i>
 							<p>About Us</p>
@@ -83,7 +87,7 @@
 								<span class="navbar-toggler-bar bar3"></span>
 							</button>
 						</div>
-						<a class="navbar-brand" href="javascript:void(0)">ABOUT US</a>
+						<a class="navbar-brand" href="javascript:void(0)">FAVORITES</a>
 					</div>
 					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation"
 						aria-expanded="false" aria-label="Toggle navigation">
@@ -142,7 +146,7 @@
 						<div class="card ">
 							<div class="card-header">
 								<h4 class="card-title" id="result-title">
-									Your Favourites
+									Your Favorites
 								</h4>
 							</div>
 							<div class="card-body">
@@ -174,7 +178,7 @@
 										<!-- Restaurant Components Go Here : 2 per row-->
 									</div>
 									<div class="tab-pane" id="link3" aria-expanded="false">
-										<!-- Restaurant Components Go Here : 2 per row-->
+										<!-- Blog Components Go Here : 2 per row-->
 									</div>
 									<!-- Modal -->
 									<div class="modal fade" id="knowMoreModal" tabindex="-1" role="dialog" aria-labelledby="knowMore"
@@ -255,16 +259,16 @@
 	<script src="./assets/js/core/popper.min.js"></script>
 	<script src="./assets/js/core/bootstrap.min.js"></script>
 	<script src="./assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
-	<!--  Google Maps Plugin    -->
-	<!-- Place this tag in your head or just before your close body tag. -->
-	<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
 	<!-- Chart JS -->
 	<script src="./assets/js/plugins/chartjs.min.js"></script>
 	<!--  Notifications Plugin    -->
 	<script src="./assets/js/plugins/bootstrap-notify.js"></script>
 	<!-- Control Center for Black Dashboard: parallax effects, scripts for the example pages etc -->
 	<script src="./assets/js/black-dashboard.min.js?v=1.0.0"></script>
+	<script src="loading.js"></script>
 	<script>
+		document.body.className += ' fade-out';
+
 		function loggedInUser() {
 			const googleLoggedIn = parseInt(sessionStorage.getItem('googleLoggedIn'));
 			const userLoggedIn = parseInt(sessionStorage.getItem('userLoggedIn'));

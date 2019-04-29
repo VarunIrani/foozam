@@ -1,3 +1,4 @@
+/* eslint-disable radix */
 /* eslint-disable key-spacing */
 /* eslint-disable no-undef */
 /* eslint-disable class-methods-use-this */
@@ -6,6 +7,7 @@
 /* eslint-disable eol-last */
 /* eslint-disable no-tabs */
 import { LitElement, html } from 'lit-element';
+import database from '../database/database';
 
 export default class KnowMoreRestaurant extends LitElement {
   static get properties() {
@@ -45,12 +47,59 @@ export default class KnowMoreRestaurant extends LitElement {
     this.favorite = false;
   }
 
+  addToFavorites() {
+    const googleLoggedIn = parseInt(sessionStorage.getItem('googleLoggedIn'));
+    const userLoggedIn = parseInt(sessionStorage.getItem('userLoggedIn'));
+    let user;
+    if (googleLoggedIn) {
+      user = JSON.parse(sessionStorage.getItem('googleUser'));
+    } else if (userLoggedIn) {
+      user = JSON.parse(sessionStorage.getItem('loggedInUser'));
+    }
+    const favoriteRestaurant = {
+      name: this.name,
+      cuisines: this.cuisines,
+      latitude: this.latitude,
+      longitude: this.longitude,
+      address: this.address,
+      userRating: this.userRating,
+      image: this.image,
+      defaultImage: this.defaultImage,
+      favorite: this.favorite,
+    };
+    const favoritesRef = database.child('favorites');
+    favoritesRef
+      .child(`${user.uid}`)
+      .child('restaurants')
+      .child(favoriteRestaurant.name)
+      .set(favoriteRestaurant);
+  }
+
+  removeFromFavorites() {
+    const googleLoggedIn = parseInt(sessionStorage.getItem('googleLoggedIn'));
+    const userLoggedIn = parseInt(sessionStorage.getItem('userLoggedIn'));
+    let user;
+    if (googleLoggedIn) {
+      user = JSON.parse(sessionStorage.getItem('googleUser'));
+    } else if (userLoggedIn) {
+      user = JSON.parse(sessionStorage.getItem('loggedInUser'));
+    }
+    const favoritesRef = database.child('favorites');
+    favoritesRef
+      .child(`${user.uid}`)
+      .child('restaurants')
+      .child(this.name)
+      .remove();
+  }
+
   toggleFavorites() {
     const favoriteIcon = this.renderRoot.querySelector('#favoriteIcon');
     this.favorite = !this.favorite;
     if (this.favorite) {
+      this.addToFavorites();
       favoriteIcon.setAttribute('style', 'color: gold; font-size: 30px; opacity: 1');
     } else {
+      this.removeFromFavorites();
       favoriteIcon.setAttribute('style', 'color: grey; font-size: 30px; opacity: 0.6');
     }
   }

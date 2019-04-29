@@ -128,19 +128,10 @@ export default class KnowMoreRecipe extends LitElement {
       },
     };
     const pieChart = new Chart(pieCanvas, {
-      type: 'pie',
+      type: 'doughnut',
       data,
       options,
     });
-  }
-
-  setFavorite() {
-    const favoriteIcon = this.renderRoot.querySelector('#favoriteIcon');
-    if (this.favorite) {
-      favoriteIcon.setAttribute('style', 'color: gold; font-size: 30px; opacity: 1');
-    } else {
-      favoriteIcon.setAttribute('style', 'color: grey; font-size: 30px; opacity: 0.6');
-    }
   }
 
   addToFavorites() {

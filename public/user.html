@@ -16,11 +16,11 @@
   <link href="./assets/css/nucleo-icons.css" rel="stylesheet" />
   <!-- CSS Files -->
   <link href="./assets/css/black-dashboard.css?v=1.0.0" rel="stylesheet" />
-  <!-- CSS Just for demo purpose, don't include it in your project -->
-  <link href="./assets/demo/demo.css" rel="stylesheet" />
+  <link rel="stylesheet" href="./assets/css/loading.css">
 </head>
 
 <body class="">
+  <div id="loader"></div>
   <div class="wrapper">
     <div class="sidebar">
       <!--
@@ -45,7 +45,7 @@
           <li>
             <a href="./favorites.html">
               <i class="tim-icons icon-shape-star"></i>
-              <p>Favourites</p>
+              <p>Favorites</p>
             </a>
           </li>
           <li>
@@ -271,6 +271,7 @@
   <script src="./assets/js/plugins/bootstrap-notify.js"></script>
   <!-- Control Center for Black Dashboard: parallax effects, scripts for the example pages etc -->
   <script src="./assets/js/black-dashboard.min.js?v=1.0.0"></script>
+  <script src="loading.js"></script>
   <script type="module">
     import previewImg from './user.js'
 
@@ -282,6 +283,8 @@
     }
   </script>
   <script>
+    document.body.className += ' fade-out';
+
     function loggedInUser() {
       const googleLoggedIn = parseInt(sessionStorage.getItem('googleLoggedIn'));
       const userLoggedIn = parseInt(sessionStorage.getItem('userLoggedIn'));

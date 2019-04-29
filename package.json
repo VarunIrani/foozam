@@ -4,7 +4,7 @@
 	"description": "Foozam",
 	"main": "index.html",
 	"directories": {
-		"example": "root"
+		"public": "root"
 	},
 	"scripts": {
 		"start": "react-scripts start",
@@ -15,12 +15,12 @@
 	"author": "Foozam Inc.",
 	"license": "MIT",
 	"devDependencies": {
-		"eslint": "5.12.0",
+		"eslint": "5.16.0",
 		"eslint-config-airbnb-base": "^13.1.0",
-		"eslint-plugin-import": "^2.16.0",
+		"eslint-plugin-import": "^2.17.2",
 		"gh-pages": "^2.0.1",
-		"gulp": "^4.0.0",
-		"gulp-autoprefixer": "^6.0.0",
+		"gulp": "^4.0.1",
+		"gulp-autoprefixer": "^6.1.0",
 		"gulp-clean": "^0.4.0",
 		"gulp-install": "^1.1.0",
 		"gulp-open": "^3.0.1",
@@ -32,12 +32,12 @@
 		"axios": "^0.18.0",
 		"chart.js": "^2.8.0",
 		"clarifai": "^2.9.0",
-		"firebase": "^5.9.4",
+		"firebase": "^5.10.1",
 		"image-to-base64": "^2.0.1",
 		"jquery": "^3.4.0",
 		"lit-element": "^2.1.0",
 		"react": "^16.8.6",
-		"react-scripts": "^2.1.8",
+		"react-scripts": "^3.0.0",
 		"request": "^2.88.0"
 	},
 	"browserslist": [

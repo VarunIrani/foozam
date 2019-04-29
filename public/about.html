@@ -14,10 +14,14 @@
   <link href="./assets/css/nucleo-icons.css" rel="stylesheet" />
   <!-- CSS Files -->
   <link href="./assets/css/black-dashboard.css?v=1.0.0" rel="stylesheet" />
+  <link rel="stylesheet" href="./assets/css/loading.css">
+
 </head>
 
 <body class="">
   <div class="wrapper">
+    <div id="loader"></div>
+
     <div class="sidebar">
       <!--
         Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red"
@@ -138,19 +142,21 @@
       </div>
       <div class="content">
         <div class="row d-md-flex">
-          <div class="col-md-6 ftco-animate img about-image" style="background-image: url(images/about.jpg);"></div>
+          <div class="col-md-6 ftco-animate img about-image">
+            <img src="assets/img/loading-2000.gif" alt="">
+          </div>
           <div class="col-md-6 ftco-animate p-md-5">
             <div class="row">
               <div class="col-md-12 nav-link-wrap mb-5">
                 <div class="nav ftco-animate nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
                   <a class="nav-link active" id="v-pills-whatwedo-tab" data-toggle="pill" href="#v-pills-whatwedo"
-                    role="tab" aria-controls="v-pills-whatwedo" aria-selected="true">What we do</a>
+                    role="tab" aria-controls="v-pills-whatwedo" aria-selected="true">What We Do</a>
 
                   <a class="nav-link" id="v-pills-mission-tab" data-toggle="pill" href="#v-pills-mission" role="tab"
-                    aria-controls="v-pills-mission" aria-selected="false">Our mission</a>
+                    aria-controls="v-pills-mission" aria-selected="false">Our Mission</a>
 
                   <a class="nav-link" id="v-pills-goal-tab" data-toggle="pill" href="#v-pills-goal" role="tab"
-                    aria-controls="v-pills-goal" aria-selected="false">Our goal</a>
+                    aria-controls="v-pills-goal" aria-selected="false">Our Goal</a>
                 </div>
               </div>
               <div class="col-md-12 d-flex align-items-center">
@@ -158,10 +164,11 @@
                   <div class="tab-pane fade show active" id="v-pills-whatwedo" role="tabpanel"
                     aria-labelledby="v-pills-whatwedo-tab">
                     <div>
-                      <h2 class="mb-4"> Know What you eat</h2>
+                      <h2 class="mb-4">Food Detection and Classification</h2>
                       <p>
-                        Foozam is a Progressive Web Application which enables users to easily access, read and gain
-                        information of the food .
+                        Foozam is a Progressive Web Application which recognizes food images and classifies them. It
+                        tells the name, nutrients, and recipes of the food item it recognizes.
+                        We provide all the solutions for the problems related to food in one place
                       </p>
                       <p>
                         Foozam users do not have to go through surfing the Internet for the nutrients, recipe or
@@ -172,12 +179,11 @@
 
                   <div class="tab-pane fade" id="v-pills-mission" role="tabpanel" aria-labelledby="v-pills-mission-tab">
                     <div>
-                      <h2 class="mb-4"> All about food at one Place </h2>
+                      <h2 class="mb-4"> Exceptional Web Solutions </h2>
                       <p>
-                        Foozam is a Progressive Web Application (PWA) which enables users to easily access, read and
-                        gain information of the food item present in front of them through the camera on their mobile
-                        device. Foozam users do not have to go through surfing the Internet for the nutrients, recipe
-                        or information that the food item possesses.
+                        Our mission is to provide accurate image classification and recognition. We want to develop the
+                        strongest network on the web for foodies and interconnect them to each other. Our aim is to make
+                        the strongest network for the development and encouragement of food technology
                       </p>
 
                     </div>
@@ -185,12 +191,12 @@
 
                   <div class="tab-pane fade" id="v-pills-goal" role="tabpanel" aria-labelledby="v-pills-goal-tab">
                     <div>
-                      <h2 class="mb-4"> leading food based site on the web</h2>
+                      <h2 class="mb-4"> Satisfy Our Users </h2>
                       <p>
-                        Foozam is a Progressive Web Application (PWA) which enables users to easily access, read and
-                        gain information of the food item present in front of them through the camera on their mobile
-                        device. Foozam users do not have to go through surfing the Internet for the nutrients, recipe
-                        or information that the food item possesses.
+                        The goal of our application is to fully satisfy our users with 100% accurate results and
+                        providing them with all the information they require related to food at one place at one
+                        platform. Our goal is to make our application the ultimate source of all the information related
+                        to food.
                       </p>
 
                     </div>
@@ -200,68 +206,46 @@
             </div>
           </div>
         </div>
-        <div class="row justify-content-center mb-5 pb-5">
+        <div class="row justify-content-center mt-4 mb-2">
           <div class="col-md-7 text-center heading-section ftco-animate">
-            <span class="subheading">Team</span>
             <h2 class="mb-4">Our Team</h2>
-            <p>
-              Far far away, behind the word mountains, far from the countries
-              Vokalia and Consonantia, there live the blind texts. Separated
-              they live in
-            </p>
           </div>
         </div>
         <div class="row">
           <div class="col-md-3 mb-5 ftco-animate">
             <div class="block-10">
               <div class="person-info mb-2">
-                <span class="name">Jacob Smith</span>
-                <span class="position">Co Designer</span>
+                <h6 class="name">Sukrut Bidwai</h6>
+                <h6 class="position">Database Administrator</h6>
               </div>
-              <img src="assets/img/james.jpg" alt="" class="img-fluid mb-3" />
-              <p>
-                A small river named Duden flows by their place and supplies it
-                with the necessary regelialia.
-              </p>
+              <img src="assets/img/sukrut.jpg" alt="" class="img-fluid mb-3" />
             </div>
           </div>
           <div class="col-md-3 mb-5 ftco-animate">
             <div class="block-10">
               <div class="person-info mb-2">
-                <span class="name">Aldin Henderson</span>
-                <span class="position">Web Developer</span>
+                <h6 class="name">Varun Irani</h6>
+                <h6 class="position">ML Engineer & Web Developer</h6>
               </div>
-              <img src="assets/img/emilyz.jpg" alt="" class="img-fluid mb-3" />
-              <p>
-                A small river named Duden flows by their place and supplies it
-                with the necessary regelialia.
-              </p>
+              <img src="assets/img/varun.jpg" alt="" class="img-fluid mb-3" />
             </div>
           </div>
           <div class="col-md-3 mb-5 ftco-animate">
             <div class="block-10">
               <div class="person-info mb-2">
-                <span class="name">Mark Willis</span>
-                <span class="position">Lead Web Developer</span>
+                <h6 class="name">Karan Kamat</h6>
+                <h6 class="position">Linguistics Engineer</h6>
               </div>
-              <img src="assets/img/emilyz.jpg" alt="" class="img-fluid mb-3" />
-              <p>
-                A small river named Duden flows by their place and supplies it
-                with the necessary regelialia.
-              </p>
+              <img src="assets/img/karan.jpg" alt="" class="img-fluid mb-3" />
             </div>
           </div>
           <div class="col-md-3 mb-5 ftco-animate">
             <div class="block-10">
               <div class="person-info mb-2">
-                <span class="name">Jacob Smith</span>
-                <span class="position">Co Designer</span>
+                <h6 class="name">Atharva Savargaonkar</h6>
+                <h6 class="position">Designer & Web Developer</h6>
               </div>
-              <img src="assets/img/mike.jpg" alt="" class="img-fluid mb-3" />
-              <p>
-                A small river named Duden flows by their place and supplies it
-                with the necessary regelialia.
-              </p>
+              <img src="assets/img/sav.jpg" alt="" class="img-fluid mb-3" />
             </div>
           </div>
         </div>
@@ -327,7 +311,10 @@
   <script src="./assets/js/plugins/bootstrap-notify.js"></script>
   <!-- Control Center for Black Dashboard: parallax effects, scripts for the example pages etc -->
   <script src="./assets/js/black-dashboard.min.js?v=1.0.0"></script>
+  <script src="loading.js"></script>
   <script>
+    document.body.className += ' fade-out';
+
     function loggedInUser() {
       const googleLoggedIn = parseInt(sessionStorage.getItem('googleLoggedIn'));
       const userLoggedIn = parseInt(sessionStorage.getItem('userLoggedIn'));
