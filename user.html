@@ -16,11 +16,11 @@
   <link href="./assets/css/nucleo-icons.css" rel="stylesheet" />
   <!-- CSS Files -->
   <link href="./assets/css/black-dashboard.css?v=1.0.0" rel="stylesheet" />
-  <!-- CSS Just for demo purpose, don't include it in your project -->
-  <link href="./assets/demo/demo.css" rel="stylesheet" />
+  <link rel="stylesheet" href="./assets/css/loading.css">
 </head>
 
 <body class="">
+  <div id="loader"></div>
   <div class="wrapper">
     <div class="sidebar">
       <!--
@@ -43,7 +43,7 @@
             </a>
           </li>
           <li>
-            <a href="#">
+            <a href="./favorites.html">
               <i class="tim-icons icon-shape-star"></i>
               <p>Favourites</p>
             </a>
@@ -89,8 +89,8 @@
             </div>
             <a class="navbar-brand" href="javascript:void(0)">User Profile</a>
           </div>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-expanded="false"
-            aria-label="Toggle navigation">
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation"
+            aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-bar navbar-kebab"></span>
             <span class="navbar-toggler-bar navbar-kebab"></span>
             <span class="navbar-toggler-bar navbar-kebab"></span>
@@ -98,7 +98,8 @@
           <div class="collapse navbar-collapse" id="navigation">
             <ul class="navbar-nav ml-auto">
               <li class="search-bar input-group">
-                <button class="btn btn-link" id="search-button" data-toggle="modal" data-target="#searchModal"><i class="tim-icons icon-zoom-split"></i>
+                <button class="btn btn-link" id="search-button" data-toggle="modal" data-target="#searchModal"><i
+                    class="tim-icons icon-zoom-split"></i>
                   <span class="d-lg-none d-md-block">Search</span>
                 </button>
               </li>
@@ -176,8 +177,8 @@
                     <div class="col-md-8">
                       <div class="form-group">
                         <label>About Me</label>
-                        <textarea id="about" rows="4" cols="80" class="form-control" placeholder="Write something about yourself"
-                          value=""></textarea>
+                        <textarea id="about" rows="4" cols="80" class="form-control"
+                          placeholder="Write something about yourself" value=""></textarea>
                       </div>
                     </div>
                   </div>
@@ -270,6 +271,7 @@
   <script src="./assets/js/plugins/bootstrap-notify.js"></script>
   <!-- Control Center for Black Dashboard: parallax effects, scripts for the example pages etc -->
   <script src="./assets/js/black-dashboard.min.js?v=1.0.0"></script>
+  <script src="loading.js"></script>
   <script type="module">
     import previewImg from './user.js'
 
@@ -281,6 +283,8 @@
     }
   </script>
   <script>
+    document.body.className += ' fade-out';
+
     function loggedInUser() {
       const googleLoggedIn = parseInt(sessionStorage.getItem('googleLoggedIn'));
       const userLoggedIn = parseInt(sessionStorage.getItem('userLoggedIn'));
@@ -419,4 +423,5 @@
     });
   </script>
 </body>
+
 </html>

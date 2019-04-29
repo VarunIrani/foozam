@@ -23,10 +23,12 @@
   <nav class="navbar navbar-expand-lg fixed-top navbar-transparent " color-on-scroll="100">
     <div class="container">
       <div class="navbar-translate">
-        <a class="navbar-brand" href="index.html" rel="tooltip" title="Foozam Inc." data-placement="bottom" target="_blank">
+        <a class="navbar-brand" href="index.html" rel="tooltip" title="Foozam Inc." data-placement="bottom"
+          target="_blank">
           <span>Foozam</span>
         </a>
-        <button class="navbar-toggler navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation"
+          aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-bar bar1"></span>
           <span class="navbar-toggler-bar bar2"></span>
           <span class="navbar-toggler-bar bar3"></span>
@@ -41,7 +43,8 @@
               </a>
             </div>
             <div class="col-6 collapse-close text-right">
-              <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
+              <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navigation"
+                aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
                 <i class="tim-icons icon-simple-remove"></i>
               </button>
             </div>
@@ -73,7 +76,8 @@
                           <i class="tim-icons icon-single-02"></i>
                         </div>
                       </div>
-                      <input id="fullName" required type="text" class="form-control form-control-lg" placeholder="Full Name">
+                      <input id="fullName" required type="text" class="form-control form-control-lg"
+                        placeholder="Full Name">
                     </div>
                     <div class="input-group" id="emailInputGroup">
                       <div class="input-group-prepend">
@@ -89,7 +93,8 @@
                           <i class="tim-icons icon-lock-circle"></i>
                         </div>
                       </div>
-                      <input id="password" required type="password" class="form-control form-control-lg" placeholder="Password">
+                      <input id="password" required type="password" class="form-control form-control-lg"
+                        placeholder="Password">
                     </div>
                     <div class="form-check text-left">
                       <label class="form-check-label">
@@ -103,7 +108,8 @@
                 </div>
                 <div class="card-footer">
                   <a href="javascript:void(0)" id="registerButton" class="btn btn-info btn-round btn-lg">Get Started</a>
-                  <button id="errorModal" style="opacity: 0;" data-toggle="modal" data-target="#myModal2">Error Modal</button>
+                  <button id="errorModal" style="opacity: 0;" data-toggle="modal" data-target="#myModal2">Error
+                    Modal</button>
                 </div>
               </div>
             </div>
@@ -117,7 +123,8 @@
           <div id="square6" class="square square-6"></div>
         </div>
       </div>
-      <div class="modal fade modal-black" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal fade modal-black" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+        aria-hidden="true">
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header justify-content-center">
@@ -129,7 +136,7 @@
               </div>
             </div>
             <div class="modal-body">
-              
+
             </div>
           </div>
         </div>
@@ -234,7 +241,7 @@
       if (userLoggedIn)
         location.replace('../');
     }
-
+    // Register Code
     function login() {
       firebase.auth().signInWithEmailAndPassword(email, password);
       firebase.auth().onAuthStateChanged((firebaseUser) => {
@@ -254,7 +261,7 @@
         }
       });
     }
-
+    // Register Check
     $('#registerButton').on('click', () => {
       const termsCheck = document.getElementById('termsCheck').checked;
       if (termsCheck && fullNameOK && emailOK && passwordOK) {
