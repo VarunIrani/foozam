@@ -142,6 +142,14 @@
         </div>
       </div>
       <!-- End Navbar -->
+      <iframe id="foozi-frame" class="col-lg-4 col-md-12" allow="microphone;"
+        style="opacity: 0 ;position: fixed; bottom: 2rem; z-index: 10; right: 4rem; height: 75%;"
+        src="https://console.dialogflow.com/api-client/demo/embedded/c4168b2c-32ad-48ea-97b1-0519419645fc">
+      </iframe>
+      <label class="btn btn-primary btn-fab btn-icon btn-round btn-lg"
+        style="position: fixed; bottom: 15px; z-index: 10; right: 15px;">
+        <img src="./assets/img/favicon.png" alt="Foozam Logo" width="35px" style="margin-top: 12px" />
+      </label>
       <div class="content">
         <div class="row">
           <div class="col-md-8">
@@ -246,15 +254,6 @@
           <span class="badge dark-badge ml-2"></span>
           <span class="color-label">DARK MODE</span>
         </li>
-        <li class="button-container">
-
-          <a href="" target="_blank" class="btn btn-default btn-block btn-round">
-            Default Settings
-          </a>
-
-          <a href="" target="_blank" class="btn btn-primary btn-block btn-round ">Reset Account
-          </a>
-        </li>
       </ul>
     </div>
   </div>
@@ -315,9 +314,31 @@
         phoneNumber.setAttribute('value', user.phoneNumber == null ? '' : user.phoneNumber);
       }
     }
+
+    function chatbot() {
+      const $fooziButton = $('.btn-fab');
+      const $fooziFrame = $('#foozi-frame');
+      let toggleFoozi = false;
+      $fooziButton.click(() => {
+        if (toggleFoozi === false) {
+          $fooziFrame.css('opacity', 1);
+          toggleFoozi = true;
+        } else {
+          $fooziFrame.css('opacity', 0);
+          toggleFoozi = false;
+        }
+      });
+    }
+
     $(document).ready(function () {
       $().ready(function () {
+        if (localStorage.getItem('white_color') === 'true') {
+          $('body').addClass('white-content');
+        } else {
+          $('body').removeClass('white-content');
+        }
         loggedInUser();
+        chatbot();
         $sidebar = $('.sidebar');
         $navbar = $('.navbar');
         $main_panel = $('.main-panel');
@@ -412,12 +433,14 @@
           }
         });
 
-        $('.light-badge').click(function () {
-          $('body').addClass('white-content');
+        $(".light-badge").click(function () {
+          $("body").addClass("white-content");
+          localStorage.setItem('white_color', true);
         });
 
-        $('.dark-badge').click(function () {
-          $('body').removeClass('white-content');
+        $(".dark-badge").click(function () {
+          $("body").removeClass("white-content");
+          localStorage.setItem('white_color', false);
         });
       });
     });
