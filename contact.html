@@ -17,6 +17,8 @@
   <!-- CSS Files -->
   <link href="./assets/css/black-dashboard.css?v=1.0.0" rel="stylesheet" />
   <link rel="stylesheet" href="./assets/css/loading.css">
+  <link rel="stylesheet" href="./assets/css/main.css">
+
 </head>
 
 <body class="">
@@ -110,7 +112,7 @@
                     <img src="./assets/img/anime3.png" alt="Profile Photo" id="userProfilePhoto">
                   </div>
                   <b class="caret d-none d-lg-block d-xl-block"></b>
-                  <p class="d-lg-none">
+                  <p class="d-lg-none" id="logoutButton">
                     Log out
                   </p>
                 </a>
@@ -120,7 +122,7 @@
                   </li>
                   <li class="dropdown-divider"></li>
                   <li class="nav-link">
-                    <a href="#" class="nav-item dropdown-item">Log out</a>
+                    <a href="#" class="nav-item dropdown-item" id="logoutLink">Log out</a>
                   </li>
                 </ul>
               </li>
@@ -246,7 +248,7 @@
   <!-- Control Center for Black Dashboard: parallax effects, scripts for the example pages etc -->
   <script src="./assets/js/black-dashboard.min.js?v=1.0.0"></script>
   <script src="loading.js"></script>
-
+  <script src="logout.js"></script>
   <script>
     document.body.className += ' fade-out';
 
