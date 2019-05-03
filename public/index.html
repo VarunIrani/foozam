@@ -32,7 +32,7 @@
           <a href="index.html" class="simple-text logo-mini">
             <img src="./assets/img/favicon.png" alt="Foozam Logo" />
           </a>
-          <a href="home.html" class="simple-text logo-normal" style="text-transform: capitalize">
+          <a href="home/index.html" class="simple-text logo-normal" style="text-transform: capitalize">
             Foozam
           </a>
         </div>
@@ -111,7 +111,7 @@
                     <img src="./assets/img/anime3.png" alt="Profile Photo" id="userProfilePhoto" />
                   </div>
                   <b class="caret d-none d-lg-block d-xl-block"></b>
-                  <p class="d-lg-none">Log out</p>
+                  <p class="d-lg-none" id="logoutButton">Log out</p>
                 </a>
                 <ul class="dropdown-menu dropdown-navbar">
                   <li class="nav-link">
@@ -119,7 +119,7 @@
                   </li>
                   <li class="dropdown-divider"></li>
                   <li class="nav-link">
-                    <a href="#" class="nav-item dropdown-item">Log out</a>
+                    <a href="#" class="nav-item dropdown-item" id="logoutLink">Log out</a>
                   </li>
                 </ul>
               </li>
@@ -142,6 +142,9 @@
         </div>
       </div>
       <!-- End Navbar -->
+      <iframe id="foozi-frame" class="col-lg-4 col-md-12" allow="microphone;"
+        src="https://console.dialogflow.com/api-client/demo/embedded/c4168b2c-32ad-48ea-97b1-0519419645fc">
+      </iframe>
       <label class="btn btn-primary btn-fab btn-icon btn-round btn-lg"
         style="position: fixed; bottom: 15px; z-index: 10; right: 15px;">
         <img src="./assets/img/favicon.png" alt="Foozam Logo" width="35px" style="margin-top: 12px" />
@@ -328,14 +331,6 @@
           <span class="badge dark-badge ml-2"></span>
           <span class="color-label">DARK MODE</span>
         </li>
-        <li class="button-container">
-          <a href="" target="_blank" class="btn btn-default btn-block btn-round">
-            Default Settings
-          </a>
-          <a href="" target="_blank" class="btn btn-primary btn-block btn-round">
-            Reset Account
-          </a>
-        </li>
       </ul>
     </div>
   </div>
@@ -398,6 +393,7 @@
   <script src="./assets/js/black-dashboard.min.js?v=1.0.0"></script>
   <script src="./assets/js/plugins/owl.carousel.min.js"></script>
   <script src="https://www.gstatic.com/firebasejs/5.9.0/firebase.js"></script>
+  <script src="logout.js"></script>
   <script>
     // import config from './database/firebase-config.js';
     document.body.className += ' fade-out';
@@ -483,8 +479,6 @@
         });
       }
     }
-
-
 
     function hideGroups(i) {
       const grpCardTitle = document.getElementById('grp-card-title');
@@ -592,15 +586,35 @@
       }
     });
 
+    function chatbot() {
+      const $fooziButton = $('.btn-fab');
+      const $fooziFrame = $('#foozi-frame');
+      let toggleFoozi = false;
+      $fooziButton.click(() => {
+        if (toggleFoozi === false) {
+          $fooziFrame.css('opacity', 1);
+          toggleFoozi = true;
+        } else {
+          $fooziFrame.css('opacity', 0);
+          toggleFoozi = false;
+        }
+      });
+    }
+
     $(document).ready(function () {
       $().ready(function () {
-        console.log(checkLoggedIn());
+        if (localStorage.getItem('white_color') === 'true') {
+          $('body').addClass('white-content');
+        } else {
+          $('body').removeClass('white-content');
+        }
         // Redirect to home page if not logged in
         if (!checkLoggedIn()) {
           location.replace('home');
         }
         loggedInUser();
         updateCarousel();
+        chatbot();
         const previousI = sessionStorage.getItem('previousI');
         createCarousel(sessionStorage.getItem('carouselContent'));
         if (sessionStorage.getItem('clicked') == '1') {
@@ -709,7 +723,6 @@
                 $("body").removeClass("change-background");
                 $("body").addClass("white-content");
               }, 900);
-
               white_color = true;
             }
           }
@@ -717,10 +730,12 @@
 
         $(".light-badge").click(function () {
           $("body").addClass("white-content");
+          localStorage.setItem('white_color', true);
         });
 
         $(".dark-badge").click(function () {
           $("body").removeClass("white-content");
+          localStorage.setItem('white_color', false);
         });
 
         $('closeButton').click(() => {

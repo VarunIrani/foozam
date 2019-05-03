@@ -15,6 +15,7 @@
   <!-- CSS Files -->
   <link href="./assets/css/black-dashboard.css?v=1.0.0" rel="stylesheet" />
   <link rel="stylesheet" href="./assets/css/loading.css">
+  <link rel="stylesheet" href="./assets/css/main.css">
 
 </head>
 
@@ -110,7 +111,7 @@
                     <img src="./assets/img/anime3.png" alt="Profile Photo" id="userProfilePhoto" />
                   </div>
                   <b class="caret d-none d-lg-block d-xl-block"></b>
-                  <p class="d-lg-none">Log out</p>
+                  <p class="d-lg-none" id="logoutButton">Log out</p>
                 </a>
                 <ul class="dropdown-menu dropdown-navbar">
                   <li class="nav-link">
@@ -118,7 +119,7 @@
                   </li>
                   <li class="dropdown-divider"></li>
                   <li class="nav-link">
-                    <a href="#" class="nav-item dropdown-item">Log out</a>
+                    <a href="#" class="nav-item dropdown-item" id="logoutLink">Log out</a>
                   </li>
                 </ul>
               </li>
@@ -140,6 +141,14 @@
           </div>
         </div>
       </div>
+      <iframe id="foozi-frame" class="col-lg-4 col-md-12" allow="microphone;"
+        style="opacity: 0 ;position: fixed; bottom: 2rem; z-index: 10; right: 2rem; height: 75%;"
+        src="https://console.dialogflow.com/api-client/demo/embedded/c4168b2c-32ad-48ea-97b1-0519419645fc">
+      </iframe>
+      <label class="btn btn-primary btn-fab btn-icon btn-round btn-lg"
+        style="position: fixed; bottom: 15px; z-index: 10; right: 15px;">
+        <img src="./assets/img/favicon.png" alt="Foozam Logo" width="35px" style="margin-top: 12px" />
+      </label>
       <div class="content">
         <div class="row d-md-flex">
           <div class="col-md-6 ftco-animate img about-image">
@@ -275,25 +284,6 @@
           <span class="badge dark-badge ml-2"></span>
           <span class="color-label">DARK MODE</span>
         </li>
-        <li class="button-container">
-          <a href="https://www.creative-tim.com/product/black-dashboard" target="_blank"
-            class="btn btn-primary btn-block btn-round">Download
-            Now</a>
-          <a href="https://demos.creative-tim.com/black-dashboard/docs/1.0/getting-started/introduction.html"
-            target="_blank" class="btn btn-default btn-block btn-round">
-            Documentation
-          </a>
-        </li>
-        <li class="header-title">Thank you for 95 shares!</li>
-        <li class="button-container text-center">
-          <button id="twitter" class="btn btn-round btn-info"><i class="fab fa-twitter"></i> &middot; 45</button>
-          <button id="facebook" class="btn btn-round btn-info"><i class="fab fa-facebook-f"></i> &middot; 50</button>
-          <br>
-          <br>
-          <a class="github-button" href="https://github.com/creativetimofficial/black-dashboard"
-            data-icon="octicon-star" data-size="large" data-show-count="true"
-            aria-label="Star ntkme/github-buttons on GitHub">Star</a>
-        </li>
       </ul>
     </div>
   </div>
@@ -312,6 +302,7 @@
   <!-- Control Center for Black Dashboard: parallax effects, scripts for the example pages etc -->
   <script src="./assets/js/black-dashboard.min.js?v=1.0.0"></script>
   <script src="loading.js"></script>
+  <script src="logout.js"></script>
   <script>
     document.body.className += ' fade-out';
 
@@ -326,9 +317,31 @@
         const user = JSON.parse(sessionStorage.getItem('loggedInUser'));
       }
     }
+
+    function chatbot() {
+      const $fooziButton = $('.btn-fab');
+      const $fooziFrame = $('#foozi-frame');
+      let toggleFoozi = false;
+      $fooziButton.click(() => {
+        if (toggleFoozi === false) {
+          $fooziFrame.css('opacity', 1);
+          toggleFoozi = true;
+        } else {
+          $fooziFrame.css('opacity', 0);
+          toggleFoozi = false;
+        }
+      });
+    }
+
     $(document).ready(function () {
       $().ready(function () {
+        if (localStorage.getItem('white_color') === 'true') {
+          $('body').addClass('white-content');
+        } else {
+          $('body').removeClass('white-content');
+        }
         loggedInUser();
+        chatbot();
         $sidebar = $(".sidebar");
         $navbar = $(".navbar");
         $main_panel = $(".main-panel");
@@ -435,10 +448,12 @@
 
         $(".light-badge").click(function () {
           $("body").addClass("white-content");
+          localStorage.setItem('white_color', true);
         });
 
         $(".dark-badge").click(function () {
           $("body").removeClass("white-content");
+          localStorage.setItem('white_color', false);
         });
       });
     });

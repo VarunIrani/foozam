@@ -1,6 +1,7 @@
 .grp-title {
 	font-size: 160%;
 }
+
 .grp {
 	width: 250px;
 	height: 300px;
@@ -50,4 +51,15 @@
 	transition: all 0.5s ease-in-out;
 	margin-left: 1rem;
 	margin-top: 1rem;
+}
+
+#foozi-frame {
+	border: none;
+	border-radius: 2rem;
+	opacity: 0;
+	position: fixed;
+	bottom: 4rem;
+	z-index: 10;
+	right: 2rem;
+	height: 75%;
 }

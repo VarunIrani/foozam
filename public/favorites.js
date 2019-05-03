@@ -1,13 +1,11 @@
 /* eslint-disable no-alert */
 /* eslint-disable no-undef */
-import $ from 'jquery';
-
 function loadRecipes() {}
 
 function loadRestaurants() {}
 
 $(document).ready(() => {
-  alert('favorites.js');
+  alert('Hello World');
   loadRecipes();
   loadRestaurants();
   // loadBlogs();
