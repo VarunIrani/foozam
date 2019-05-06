@@ -1,8 +1,8 @@
 #loader {
-  z-index: 999999999;
-  position: fixed;
-  height: 100vh;
-  width: 100%;
-  background: #1e1e2f url('../img/loading-2000.gif') no-repeat center;
-  background-size: 200px 200px;
+	z-index: 9999;
+	position: fixed;
+	height: 100vh;
+	width: 100%;
+	background: #1e1e2f no-repeat center;
+	background-size: 200px 200px;
 }
