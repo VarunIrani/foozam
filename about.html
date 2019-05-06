@@ -436,11 +436,17 @@
         $(".light-badge").click(function () {
           $("body").addClass("white-content");
           localStorage.setItem('white_color', true);
+          window.setTimeout(() => {
+            location.reload();
+          }, 800);
         });
 
         $(".dark-badge").click(function () {
           $("body").removeClass("white-content");
           localStorage.setItem('white_color', false);
+          window.setTimeout(() => {
+            location.reload();
+          }, 800);
         });
       });
     });

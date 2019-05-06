@@ -100,12 +100,6 @@
           </button>
           <div class="collapse navbar-collapse" id="navigation">
             <ul class="navbar-nav ml-auto">
-              <li class="search-bar input-group">
-                <button class="btn btn-link" id="search-button" data-toggle="modal" data-target="#searchModal"><i
-                    class="tim-icons icon-zoom-split"></i>
-                  <span class="d-lg-none d-md-block">Search</span>
-                </button>
-              </li>
               <li class="dropdown nav-item">
                 <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
                   <div class="photo">
@@ -194,14 +188,20 @@
             <p>Cusrow Wadia Institute Of Technology,19, Bundgarden Road, Sangamvadi, Pune, Maharashtra 411001</p>
           </div>
           <div class="col-md-3">
-            <p><span>
+            <p>
+              <span>
                 <h4>Phone:</h4>
-              </span> <a href="tel://1234567920">+ 1235 2355 98</a></p>
+              </span>
+              <a href="tel://8698961448">+ 91 86989 61448</a>
+            </p>
           </div>
           <div class="col-md-3">
-            <p><span>
+            <p>
+              <span>
                 <h4>Email:</h4>
-              </span> <a href="mailto:info@yoursite.com">info@yoursite.com</a></p>
+              </span>
+              <a href="mailto:foozam2019@gmail.com">foozam2019@gmail.com</a>
+            </p>
           </div>
         </div>
       </div>
@@ -389,11 +389,17 @@
         $(".light-badge").click(function () {
           $("body").addClass("white-content");
           localStorage.setItem('white_color', true);
+          window.setTimeout(() => {
+            location.reload();
+          }, 800);
         });
 
         $(".dark-badge").click(function () {
           $("body").removeClass("white-content");
           localStorage.setItem('white_color', false);
+          window.setTimeout(() => {
+            location.reload();
+          }, 800);
         });
       });
     });

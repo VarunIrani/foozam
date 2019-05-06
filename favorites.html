@@ -143,7 +143,7 @@
 				<img src="./assets/img/favicon.png" alt="Foozam Logo" width="35px" style="margin-top: 12px" />
 			</label>
 			<div class="content">
-				<dv class="row" id="resultsRow">
+				<div class="row" id="resultsRow">
 					<div class="col-lg-12 col-md-12">
 						<div class="card ">
 							<div class="card-header">
@@ -206,9 +206,9 @@
 							</div>
 						</div>
 					</div>
+				</div>
 			</div>
 		</div>
-	</div>
 	</div>
 	</div>
 	<div class="fixed-plugin">
@@ -248,8 +248,11 @@
 	<script src="./assets/js/plugins/bootstrap-notify.js"></script>
 	<!-- Control Center for Black Dashboard: parallax effects, scripts for the example pages etc -->
 	<script src="./assets/js/black-dashboard.min.js?v=1.0.0"></script>
+	<script src="https://www.gstatic.com/firebasejs/5.9.0/firebase.js"></script>
+
 	<script src="loading.js"></script>
 	<script src="logout.js"></script>
+	<script src="showFavorites.js"></script>
 	<script>
 		document.body.className += ' fade-out';
 
@@ -396,11 +399,17 @@
 				$(".light-badge").click(function () {
 					$("body").addClass("white-content");
 					localStorage.setItem('white_color', true);
+					window.setTimeout(() => {
+						location.reload();
+					}, 800);
 				});
 
 				$(".dark-badge").click(function () {
 					$("body").removeClass("white-content");
 					localStorage.setItem('white_color', false);
+					window.setTimeout(() => {
+						location.reload();
+					}, 800);
 				});
 			});
 		});
