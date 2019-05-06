@@ -41,6 +41,10 @@ export default class RestaurantInfo extends LitElement {
   }
 
   render() {
+    const color = localStorage.getItem('white_color');
+    let titleColor;
+    if (color === true) titleColor = 'black';
+    else titleColor = 'white';
     return html`
 			<head>
 				<link href="./assets/css/black-dashboard.css?v=1.0.0" rel="stylesheet" />
@@ -48,8 +52,8 @@ export default class RestaurantInfo extends LitElement {
 			<div class="row" style="text-align: center">
 				<div class="col-lg-6 col-md-12"><img src="${this.image || this.defaultImage}" alt="Restaurant Image" /></div>
 				<div class="col-lg-6 col-md-12 pt-3">
-					<h4 class="card-title">${this.name}</h4>
-					<button type="button" id="know-more" class="btn btn-warning btn-simple">Know More</button>
+					<h4 class="card-title" style="color: ${titleColor}">${this.name}</h4>
+					<button type="button" id="know-more" class="btn btn-warning btn-simple">View</button>
 				</div>
 			</div>
 		`;

@@ -39,6 +39,9 @@ export default class KnowMoreRestaurant extends LitElement {
       favorite: {
         type: Boolean,
       },
+      title: {
+        type: String,
+      },
     };
   }
 

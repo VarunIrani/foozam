@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 /* eslint-disable key-spacing */
 /* eslint-disable no-console */
 /* eslint-disable template-tag-spacing */
@@ -39,6 +40,10 @@ export default class RecipeInfo extends LitElement {
   }
 
   render() {
+    const color = localStorage.getItem('white_color');
+    let titleColor;
+    if (color === true) titleColor = 'black';
+    else titleColor = 'white';
     return html`
 			<head>
 				<link href="./assets/css/black-dashboard.css?v=1.0.0" rel="stylesheet" />
@@ -48,7 +53,7 @@ export default class RecipeInfo extends LitElement {
 					<img src="${this.image || this.defaultImage}" alt="Recipe Image" width="200" />
 				</div>
 				<div class="col-lg-6 col-md-12 pt-3">
-					<h4 class="card-title">${this.label}</h4>
+					<h4 class="card-title" style="color: ${titleColor}">${this.label}</h4>
 					<button type="button" id="know-more" class="btn btn-warning btn-simple">View</button>
 				</div>
 			</div>

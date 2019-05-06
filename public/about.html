@@ -99,12 +99,6 @@
 
           <div class="collapse navbar-collapse" id="navigation">
             <ul class="navbar-nav ml-auto">
-              <li class="search-bar input-group">
-                <button class="btn btn-link" id="search-button" data-toggle="modal" data-target="#searchModal">
-                  <i class="tim-icons icon-zoom-split"></i>
-                  <span class="d-lg-none d-md-block">Search</span>
-                </button>
-              </li>
               <li class="dropdown nav-item">
                 <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
                   <div class="photo">
@@ -150,27 +144,21 @@
       </label>
       <div class="content">
         <div class="row d-md-flex">
-          <div class="col-md-6 ftco-animate img about-image">
+          <div class="col-md-4 ftco-animate img about-image">
             <img src="assets/img/loading-2000.gif" alt="">
           </div>
-          <div class="col-md-6 ftco-animate p-md-5">
+          <div class="col-md-8 ftco-animate p-md-5">
             <div class="row">
-              <div class="col-md-12 nav-link-wrap mb-5">
-                <div class="nav ftco-animate nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-                  <a class="nav-link active" id="v-pills-whatwedo-tab" data-toggle="pill" href="#v-pills-whatwedo"
-                    role="tab" aria-controls="v-pills-whatwedo" aria-selected="true">What We Do</a>
-
-                  <a class="nav-link" id="v-pills-mission-tab" data-toggle="pill" href="#v-pills-mission" role="tab"
-                    aria-controls="v-pills-mission" aria-selected="false">Our Mission</a>
-
-                  <a class="nav-link" id="v-pills-goal-tab" data-toggle="pill" href="#v-pills-goal" role="tab"
-                    aria-controls="v-pills-goal" aria-selected="false">Our Goal</a>
-                </div>
+              <div class="col-md-4 nav-link-wrap mb-5">
+                <ul class="nav nav-pills nav-pills-primary flex-column">
+                  <li class="nav-item"><a class="nav-link active" href="#tab1" data-toggle="tab">What We Do</a></li>
+                  <li class="nav-item"><a class="nav-link" href="#tab2" data-toggle="tab">Our Mission</a></li>
+                  <li class="nav-item"><a class="nav-link" href="#tab3" data-toggle="tab">Our Goal</a></li>
+                </ul>
               </div>
-              <div class="col-md-12 d-flex align-items-center">
-                <div class="tab-content ftco-animate" id="v-pills-tabContent">
-                  <div class="tab-pane fade show active" id="v-pills-whatwedo" role="tabpanel"
-                    aria-labelledby="v-pills-whatwedo-tab">
+              <div class="col-md-8 d-flex align-items-center">
+                <div class="tab-content tab-space">
+                  <div class="tab-pane active" id="tab1">
                     <div>
                       <h2 class="mb-4">Food Detection and Classification</h2>
                       <p>
@@ -185,7 +173,7 @@
                     </div>
                   </div>
 
-                  <div class="tab-pane fade" id="v-pills-mission" role="tabpanel" aria-labelledby="v-pills-mission-tab">
+                  <div class="tab-pane" id="tab2">
                     <div>
                       <h2 class="mb-4"> Exceptional Web Solutions </h2>
                       <p>
@@ -197,7 +185,7 @@
                     </div>
                   </div>
 
-                  <div class="tab-pane fade" id="v-pills-goal" role="tabpanel" aria-labelledby="v-pills-goal-tab">
+                  <div class="tab-pane" id="tab3">
                     <div>
                       <h2 class="mb-4"> Satisfy Our Users </h2>
                       <p>
@@ -448,11 +436,17 @@
         $(".light-badge").click(function () {
           $("body").addClass("white-content");
           localStorage.setItem('white_color', true);
+          window.setTimeout(() => {
+            location.reload();
+          }, 800);
         });
 
         $(".dark-badge").click(function () {
           $("body").removeClass("white-content");
           localStorage.setItem('white_color', false);
+          window.setTimeout(() => {
+            location.reload();
+          }, 800);
         });
       });
     });

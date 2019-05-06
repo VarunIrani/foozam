@@ -52,12 +52,16 @@ export function addRecipes(data) {
     }
   }
 
-  for (let j = 0; j < recipeComps.length - 1; j += 1) {
+  for (let j = 0; j < recipeComps.length; j += 1) {
     if (j % 2 === 0) {
       row = document.createElement('div');
       row.setAttribute('class', 'row');
-      row.appendChild(recipeComps[j]);
-      row.appendChild(recipeComps[j + 1]);
+      if (j < recipeComps.length - 1) {
+        row.appendChild(recipeComps[j]);
+        row.appendChild(recipeComps[j + 1]);
+      } else {
+        row.appendChild(recipeComps[j]);
+      }
       recipeTabPane.appendChild(row);
     }
   }
@@ -175,12 +179,16 @@ export function addRestaurants(data) {
     }
   }
 
-  for (let j = 0; j < resComps.length - 1; j += 1) {
+  for (let j = 0; j < resComps.length; j += 1) {
     if (j % 2 === 0) {
       row = document.createElement('div');
       row.setAttribute('class', 'row');
-      row.appendChild(resComps[j]);
-      row.appendChild(resComps[j + 1]);
+      if (j < resComps.length - 1) {
+        row.appendChild(resComps[j]);
+        row.appendChild(resComps[j + 1]);
+      } else {
+        row.appendChild(resComps[j]);
+      }
       restTabPane.appendChild(row);
     }
   }
@@ -198,6 +206,30 @@ export function addRestaurants(data) {
       knowMoreRest.setAttribute('image', restaurant.getAttribute('image'));
       knowMoreRest.setAttribute('defaultImage', restaurant.getAttribute('defaultImage'));
       knowMoreRest.setAttribute('name', restaurant.getAttribute('name'));
+      const googleLoggedIn = parseInt(sessionStorage.getItem('googleLoggedIn'));
+      const userLoggedIn = parseInt(sessionStorage.getItem('userLoggedIn'));
+      let user;
+      if (googleLoggedIn) {
+        user = JSON.parse(sessionStorage.getItem('googleUser'));
+      } else if (userLoggedIn) {
+        user = JSON.parse(sessionStorage.getItem('loggedInUser'));
+      }
+      const favoritesRef = database.child('favorites');
+      favoritesRef
+        .child(`${user.uid}`)
+        .child('restaurants')
+        .child(restaurant.getAttribute('name'))
+        .once('value')
+        .then((snap) => {
+          if (snap.val() != null) {
+            if (snap.val().favorite) {
+              knowMoreRest.setAttribute('favorite', true);
+            } else {
+              knowMoreRest.setAttribute('favorite', false);
+            }
+            knowMoreRest.setFavorite();
+          }
+        });
       $('#knowMoreTitle').html(title);
       $('#knowMoreBody').html(knowMoreRest);
     });

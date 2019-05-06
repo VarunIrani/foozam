@@ -100,12 +100,6 @@
           </button>
           <div class="collapse navbar-collapse" id="navigation">
             <ul class="navbar-nav ml-auto">
-              <li class="search-bar input-group">
-                <button class="btn btn-link" id="search-button" data-toggle="modal" data-target="#searchModal"><i
-                    class="tim-icons icon-zoom-split"></i>
-                  <span class="d-lg-none d-md-block">Search</span>
-                </button>
-              </li>
               <li class="dropdown nav-item">
                 <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
                   <div class="photo">
@@ -181,7 +175,8 @@
           <div class="col-md-6" id="map">
             <iframe style="height: 350px; width: 100%"
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3782.887613511966!2d73.87754231436887!3d18.53398017360253!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2c0f85139a0a7%3A0x6dc744b6d5f486dd!2sCusrow+Wadia+Institute+Of+Technology!5e0!3m2!1sen!2sin!4v1546860243730"
-              frameborder="0" style="border:0" allowfullscreen></iframe>
+              frameborder="0" style="border:0" allowfullscreen>
+            </iframe>
           </div>
         </div>
         <div class="row d-flex mb-5 contact-info pt-5">
@@ -193,14 +188,20 @@
             <p>Cusrow Wadia Institute Of Technology,19, Bundgarden Road, Sangamvadi, Pune, Maharashtra 411001</p>
           </div>
           <div class="col-md-3">
-            <p><span>
+            <p>
+              <span>
                 <h4>Phone:</h4>
-              </span> <a href="tel://1234567920">+ 1235 2355 98</a></p>
+              </span>
+              <a href="tel://8698961448">+ 91 86989 61448</a>
+            </p>
           </div>
           <div class="col-md-3">
-            <p><span>
+            <p>
+              <span>
                 <h4>Email:</h4>
-              </span> <a href="mailto:info@yoursite.com">info@yoursite.com</a></p>
+              </span>
+              <a href="mailto:foozam2019@gmail.com">foozam2019@gmail.com</a>
+            </p>
           </div>
         </div>
       </div>
@@ -388,11 +389,17 @@
         $(".light-badge").click(function () {
           $("body").addClass("white-content");
           localStorage.setItem('white_color', true);
+          window.setTimeout(() => {
+            location.reload();
+          }, 800);
         });
 
         $(".dark-badge").click(function () {
           $("body").removeClass("white-content");
           localStorage.setItem('white_color', false);
+          window.setTimeout(() => {
+            location.reload();
+          }, 800);
         });
       });
     });

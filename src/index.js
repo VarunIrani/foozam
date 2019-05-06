@@ -1,3 +1,4 @@
+/* eslint-disable no-restricted-globals */
 /* eslint-disable no-loop-func */
 /* eslint-disable no-alert */
 /* eslint-disable eol-last */
@@ -20,6 +21,9 @@ import KnowMoreRecipe from './components/know-more-recipe';
 import database from './database/database';
 import { addRestaurants, addRecipes } from './database/add-data';
 
+// Page function imports
+import { loadRecipes, loadRestaurants } from './favorites';
+
 const file = document.getElementById('img-file');
 const resultTitle = document.getElementById('result-title');
 
@@ -32,12 +36,14 @@ customElements.define('know-more-recipe', KnowMoreRecipe);
 
 const pred = [];
 
+// Get Recipes for the predicted food item
 function recipes(prediction) {
   getRecipes(KEYS.EDAMAM.API_KEY, KEYS.EDAMAM.APP_ID, prediction.innerHTML, 0, 20, (data) => {
     addRecipes(data);
   });
 }
 
+// Get restaurants for the predicted food item
 function restaurants(prediction) {
   let lat;
   let long;
@@ -81,6 +87,7 @@ modelTypes.forEach((modelType) => {
   });
 });
 
+// The predict function which makes a request to the flask server for predictions
 function predict(image, callback) {
   // const ports = [5000, 5500, 7000, 7500, 8000];
   const currentIndex = GROUPS.indexOf(sessionStorage.getItem('currentGroup'));
@@ -105,6 +112,7 @@ function predict(image, callback) {
   });
 }
 
+// Image upload functionality
 function previewFile() {
   const preview = document.getElementById('foozam-img'); // selects the query named img
 
@@ -144,6 +152,7 @@ function previewFile() {
   }
 }
 
+// Page loader logic
 const loader = document.getElementById('loader');
 
 function showBody() {
@@ -163,4 +172,13 @@ window.addEventListener('load', () => {
 
 file.addEventListener('change', () => {
   previewFile();
+});
+
+const $favoritesLink = $('#favoritesLink');
+$favoritesLink.click(() => {
+  loadRecipes();
+  loadRestaurants();
+  window.setTimeout(() => {
+    location.replace('favorites.html');
+  }, 800);
 });

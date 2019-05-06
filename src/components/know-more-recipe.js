@@ -56,6 +56,9 @@ export default class KnowMoreRecipe extends LitElement {
       favorite: {
         type: Boolean,
       },
+      title: {
+        type: String,
+      },
     };
   }
 
