@@ -4,8 +4,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-  <link rel="apple-touch-icon" sizes="76x76" href="./assets/img/apple-icon.jpg" />
-  <link rel="icon" type="image/jpg" href="./assets/img/favicon.jpg" />
+  <link rel="apple-touch-icon" sizes="76x76" href="./assets/img/apple-icon.png" />
+  <link rel="icon" type="image/jpg" href="./assets/img/favicon.png" />
   <title>Foozam</title>
   <!--     Fonts and icons     -->
   <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,600,700,800" rel="stylesheet" />
@@ -21,8 +21,11 @@
 
 <body class="">
   <div class="wrapper">
-    <div id="loader"></div>
-
+    <div id="loader">
+      <video autoplay loop muted playsinline style="width: 100%; height: 30%; margin-top: 30vh">
+        <source src="./assets/img/output.webm" type="video/webm">
+      </video>
+    </div>
     <div class="sidebar">
       <!--
         Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red"
@@ -30,7 +33,7 @@
       <div class="sidebar-wrapper" data-color="blue">
         <div class="logo">
           <a href="index.html" class="simple-text logo-mini">
-            <img src="./assets/img/favicon.jpg" alt="Foozam Logo" />
+            <img src="./assets/img/favicon.png" alt="Foozam Logo" />
           </a>
           <a href="index.html" class="simple-text logo-normal" style="text-transform: capitalize">
             Foozam
@@ -140,12 +143,14 @@
       </iframe>
       <label class="btn btn-primary btn-fab btn-icon btn-round btn-lg"
         style="position: fixed; bottom: 15px; z-index: 10; right: 15px;">
-        <img src="./assets/img/favicon.jpg" alt="Foozam Logo" width="35px" style="margin-top: 12px" />
+        <img src="./assets/img/favicon.png" alt="Foozam Logo" width="35px" style="margin-top: 12px" />
       </label>
       <div class="content">
         <div class="row d-md-flex">
           <div class="col-md-4 ftco-animate img about-image">
-            <video autoplay loop muted playsinline src="./assets/img/loading-2000.mp4"></video>
+            <video autoplay loop muted playsinline style="width: 100%; height: 100%;">
+              <source src="./assets/img/output.webm" type="video/webm">
+            </video>
           </div>
           <div class="col-md-8 ftco-animate p-md-5">
             <div class="row">
@@ -279,9 +284,6 @@
   <script src="./assets/js/core/popper.min.js"></script>
   <script src="./assets/js/core/bootstrap.min.js"></script>
   <script src="./assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
-  <!--  Google Maps Plugin    -->
-  <!-- Place this tag in your head or just before your close body tag. -->
-  <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
   <!-- Chart JS -->
   <script src="./assets/js/plugins/chartjs.min.js"></script>
   <!--  Notifications Plugin    -->
