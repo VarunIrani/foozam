@@ -9,7 +9,7 @@ function logout() {
     sessionStorage.setItem('googleLoggedIn', googleLoggedIn);
   } else if (userLoggedIn) {
     userLoggedIn = 0;
-    sessionStorage.setItem('userLoggedIn', googleLoggedIn);
+    sessionStorage.setItem('userLoggedIn', userLoggedIn);
   }
   location.reload();
 }
