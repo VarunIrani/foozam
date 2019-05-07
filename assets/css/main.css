@@ -55,7 +55,7 @@
 
 #foozi-frame {
 	border: none;
-	opacity: 0;
+	display: none;
 	position: fixed;
 	bottom: 4rem;
 	z-index: 10;
