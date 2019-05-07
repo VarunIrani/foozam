@@ -5,16 +5,28 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
-  <link rel="icon" type="image/jpg" href="../assets/img/favicon.png">
+  <link rel="icon" type="image/png" href="../assets/img/favicon.png">
   <title>
     Foozam | Home
   </title>
+  <!-- Preload -->
+  <link href="../assets/js/core/jquery.min.js" rel="preload" as="script" />
+  <link href="../assets/js/core/popper.min.js" rel="preload" as="script" />
+  <link href="../assets/js/core/bootstrap.min.js" rel="preload" as="script" />
+  <link rel="preload" href="../assets/js/plugins/perfect-scrollbar.jquery.min.js" as="script">
+  <link rel="preload" href="../assets/js/plugins/bootstrap-switch.js" as="script">
+  <link rel="preload" href="../assets/js/plugins/nouislider.min.js" as="script">
+  <link rel="preload" href="../assets/js/plugins/chartjs.min.js" as="script">
+  <link rel="preload" href="../assets/js/plugins/moment.min.js" as="script">
+  <link rel="preload" href="../assets/js/plugins/bootstrap-datetimepicker.js" as="script">
   <!--     Fonts and icons     -->
   <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,600,700,800" rel="stylesheet" />
   <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
   <!-- Nucleo Icons -->
+  <link href="../assets/css/nucleo-icons.css" rel="preload" as="style"/>
   <link href="../assets/css/nucleo-icons.css" rel="stylesheet" />
   <!-- CSS Files -->
+  <link href="../assets/css/blk-design-system.css?v=1.0.0" rel="preload" as="style"/>
   <link href="../assets/css/blk-design-system.css?v=1.0.0" rel="stylesheet" />
 </head>
 
@@ -115,7 +127,6 @@
         </div>
       </div>
       <div class="section section-nucleo-icons">
-        <img src="../assets/img/path3.jpg" class="path">
         <div class="container" style="text-align: center">
           <div class="blur-hover">
             <!-- Toggles the Sign in modal -->
@@ -207,21 +218,22 @@
     </div>
   </div>
   <!--   Core JS Files   -->
-  <script src="../assets/js/core/jquery.min.js" type="text/javascript"></script>
-  <script src="../assets/js/core/popper.min.js" type="text/javascript"></script>
-  <script src="../assets/js/core/bootstrap.min.js" type="text/javascript"></script>
-  <script src="../assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
+  
+  <script src="../assets/js/core/jquery.min.js" type="text/javascript" ></script>
+  <script src="../assets/js/core/popper.min.js" type="text/javascript" ></script>
+  <script src="../assets/js/core/bootstrap.min.js" type="text/javascript" ></script>
+  <script src="../assets/js/plugins/perfect-scrollbar.jquery.min.js" ></script>
   <!--  Plugin for Switches, full documentation here: http://www.jque.re/plugins/version3/bootstrap.switch/ -->
-  <script src="../assets/js/plugins/bootstrap-switch.js"></script>
+  <script src="../assets/js/plugins/bootstrap-switch.js" ></script>
   <!--  Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
-  <script src="../assets/js/plugins/nouislider.min.js" type="text/javascript"></script>
+  <script src="../assets/js/plugins/nouislider.min.js" type="text/javascript" ></script>
   <!-- Chart JS -->
-  <script src="../assets/js/plugins/chartjs.min.js"></script>
+  <script src="../assets/js/plugins/chartjs.min.js" ></script>
   <!--  Plugin for the DatePicker, full documentation here: https://github.com/uxsolutions/bootstrap-datepicker -->
-  <script src="../assets/js/plugins/moment.min.js"></script>
-  <script src="../assets/js/plugins/bootstrap-datetimepicker.js" type="text/javascript"></script>
+  <script src="../assets/js/plugins/moment.min.js" ></script>
+  <script src="../assets/js/plugins/bootstrap-datetimepicker.js" type="text/javascript" ></script>
   <!-- Control Center for Black UI Kit: parallax effects, scripts for the example pages etc -->
-  <script src="../assets/js/blk-design-system.min.js?v=1.0.0" type="text/javascript"></script>
+  <script src="../assets/js/blk-design-system.min.js?v=1.0.0" type="text/javascript" ></script>
   <script src="https://www.gstatic.com/firebasejs/5.9.0/firebase.js"></script>
   <script type="module">
     import config from '../database/firebase-config.js';

@@ -11,7 +11,7 @@ function logout() {
     userLoggedIn = 0;
     sessionStorage.setItem('userLoggedIn', userLoggedIn);
   }
-  location.reload();
+  location.replace('index.html');
 }
 const $logoutButton = $('#logoutButton');
 const $logoutLink = $('#logoutLink');

@@ -7,10 +7,16 @@
   <link rel="apple-touch-icon" sizes="76x76" href="./assets/img/apple-icon.png" />
   <link rel="icon" type="image/jpg" href="./assets/img/favicon.png" />
   <title>Foozam</title>
+  <!-- Preload -->
+  <link href="./assets/js/core/jquery.min.js" rel="preload" as="script" />
+  <link href="./assets/js/core/popper.min.js" rel="preload" as="script" />
+  <link href="./assets/js/core/bootstrap.min.js" rel="preload" as="script" />
+  <link rel="preload" href="./assets/js/plugins/perfect-scrollbar.jquery.min.js" as="script">
   <!--     Fonts and icons     -->
   <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,600,700,800" rel="stylesheet" />
   <link href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" rel="stylesheet" />
   <!-- Nucleo Icons -->
+  <link href="../assets/css/nucleo-icons.css" rel="preload" as="style"/>
   <link href="./assets/css/nucleo-icons.css" rel="stylesheet" />
   <!-- CSS Files -->
   <link href="./assets/css/black-dashboard.css?v=1.0.0" rel="stylesheet" />
@@ -93,7 +99,6 @@
               </button>
             </div>
             <a class="navbar-brand" href="javascript:void(0)">Know Your Food</a>
-            <button data-toggle="modal" data-target="#myModal2" style="opacity: 0">Login Modal</button>
           </div>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation"
             aria-expanded="false" aria-label="Toggle navigation">
@@ -125,6 +130,7 @@
             </ul>
           </div>
         </div>
+        </nav>
       </nav>
       <div class="modal modal-search fade" id="searchModal" tabindex="-1" role="dialog" aria-labelledby="searchModal"
         aria-hidden="true">
@@ -385,8 +391,6 @@
   <script src="./assets/js/core/popper.min.js"></script>
   <script src="./assets/js/core/bootstrap.min.js"></script>
   <script src="./assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
-  <!--  Notifications Plugin    -->
-  <script src="./assets/js/plugins/bootstrap-notify.js"></script>
   <!-- Control Center for Black Dashboard: parallax effects, scripts for the example pages etc -->
   <script src="./assets/js/black-dashboard.min.js?v=1.0.0"></script>
   <script src="./assets/js/plugins/owl.carousel.min.js"></script>
