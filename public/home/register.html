@@ -176,7 +176,14 @@
   <script src="https://www.gstatic.com/firebasejs/5.9.0/firebase.js"></script>
 
   <script type="module">
-    import config from '../database/firebase-config.js';
+    const config = {
+      apiKey: 'AIzaSyCK5tTuXD5WbHmhC-hBj-giHh3JLnb_fhE',
+      authDomain: 'foozam-test.firebaseapp.com',
+      databaseURL: 'https://foozam-test.firebaseio.com',
+      projectId: 'foozam-test',
+      storageBucket: '',
+      messagingSenderId: '791490333729',
+    };
     firebase.initializeApp(config);
     const $fullNameInput = $('#fullName');
     const $emailInput = $('#email');
