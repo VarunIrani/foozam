@@ -113,6 +113,43 @@ function getDietLabels(dietLabels) {
   });
 }
 
+function getNutrients(nutrients) {
+  const nutrientsArray = JSON.parse(nutrients);
+  const pieCanvas = document.getElementById('knowMoreBody').querySelector('#pieCanvas');
+  const values = [];
+  const labels = [];
+  nutrientsArray.forEach((nutrient) => {
+    values.push(Math.trunc(nutrient.total));
+    labels.push(`${nutrient.label} (${nutrient.unit})`);
+  });
+  const data = {
+    datasets: [
+      {
+        data: values,
+        label: 'Nutrients',
+        backgroundColor: ['#003f5c', '#58508d', '#bc5090', '#ff6361', '#ffa600'],
+        borderWidth: 1,
+      },
+    ],
+    labels,
+  };
+  const options = {
+    animation: {
+      animateScale: true,
+    },
+    legend: {
+      labels: {
+        fontSize: 16,
+      },
+    },
+  };
+  const pieChart = new Chart(pieCanvas, {
+    type: 'doughnut',
+    data,
+    options,
+  });
+}
+
 function checkFavorite(favorite) {
   const favoriteIcon = document.getElementById('knowMoreBody').querySelector('#favoriteIcon');
   if (favorite === 'true') {
@@ -189,6 +226,7 @@ function showKnowMoreRecipe(index) {
   getIngredients(sessionStorage.getItem(`recipe-${index}-ingredients`));
   getDietLabels(sessionStorage.getItem(`recipe-${index}-dietLabels`));
   getHealthLabels(sessionStorage.getItem(`recipe-${index}-healthLabels`));
+  getNutrients(sessionStorage.getItem(`recipe-${index}-nutrients`));
   checkFavorite(sessionStorage.getItem(`recipe-${index}-favorite`));
 }
 
