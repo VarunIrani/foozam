@@ -278,20 +278,19 @@
 		}
 
 		function chatbot() {
-			const $fooziButton = $('.btn-fab');
-			const $fooziFrame = $('#foozi-frame');
-			let toggleFoozi = false;
-			$fooziButton.click(() => {
-				if (toggleFoozi === false) {
-					$fooziFrame.css('opacity', 1);
-					toggleFoozi = true;
-				} else {
-					$fooziFrame.css('opacity', 0);
-					toggleFoozi = false;
-				}
-			});
-		}
-
+      const $fooziButton = $('.btn-fab');
+      const $fooziFrame = $('#foozi-frame');
+      let toggleFoozi = false;
+      $fooziButton.click(() => {
+        if (toggleFoozi === false) {
+          $fooziFrame.css('display', 'block');
+          toggleFoozi = true;
+        } else {
+          $fooziFrame.css('display', 'none');
+          toggleFoozi = false;
+        }
+      });
+    }
 		$(document).ready(function () {
 			$().ready(function () {
 				if (localStorage.getItem('white_color') === 'true') {

@@ -594,10 +594,10 @@
       let toggleFoozi = false;
       $fooziButton.click(() => {
         if (toggleFoozi === false) {
-          $fooziFrame.css('opacity', 1);
+          $fooziFrame.css('display', 'block');
           toggleFoozi = true;
         } else {
-          $fooziFrame.css('opacity', 0);
+          $fooziFrame.css('display', 'none');
           toggleFoozi = false;
         }
       });
