@@ -90,6 +90,8 @@ modelTypes.forEach((modelType) => {
 // The predict function which makes a request to the flask server for predictions
 function predict(image, callback) {
   // const ports = [5000, 5500, 7000, 7500, 8000];
+  $('.lds-ring').css('display', 'inline-block');
+
   const currentIndex = GROUPS.indexOf(sessionStorage.getItem('currentGroup'));
   const url = `https://foozam-${currentIndex}.serveo.net/predict`;
   console.log(url);
@@ -126,6 +128,7 @@ function previewFile() {
     image2base64(preview.src).then((image) => {
       predict(image, (res) => {
         if (res.success) {
+          $('.lds-ring').css('display', 'none');
           const foozamGuess = document.getElementById('foozam-guess');
           foozamGuess.innerHTML = 'Foozam Guesses That The Image Contains . . .';
           const results = [];
@@ -138,6 +141,7 @@ function previewFile() {
           pred[0].setAttribute('style', 'opacity: 1');
           pred[1].setAttribute('style', 'opacity: 0');
         } else {
+          $('.lds-ring').css('display', 'none');
           pred[0].innerHTML = 'Try uploading a better picture.'.toUpperCase();
           pred[1].innerHTML = 'Perhaps of the above food items'.toUpperCase();
           pred[0].setAttribute('style', 'opacity: 1');
