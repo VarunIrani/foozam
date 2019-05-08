@@ -1871,7 +1871,7 @@ if (workbox) {
   },
   {
     "url": "home/index.html",
-    "revision": "6a0f2c96bc30897c89f5ca077b48db42"
+    "revision": "b91cb89df80aec64a628f2ddc9512c60"
   },
   {
     "url": "home/manifest.json",
