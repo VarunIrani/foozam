@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
   <link rel="icon" href="../assets/img/favicon.webp">
+  <link rel="manifest" href="manifest.json">
   <title>
     Foozam | Home
   </title>
@@ -236,7 +237,18 @@
   <!-- Control Center for Black UI Kit: parallax effects, scripts for the example pages etc -->
   <script src="../assets/js/blk-design-system.min.js?v=1.0.0" type="text/javascript" ></script>
   <script src="https://www.gstatic.com/firebasejs/5.9.0/firebase.js"></script>
-  <script type="module">
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('./sw.js')
+          .then(registration => {
+            console.log(`Service Worker registered! Scope: ${registration.scope}`);
+          })
+          .catch(err => {
+            console.log(`Service Worker registration failed: ${err}`);
+          });
+      });
+    }
     const config = {
       apiKey: 'AIzaSyCK5tTuXD5WbHmhC-hBj-giHh3JLnb_fhE',
       authDomain: 'foozam-test.firebaseapp.com',
