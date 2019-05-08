@@ -1883,7 +1883,7 @@ if (workbox) {
   },
   {
     "url": "home/loader.css",
-    "revision": "2e1f1f22fa26ecea39c4ad100d4d0de6"
+    "revision": "2a5d7c942af7e1961b91cf8cec0aa045"
   },
   {
     "url": "home/manifest.json",
