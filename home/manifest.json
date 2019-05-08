@@ -3,7 +3,7 @@
   "short_name": "Foozam",
   "theme_color": "#550c85",
   "background_color": "#550c85",
-  "display": "standalone",
+  "display": "fullscreen",
   "orientation": "portrait",
   "Scope": "/",
   "start_url": "/",

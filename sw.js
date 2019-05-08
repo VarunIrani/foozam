@@ -1875,7 +1875,7 @@ if (workbox) {
   },
   {
     "url": "home/manifest.json",
-    "revision": "efc767858dc738888f556f83e5f57f64"
+    "revision": "c54318e8ee88b910837f36b272765a0a"
   },
   {
     "url": "home/register.html",
