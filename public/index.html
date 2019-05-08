@@ -613,7 +613,10 @@
         $('.lds-ring').css('display', 'none');
         if (localStorage.getItem('white_color') === 'true') {
           $('body').addClass('white-content');
+        } else if (localStorage.getItem('white_color') === 'false') {
+          $('body').removeClass('white-content');
         } else {
+          localStorage.setItem('white_color', false);
           $('body').removeClass('white-content');
         }
         // Redirect to home page if not logged in
@@ -741,7 +744,7 @@
           localStorage.setItem('white_color', true);
           window.setTimeout(() => {
             location.reload();
-          }, 800);
+          }, 1000);
         });
 
         $(".dark-badge").click(function () {
@@ -749,7 +752,7 @@
           localStorage.setItem('white_color', false);
           window.setTimeout(() => {
             location.reload();
-          }, 800);
+          }, 1000);
         });
 
         $('closeButton').click(() => {
