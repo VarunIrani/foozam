@@ -80,7 +80,7 @@ function createRecipeComponents(recipes) {
       recipeComps[i].setAttribute('source', res[i].source);
       recipeComps[i].setAttribute('url', res[i].url);
       recipeComps[i].setAttribute('image', res[i].image);
-      recipeComps[i].setAttribute('defaultImage', 'https://foozam.ml/assets/img/recipe-default.png');
+      recipeComps[i].setAttribute('defaultImage', 'https://foozam.ml/assets/img/recipe-default.jpg');
       recipeComps[i].setAttribute('data-toggle', 'modal');
       recipeComps[i].setAttribute('data-target', '#knowMoreModal');
       recipeCompStrings.push(JSON.stringify(recipeComps[i].render()));
@@ -109,7 +109,7 @@ function createRestaurantComponents(restaurants) {
       restComps[i].setAttribute('cuisines', res[i].cuisines);
       restComps[i].setAttribute('image', res[i].image);
       restComps[i].setAttribute('userRating', res[i].userRating);
-      restComps[i].setAttribute('defaultImage', 'https://foozam.ml/assets/img/rest-default.png');
+      restComps[i].setAttribute('defaultImage', 'https://foozam.ml/assets/img/rest-default.jpg');
       restComps[i].setAttribute('data-toggle', 'modal');
       restComps[i].setAttribute('data-target', '#knowMoreModal');
       restCompStrings.push(JSON.stringify(restComps[i].render()));

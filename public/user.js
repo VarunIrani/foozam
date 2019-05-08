@@ -12,6 +12,6 @@ export default function previewImg() {
   if (file) {
     reader.readAsDataURL(file); // reads the data as a URL
   } else {
-    preview.src = './assets/img/anime3.png';
+    preview.src = './assets/img/anime3.jpg';
   }
 }

@@ -17874,7 +17874,7 @@ textarea.form-control:active {
 .register-page .square-1 {
   height: 300px;
   width: 300px;
-  background-image: url("../../assets/img/favicon.png");
+  background-image: url("../../assets/img/favicon.jpg");
   top: 175px;
   right: 150px;
   opacity: 0.8;
@@ -18577,7 +18577,7 @@ hr.line-deafult {
 .section-signup .square-1 {
   height: 300px;
   width: 300px;
-  background-image: url("../../assets/img/square1.png");
+  background-image: url("../../assets/img/square1.jpg");
   top: 80px;
   left: 100px;
   opacity: 0.3;
@@ -18587,7 +18587,7 @@ hr.line-deafult {
 .section-signup .square-2 {
   height: 200px;
   width: 200px;
-  background: url("../../assets/img/square3.png");
+  background: url("../../assets/img/square3.jpg");
   background-size: cover;
   bottom: 40px;
   left: 600px;
@@ -18598,7 +18598,7 @@ hr.line-deafult {
 .section-signup .square-3 {
   height: 100px;
   width: 100px;
-  background: url("../../assets/img/square2.png");
+  background: url("../../assets/img/square2.jpg");
   background-size: cover;
   top: 300px;
   left: 700px;
@@ -18608,7 +18608,7 @@ hr.line-deafult {
 .section-signup .square-4 {
   height: 250px;
   width: 250px;
-  background: url("../../assets/img/square3.png");
+  background: url("../../assets/img/square3.jpg");
   background-size: cover;
   top: 0px;
   right: 100px;
@@ -20035,7 +20035,7 @@ Copyright (c) 2015 Daniel Eden
   vertical-align: middle;
   -webkit-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
   transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
-  background: url("https://d2v9y0dukr6mq2.cloudfront.net/video/thumbnail/J9H9WF0/night-sky-full-of-stars-fantasy-animation-made-of-magical-sparkly-light-particles-flickering-on-a-purple-blue-gradient-background_bajacpz7x_thumbnail-full01.png");
+  background: url("https://d2v9y0dukr6mq2.cloudfront.net/video/thumbnail/J9H9WF0/night-sky-full-of-stars-fantasy-animation-made-of-magical-sparkly-light-particles-flickering-on-a-purple-blue-gradient-background_bajacpz7x_thumbnail-full01.jpg");
   background-position: center center;
   background-size: cover;
 }
