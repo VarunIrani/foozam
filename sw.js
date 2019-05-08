@@ -7,7 +7,7 @@ if (workbox) {
   workbox.precaching.precacheAndRoute([
   {
     "url": "about.html",
-    "revision": "fc3306c81d92accf2fe3adae297c499b"
+    "revision": "883cce99c6755185846a99396833b114"
   },
   {
     "url": "asset-manifest.json",
@@ -422,6 +422,10 @@ if (workbox) {
     "revision": "8f912d4eba0a9359251253d5fb33b603"
   },
   {
+    "url": "assets/img/karan.jpg",
+    "revision": "3d83c5b6fe497187773df8c0f1c20732"
+  },
+  {
     "url": "assets/img/landing-page.jpg",
     "revision": "2b4c72e1ef6d6adfd23fc981ff7a4668"
   },
@@ -592,6 +596,10 @@ if (workbox) {
   {
     "url": "assets/img/triunghiuri.jpg",
     "revision": "2ed3d8c4109274e2e07df0ff67f31cf4"
+  },
+  {
+    "url": "assets/img/varun.jpeg",
+    "revision": "242cf57027324e59687d961775123bd4"
   },
   {
     "url": "assets/img/varun.jpg",
