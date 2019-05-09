@@ -178,8 +178,9 @@ function removeRecipe(i) {
   sessionStorage.setItem('recipesLength', recipesLength - 1);
   sessionStorage.removeItem(`recipe-${i}`);
   sessionStorage.removeItem(`knowMoreRecipe-${i}`);
+  sessionStorage.setItem('rem-fav', true);
   window.setTimeout(() => {
-    location.reload();
+    location.replace('index.html');
   }, 3000);
 }
 
@@ -204,9 +205,9 @@ function removeRestaurant(i) {
   sessionStorage.setItem('restLength', restLength - 1);
   sessionStorage.removeItem(`restaurant-${i}`);
   sessionStorage.removeItem(`knowMoreRest-${i}`);
-
+  sessionStorage.setItem('rem-fav', true);
   window.setTimeout(() => {
-    location.reload();
+    location.replace('index.html');
   }, 3000);
 }
 

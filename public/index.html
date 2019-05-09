@@ -610,6 +610,13 @@
 
     $(document).ready(function () {
       $().ready(function () {
+        const remFav = sessionStorage.getItem('rem-fav');
+        if (remFav === 'true') {
+          sessionStorage.setItem('rem-fav', false);
+          window.setTimeout(() => {
+            location.replace('favorites.html');
+          }, 2000);
+        }
         $('.lds-ring').css('display', 'none');
         if (localStorage.getItem('white_color') === 'true') {
           $('body').addClass('white-content');
