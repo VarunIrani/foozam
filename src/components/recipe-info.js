@@ -42,7 +42,7 @@ export default class RecipeInfo extends LitElement {
   render() {
     const color = localStorage.getItem('white_color');
     let titleColor;
-    if (color === true) titleColor = 'black';
+    if (color === 'true') titleColor = 'black';
     else titleColor = 'white';
     return html`
 			<head>

@@ -1,6 +1,6 @@
 {
 	"name": "foozam",
-	"version": "0.1",
+	"version": "0.2.2",
 	"description": "Foozam",
 	"main": "index.html",
 	"directories": {
@@ -8,7 +8,7 @@
 	},
 	"scripts": {
 		"start": "react-scripts start",
-		"build": "react-scripts build",
+		"build": "react-scripts build && workbox injectManifest workbox-config.js",
 		"eject": "react-scripts eject",
 		"predeploy": "yarn build",
 		"deploy": "gh-pages -d build"

@@ -17874,7 +17874,7 @@ textarea.form-control:active {
 .register-page .square-1 {
   height: 300px;
   width: 300px;
-  background-image: url("../../assets/img/favicon.png");
+  background-image: url("../../assets/img/favicon.jpg");
   top: 175px;
   right: 150px;
   opacity: 0.8;
@@ -20035,7 +20035,7 @@ Copyright (c) 2015 Daniel Eden
   vertical-align: middle;
   -webkit-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
   transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
-  background: url("https://d2v9y0dukr6mq2.cloudfront.net/video/thumbnail/J9H9WF0/night-sky-full-of-stars-fantasy-animation-made-of-magical-sparkly-light-particles-flickering-on-a-purple-blue-gradient-background_bajacpz7x_thumbnail-full01.png");
+  background: url("https://d2v9y0dukr6mq2.cloudfront.net/video/thumbnail/J9H9WF0/night-sky-full-of-stars-fantasy-animation-made-of-magical-sparkly-light-particles-flickering-on-a-purple-blue-gradient-background_bajacpz7x_thumbnail-full01.jpg");
   background-position: center center;
   background-size: cover;
 }

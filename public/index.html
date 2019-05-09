@@ -6,12 +6,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, user-scalable=0" />
   <link rel="apple-touch-icon" sizes="76x76" href="./assets/img/apple-icon.png" />
   <link rel="icon" type="image/jpg" href="./assets/img/favicon.webp" />
+  <link rel="manifest" href="./home/manifest.json">
+
   <title>Foozam</title>
   <!-- Preload -->
   <link href="./assets/js/core/jquery.min.js" rel="preload" as="script" />
   <link href="./assets/js/core/popper.min.js" rel="preload" as="script" />
   <link href="./assets/js/core/bootstrap.min.js" rel="preload" as="script" />
   <link rel="preload" href="./assets/js/plugins/perfect-scrollbar.jquery.min.js" as="script">
+  <link rel="preload" href="home/loader.css" as="style">
   <!--     Fonts and icons     -->
   <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,600,700,800" rel="stylesheet" />
   <link href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" rel="stylesheet" />
@@ -24,6 +27,8 @@
   <link rel="stylesheet" href="./assets/css/main.css">
   <link rel="stylesheet" href="./assets/css/owl.carousel.min.css">
   <link rel="stylesheet" href="./assets/css/owl.theme.green.min.css">
+  <link rel="stylesheet" href="home/loader.css">
+
 </head>
 
 <body class="">
@@ -243,8 +248,9 @@
                     </div>
                     <img src="" alt="" id="foozam-img" class="pb-3 pt-3" />
                   </div>
-                  <div class="col-lg-7 col-md-12 justify-content-center">
+                  <div class="col-lg-7 col-md-12 text-center">
                     <h4 id="foozam-guess">Awesome Results 😎</h4>
+                    <div class="lds-ring"><div></div><div></div><div></div><div></div></div>                    
                     <button class="btn btn-danger btn-lg btn-block" id="pred-1"></button>
                     <button class="btn btn-info btn-lg btn-block" id="pred-2"></button>
                   </div>
@@ -604,9 +610,13 @@
 
     $(document).ready(function () {
       $().ready(function () {
+        $('.lds-ring').css('display', 'none');
         if (localStorage.getItem('white_color') === 'true') {
           $('body').addClass('white-content');
+        } else if (localStorage.getItem('white_color') === 'false') {
+          $('body').removeClass('white-content');
         } else {
+          localStorage.setItem('white_color', false);
           $('body').removeClass('white-content');
         }
         // Redirect to home page if not logged in
@@ -734,7 +744,7 @@
           localStorage.setItem('white_color', true);
           window.setTimeout(() => {
             location.reload();
-          }, 800);
+          }, 1000);
         });
 
         $(".dark-badge").click(function () {
@@ -742,7 +752,7 @@
           localStorage.setItem('white_color', false);
           window.setTimeout(() => {
             location.reload();
-          }, 800);
+          }, 1000);
         });
 
         $('closeButton').click(() => {

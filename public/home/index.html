@@ -6,6 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
   <link rel="icon" href="../assets/img/favicon.webp">
+  <link rel="manifest" href="manifest.json">
+  <link rel="preload" href="loader.css" as="style">
+  <link rel="stylesheet" href="loader.css">
   <title>
     Foozam | Home
   </title>
@@ -174,12 +177,13 @@
                 <h3 class="mb-0">Sign in with</h3>
               </div>
             </div>
-            <div class="modal-body">
+            <div class="modal-body text-center">
               <div class="btn-wrapper text-center">
                 <button class="btn btn-neutral btn-icon btn-lg" id="googleAuthButton">
                   <img src="../assets/img/google.svg">
                 </button>
               </div>
+              <div class="lds-ring"><div></div><div></div><div></div><div></div></div>
               <div class="text-center text-muted mb-4 mt-3">
                 <h4>Or sign in with credentials</h4>
               </div>
@@ -236,7 +240,18 @@
   <!-- Control Center for Black UI Kit: parallax effects, scripts for the example pages etc -->
   <script src="../assets/js/blk-design-system.min.js?v=1.0.0" type="text/javascript" ></script>
   <script src="https://www.gstatic.com/firebasejs/5.9.0/firebase.js"></script>
-  <script type="module">
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js')
+          .then(registration => {
+            console.log(`Service Worker registered! Scope: ${registration.scope}`);
+          })
+          .catch(err => {
+            console.log(`Service Worker registration failed: ${err}`);
+          });
+      });
+    }
     const config = {
       apiKey: 'AIzaSyCK5tTuXD5WbHmhC-hBj-giHh3JLnb_fhE',
       authDomain: 'foozam-test.firebaseapp.com',
@@ -249,6 +264,8 @@
     $(document).ready(function() {
       sessionStorage.setItem('googleLoggedIn', '0');
       sessionStorage.setItem('userLoggedIn', '0');
+      $('.lds-ring').css('display', 'none');
+
       blackKit.initDatePicker();
       blackKit.initSliders();
     });
@@ -285,6 +302,7 @@
           sessionStorage.setItem('googleUser', JSON.stringify(user));
           sessionStorage.setItem('googleLoggedIn', '1');
           writeUserData(uid, user);
+          $('.lds-ring').css('display', 'inline-block');
           window.setTimeout(redirectToMain, 3000);
         })
         .catch((e) => {
