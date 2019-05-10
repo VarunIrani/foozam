@@ -11,7 +11,7 @@ if (workbox) {
   },
   {
     "url": "asset-manifest.json",
-    "revision": "dab6d8b45dc42e7997574d51e85996dd"
+    "revision": "315172707d18741bd979a53ceebe15fe"
   },
   {
     "url": "assets/css/black-dashboard.css",
@@ -1895,7 +1895,7 @@ if (workbox) {
   },
   {
     "url": "index.html",
-    "revision": "412e1bc3950666de6ef1980ca938c223"
+    "revision": "895861b98a9cb870083905e8b87190b9"
   },
   {
     "url": "loading.js",
@@ -1906,24 +1906,24 @@ if (workbox) {
     "revision": "197706f2021fb552c93ff50f30d37ed8"
   },
   {
-    "url": "precache-manifest.c8e9f0490d81c2533713599e599e479f.js",
-    "revision": "c8e9f0490d81c2533713599e599e479f"
+    "url": "precache-manifest.178670f17ee94e6f6706cd9539fc0a31.js",
+    "revision": "178670f17ee94e6f6706cd9539fc0a31"
   },
   {
     "url": "service-worker.js",
-    "revision": "2e9c76263d62844f262dde5286522bbf"
+    "revision": "c6e9f0811b2d6142b96f101da7a5dcfe"
   },
   {
     "url": "showFavorites.js",
     "revision": "d96f6a1bc3382de6516eca8c2b9009e1"
   },
   {
-    "url": "static/js/2.0b8bb0c9.chunk.js",
-    "revision": "095bec3540e41406fd182886badf2f6b"
+    "url": "static/js/2.0d8827a9.chunk.js",
+    "revision": "dc146ebf8bef4e8a946e51ff6f1cfa41"
   },
   {
-    "url": "static/js/main.a97b82fe.chunk.js",
-    "revision": "278d3a40823704003a518ed1e00ea59a"
+    "url": "static/js/main.40fc3447.chunk.js",
+    "revision": "cdc10bd74bd770ceca22ad8b7d199103"
   },
   {
     "url": "static/js/runtime~main.a8a9905a.js",
