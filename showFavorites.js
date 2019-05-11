@@ -48,7 +48,7 @@ function showRecipes() {
   }
   const white = localStorage.getItem('white_color');
   if (white === 'true') $('.card-title').css('color', 'black');
-  else $('.card-title').css('color', 'white');
+  else $('#link1 > .card-title').css('color', 'white');
 }
 
 function showRestaurants() {
@@ -81,6 +81,9 @@ function showRestaurants() {
       restTabPane.appendChild(row);
     }
   }
+  const white = localStorage.getItem('white_color');
+  if (white === 'true') $('.card-title').css('color', 'black');
+  else $('#link2 > .card-title').css('color', 'white');
 }
 
 function getIngredients(ingredients) {
