@@ -138,11 +138,13 @@ function previewFile() {
     const time = `${today.getHours()}:${today.getMinutes()}:${today.getSeconds()}`;
     const dateTime = `${date} ${time}`;
     const imageInfo = {
-      dateTime,
       image: reader.result,
       group: localStorage.getItem('currentGroup'),
     };
-    imageRef.child(`${user.uid}`).set(imageInfo);
+    imageRef
+      .child(`${user.uid}`)
+      .child(`${dateTime}`)
+      .set(imageInfo);
     image2base64(preview.src).then((image) => {
       predict(image, (res) => {
         if (res.success) {
