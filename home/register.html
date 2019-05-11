@@ -259,7 +259,7 @@
     }
 
     function redirectToMain() {
-      const userLoggedIn = parseInt(sessionStorage.getItem('userLoggedIn'));
+      const userLoggedIn = parseInt(localStorage.getItem('userLoggedIn'));
       if (userLoggedIn)
         location.replace('../');
     }
@@ -277,8 +277,8 @@
             providerId: 'password',
           }
           writeUserData(user);
-          sessionStorage.setItem('loggedInUser', JSON.stringify(user));
-          sessionStorage.setItem('userLoggedIn', '1');
+          localStorage.setItem('loggedInUser', JSON.stringify(user));
+          localStorage.setItem('userLoggedIn', '1');
           window.setTimeout(redirectToMain, 3000);
         }
       });

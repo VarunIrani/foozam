@@ -5,8 +5,8 @@
 /* eslint-disable radix */
 /* eslint-disable no-undef */
 /* eslint-disable no-console */
-const recipesLength = parseInt(sessionStorage.getItem('recipesLength'));
-const restLength = parseInt(sessionStorage.getItem('restLength'));
+const recipesLength = parseInt(localStorage.getItem('recipesLength'));
+const restLength = parseInt(localStorage.getItem('restLength'));
 const config = {
   apiKey: 'AIzaSyCK5tTuXD5WbHmhC-hBj-giHh3JLnb_fhE',
   authDomain: 'foozam-test.firebaseapp.com',
@@ -22,7 +22,7 @@ function showRecipes() {
   const recipeTabPane = document.getElementById('link1');
   for (let i = 0; i < recipesLength; i += 1) {
     let recipe = '';
-    recipes.push(JSON.parse(sessionStorage.getItem(`recipe-${i}`)));
+    recipes.push(JSON.parse(localStorage.getItem(`recipe-${i}`)));
     for (let j = 0; j < recipes[i].values.length; j += 1) {
       recipes[i].strings[j] += recipes[i].values[j];
     }
@@ -54,7 +54,7 @@ function showRestaurants() {
   const restTabPane = document.getElementById('link2');
   for (let i = 0; i < restLength; i += 1) {
     let restaurant = '';
-    restaurants.push(JSON.parse(sessionStorage.getItem(`restaurant-${i}`)));
+    restaurants.push(JSON.parse(localStorage.getItem(`restaurant-${i}`)));
     for (let j = 0; j < restaurants[i].values.length; j += 1) {
       restaurants[i].strings[j] += restaurants[i].values[j];
     }
@@ -158,61 +158,61 @@ function checkFavorite(favorite) {
 }
 
 function removeRecipe(i) {
-  const googleLoggedIn = parseInt(sessionStorage.getItem('googleLoggedIn'));
-  const userLoggedIn = parseInt(sessionStorage.getItem('userLoggedIn'));
+  const googleLoggedIn = parseInt(localStorage.getItem('googleLoggedIn'));
+  const userLoggedIn = parseInt(localStorage.getItem('userLoggedIn'));
   let user;
   if (googleLoggedIn) {
-    user = JSON.parse(sessionStorage.getItem('googleUser'));
+    user = JSON.parse(localStorage.getItem('googleUser'));
   } else if (userLoggedIn) {
-    user = JSON.parse(sessionStorage.getItem('loggedInUser'));
+    user = JSON.parse(localStorage.getItem('loggedInUser'));
   }
   const fb = firebase.initializeApp(config);
   const database = fb.database().ref();
   const favoritesRef = database.child('favorites');
-  const recipe = sessionStorage.getItem(`recipe-${i}-label`);
+  const recipe = localStorage.getItem(`recipe-${i}-label`);
   favoritesRef
     .child(`${user.uid}`)
     .child('recipes')
     .child(recipe)
     .remove();
-  sessionStorage.setItem('recipesLength', recipesLength - 1);
-  sessionStorage.removeItem(`recipe-${i}`);
-  sessionStorage.removeItem(`knowMoreRecipe-${i}`);
-  sessionStorage.setItem('rem-fav', true);
+  localStorage.setItem('recipesLength', recipesLength - 1);
+  localStorage.removeItem(`recipe-${i}`);
+  localStorage.removeItem(`knowMoreRecipe-${i}`);
+  localStorage.setItem('rem-fav', true);
   window.setTimeout(() => {
     location.replace('index.html');
   }, 3000);
 }
 
 function removeRestaurant(i) {
-  const googleLoggedIn = parseInt(sessionStorage.getItem('googleLoggedIn'));
-  const userLoggedIn = parseInt(sessionStorage.getItem('userLoggedIn'));
+  const googleLoggedIn = parseInt(localStorage.getItem('googleLoggedIn'));
+  const userLoggedIn = parseInt(localStorage.getItem('userLoggedIn'));
   let user;
   if (googleLoggedIn) {
-    user = JSON.parse(sessionStorage.getItem('googleUser'));
+    user = JSON.parse(localStorage.getItem('googleUser'));
   } else if (userLoggedIn) {
-    user = JSON.parse(sessionStorage.getItem('loggedInUser'));
+    user = JSON.parse(localStorage.getItem('loggedInUser'));
   }
   const fb = firebase.initializeApp(config);
   const database = fb.database().ref();
   const favoritesRef = database.child('favorites');
-  const restaurant = sessionStorage.getItem(`rest-${i}-name`);
+  const restaurant = localStorage.getItem(`rest-${i}-name`);
   favoritesRef
     .child(`${user.uid}`)
     .child('restaurants')
     .child(restaurant)
     .remove();
-  sessionStorage.setItem('restLength', restLength - 1);
-  sessionStorage.removeItem(`restaurant-${i}`);
-  sessionStorage.removeItem(`knowMoreRest-${i}`);
-  sessionStorage.setItem('rem-fav', true);
+  localStorage.setItem('restLength', restLength - 1);
+  localStorage.removeItem(`restaurant-${i}`);
+  localStorage.removeItem(`knowMoreRest-${i}`);
+  localStorage.setItem('rem-fav', true);
   window.setTimeout(() => {
     location.replace('index.html');
   }, 3000);
 }
 
 function showKnowMoreRecipe(index) {
-  const knowMoreRecipe = JSON.parse(sessionStorage.getItem(`knowMoreRecipe-${index}`));
+  const knowMoreRecipe = JSON.parse(localStorage.getItem(`knowMoreRecipe-${index}`));
   let knowMoreRecipeTemplate = '';
   for (let j = 0; j < knowMoreRecipe.values.length; j += 1) {
     knowMoreRecipe.strings[j] += knowMoreRecipe.values[j];
@@ -223,16 +223,16 @@ function showKnowMoreRecipe(index) {
   knowMoreRecipeTemplate = knowMoreRecipeTemplate.replace('@', 'on');
   knowMoreRecipeTemplate = knowMoreRecipeTemplate.replace('null', `removeRecipe(${index})`);
   $('#knowMoreBody').html(knowMoreRecipeTemplate);
-  $('#knowMoreTitle').html(sessionStorage.getItem(`recipe-${index}-title`));
-  getIngredients(sessionStorage.getItem(`recipe-${index}-ingredients`));
-  getDietLabels(sessionStorage.getItem(`recipe-${index}-dietLabels`));
-  getHealthLabels(sessionStorage.getItem(`recipe-${index}-healthLabels`));
-  getNutrients(sessionStorage.getItem(`recipe-${index}-nutrients`));
-  checkFavorite(sessionStorage.getItem(`recipe-${index}-favorite`));
+  $('#knowMoreTitle').html(localStorage.getItem(`recipe-${index}-title`));
+  getIngredients(localStorage.getItem(`recipe-${index}-ingredients`));
+  getDietLabels(localStorage.getItem(`recipe-${index}-dietLabels`));
+  getHealthLabels(localStorage.getItem(`recipe-${index}-healthLabels`));
+  getNutrients(localStorage.getItem(`recipe-${index}-nutrients`));
+  checkFavorite(localStorage.getItem(`recipe-${index}-favorite`));
 }
 
 function showKnowMoreRestaurant(index) {
-  const knowMoreRestaurant = JSON.parse(sessionStorage.getItem(`knowMoreRest-${index}`));
+  const knowMoreRestaurant = JSON.parse(localStorage.getItem(`knowMoreRest-${index}`));
   let knowMoreRestTemplate = '';
   for (let j = 0; j < knowMoreRestaurant.values.length; j += 1) {
     knowMoreRestaurant.strings[j] += knowMoreRestaurant.values[j];
@@ -243,8 +243,8 @@ function showKnowMoreRestaurant(index) {
   knowMoreRestTemplate = knowMoreRestTemplate.replace('@', 'on');
   knowMoreRestTemplate = knowMoreRestTemplate.replace('null', `removeRestaurant(${index})`);
   $('#knowMoreBody').html(knowMoreRestTemplate);
-  $('#knowMoreTitle').html(sessionStorage.getItem(`rest-${index}-name`));
-  checkFavorite(sessionStorage.getItem(`rest-${index}-favorite`));
+  $('#knowMoreTitle').html(localStorage.getItem(`rest-${index}-name`));
+  checkFavorite(localStorage.getItem(`rest-${index}-favorite`));
 }
 
 $(document).ready(() => {

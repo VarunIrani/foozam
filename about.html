@@ -304,14 +304,14 @@
     document.body.className += ' fade-out';
 
     function loggedInUser() {
-      const googleLoggedIn = parseInt(sessionStorage.getItem('googleLoggedIn'));
-      const userLoggedIn = parseInt(sessionStorage.getItem('userLoggedIn'));
+      const googleLoggedIn = parseInt(localStorage.getItem('googleLoggedIn'));
+      const userLoggedIn = parseInt(localStorage.getItem('userLoggedIn'));
       if (googleLoggedIn) {
-        const user = JSON.parse(sessionStorage.getItem('googleUser'));
+        const user = JSON.parse(localStorage.getItem('googleUser'));
         const userProfilePhoto = document.getElementById('userProfilePhoto');
         userProfilePhoto.setAttribute('src', user.photoURL);
       } else if (userLoggedIn) {
-        const user = JSON.parse(sessionStorage.getItem('loggedInUser'));
+        const user = JSON.parse(localStorage.getItem('loggedInUser'));
       }
     }
 
