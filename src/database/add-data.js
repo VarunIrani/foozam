@@ -112,13 +112,13 @@ export function addRecipes(data) {
       knowMoreRecipe.setAttribute('image', recipe.getAttribute('image'));
       knowMoreRecipe.setAttribute('defaultImage', recipe.getAttribute('defaultImage'));
       knowMoreRecipe.setAttribute('label', recipe.getAttribute('label'));
-      const googleLoggedIn = parseInt(sessionStorage.getItem('googleLoggedIn'));
-      const userLoggedIn = parseInt(sessionStorage.getItem('userLoggedIn'));
+      const googleLoggedIn = parseInt(localStorage.getItem('googleLoggedIn'));
+      const userLoggedIn = parseInt(localStorage.getItem('userLoggedIn'));
       let user;
       if (googleLoggedIn) {
-        user = JSON.parse(sessionStorage.getItem('googleUser'));
+        user = JSON.parse(localStorage.getItem('googleUser'));
       } else if (userLoggedIn) {
-        user = JSON.parse(sessionStorage.getItem('loggedInUser'));
+        user = JSON.parse(localStorage.getItem('loggedInUser'));
       }
       const favoritesRef = database.child('favorites');
       favoritesRef
@@ -206,13 +206,13 @@ export function addRestaurants(data) {
       knowMoreRest.setAttribute('image', restaurant.getAttribute('image'));
       knowMoreRest.setAttribute('defaultImage', restaurant.getAttribute('defaultImage'));
       knowMoreRest.setAttribute('name', restaurant.getAttribute('name'));
-      const googleLoggedIn = parseInt(sessionStorage.getItem('googleLoggedIn'));
-      const userLoggedIn = parseInt(sessionStorage.getItem('userLoggedIn'));
+      const googleLoggedIn = parseInt(localStorage.getItem('googleLoggedIn'));
+      const userLoggedIn = parseInt(localStorage.getItem('userLoggedIn'));
       let user;
       if (googleLoggedIn) {
-        user = JSON.parse(sessionStorage.getItem('googleUser'));
+        user = JSON.parse(localStorage.getItem('googleUser'));
       } else if (userLoggedIn) {
-        user = JSON.parse(sessionStorage.getItem('loggedInUser'));
+        user = JSON.parse(localStorage.getItem('loggedInUser'));
       }
       const favoritesRef = database.child('favorites');
       favoritesRef

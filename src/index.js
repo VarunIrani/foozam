@@ -93,7 +93,7 @@ function predict(image, callback) {
   // const ports = [5000, 5500, 7000, 7500, 8000];
   $('.lds-ring').css('display', 'inline-block');
 
-  const currentIndex = GROUPS.indexOf(sessionStorage.getItem('currentGroup'));
+  const currentIndex = GROUPS.indexOf(localStorage.getItem('currentGroup'));
   const url = `https://foozam-${currentIndex}.serveo.net/predict`;
   console.log(url);
   const settings = {
@@ -106,7 +106,7 @@ function predict(image, callback) {
     },
     data: {
       img: image,
-      group: sessionStorage.getItem('currentGroup'),
+      group: localStorage.getItem('currentGroup'),
     },
   };
 
@@ -117,13 +117,13 @@ function predict(image, callback) {
 
 // Image upload functionality
 function previewFile() {
-  const googleLoggedIn = parseInt(sessionStorage.getItem('googleLoggedIn'));
-  const userLoggedIn = parseInt(sessionStorage.getItem('userLoggedIn'));
+  const googleLoggedIn = parseInt(localStorage.getItem('googleLoggedIn'));
+  const userLoggedIn = parseInt(localStorage.getItem('userLoggedIn'));
   let user;
   if (googleLoggedIn) {
-    user = JSON.parse(sessionStorage.getItem('googleUser'));
+    user = JSON.parse(localStorage.getItem('googleUser'));
   } else if (userLoggedIn) {
-    user = JSON.parse(sessionStorage.getItem('loggedInUser'));
+    user = JSON.parse(localStorage.getItem('loggedInUser'));
   }
   const preview = document.getElementById('foozam-img'); // selects the query named img
 

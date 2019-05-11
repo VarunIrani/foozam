@@ -2,14 +2,14 @@
 /* eslint-disable radix */
 /* eslint-disable no-undef */
 function logout() {
-  let googleLoggedIn = parseInt(sessionStorage.getItem('googleLoggedIn'));
-  let userLoggedIn = parseInt(sessionStorage.getItem('userLoggedIn'));
+  let googleLoggedIn = parseInt(localStorage.getItem('googleLoggedIn'));
+  let userLoggedIn = parseInt(localStorage.getItem('userLoggedIn'));
   if (googleLoggedIn) {
     googleLoggedIn = 0;
-    sessionStorage.setItem('googleLoggedIn', googleLoggedIn);
+    localStorage.setItem('googleLoggedIn', googleLoggedIn);
   } else if (userLoggedIn) {
     userLoggedIn = 0;
-    sessionStorage.setItem('userLoggedIn', userLoggedIn);
+    localStorage.setItem('userLoggedIn', userLoggedIn);
   }
   location.replace('index.html');
 }

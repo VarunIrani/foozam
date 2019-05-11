@@ -262,8 +262,8 @@
     };
 
     $(document).ready(function() {
-      sessionStorage.setItem('googleLoggedIn', '0');
-      sessionStorage.setItem('userLoggedIn', '0');
+      localStorage.setItem('googleLoggedIn', '0');
+      localStorage.setItem('userLoggedIn', '0');
       $('.lds-ring').css('display', 'none');
 
       blackKit.initDatePicker();
@@ -287,7 +287,7 @@
     }
 
     function redirectToMain() {
-      const loggedIn = parseInt(sessionStorage.getItem('googleLoggedIn')) || parseInt(sessionStorage.getItem('userLoggedIn'));
+      const loggedIn = parseInt(localStorage.getItem('googleLoggedIn')) || parseInt(localStorage.getItem('userLoggedIn'));
       if (loggedIn)
         location.replace('../');
     }
@@ -299,8 +299,8 @@
         .then((result) => {
           const user = result.user.providerData[0];
           const uid = result.user.uid;
-          sessionStorage.setItem('googleUser', JSON.stringify(user));
-          sessionStorage.setItem('googleLoggedIn', '1');
+          localStorage.setItem('googleUser', JSON.stringify(user));
+          localStorage.setItem('googleLoggedIn', '1');
           writeUserData(uid, user);
           $('.lds-ring').css('display', 'inline-block');
           window.setTimeout(redirectToMain, 3000);
@@ -351,10 +351,10 @@
                 const key = Object.keys(snap.val())[0];
                 const result = snap.child(key).val();
                 console.log(result);
-                sessionStorage.setItem('loggedInUser', JSON.stringify(result))
+                localStorage.setItem('loggedInUser', JSON.stringify(result))
               });
             });
-            sessionStorage.setItem('userLoggedIn', '1');
+            localStorage.setItem('userLoggedIn', '1');
             window.setTimeout(redirectToMain, 3000);
           })
           .catch((e) => {

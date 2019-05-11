@@ -138,13 +138,13 @@ export default class KnowMoreRecipe extends LitElement {
   }
 
   addToFavorites() {
-    const googleLoggedIn = parseInt(sessionStorage.getItem('googleLoggedIn'));
-    const userLoggedIn = parseInt(sessionStorage.getItem('userLoggedIn'));
+    const googleLoggedIn = parseInt(localStorage.getItem('googleLoggedIn'));
+    const userLoggedIn = parseInt(localStorage.getItem('userLoggedIn'));
     let user;
     if (googleLoggedIn) {
-      user = JSON.parse(sessionStorage.getItem('googleUser'));
+      user = JSON.parse(localStorage.getItem('googleUser'));
     } else if (userLoggedIn) {
-      user = JSON.parse(sessionStorage.getItem('loggedInUser'));
+      user = JSON.parse(localStorage.getItem('loggedInUser'));
     }
     const favoriteRecipe = {
       label: this.label,
@@ -167,13 +167,13 @@ export default class KnowMoreRecipe extends LitElement {
   }
 
   removeFromFavorites() {
-    const googleLoggedIn = parseInt(sessionStorage.getItem('googleLoggedIn'));
-    const userLoggedIn = parseInt(sessionStorage.getItem('userLoggedIn'));
+    const googleLoggedIn = parseInt(localStorage.getItem('googleLoggedIn'));
+    const userLoggedIn = parseInt(localStorage.getItem('userLoggedIn'));
     let user;
     if (googleLoggedIn) {
-      user = JSON.parse(sessionStorage.getItem('googleUser'));
+      user = JSON.parse(localStorage.getItem('googleUser'));
     } else if (userLoggedIn) {
-      user = JSON.parse(sessionStorage.getItem('loggedInUser'));
+      user = JSON.parse(localStorage.getItem('loggedInUser'));
     }
     const favoritesRef = database.child('favorites');
     favoritesRef
