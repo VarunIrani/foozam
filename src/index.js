@@ -1,3 +1,4 @@
+/* eslint-disable radix */
 /* eslint-disable no-restricted-globals */
 /* eslint-disable no-loop-func */
 /* eslint-disable no-alert */
@@ -116,6 +117,14 @@ function predict(image, callback) {
 
 // Image upload functionality
 function previewFile() {
+  const googleLoggedIn = parseInt(sessionStorage.getItem('googleLoggedIn'));
+  const userLoggedIn = parseInt(sessionStorage.getItem('userLoggedIn'));
+  let user;
+  if (googleLoggedIn) {
+    user = JSON.parse(sessionStorage.getItem('googleUser'));
+  } else if (userLoggedIn) {
+    user = JSON.parse(sessionStorage.getItem('loggedInUser'));
+  }
   const preview = document.getElementById('foozam-img'); // selects the query named img
 
   let currFile = document.getElementById('img-file').files[0]; // sames as here
@@ -124,7 +133,16 @@ function previewFile() {
 
   reader.addEventListener('loadend', () => {
     preview.src = reader.result;
-    imageRef.push(reader.result);
+    const today = new Date();
+    const date = `${today.getDate()}-${today.getMonth() + 1}-${today.getFullYear()}`;
+    const time = `${today.getHours()}:${today.getMinutes()}:${today.getSeconds()}`;
+    const dateTime = `${date} ${time}`;
+    const imageInfo = {
+      uid: user.uid,
+      dateTime,
+      image: reader.result,
+    };
+    imageRef.push(imageInfo);
     image2base64(preview.src).then((image) => {
       predict(image, (res) => {
         if (res.success) {

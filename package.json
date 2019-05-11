@@ -33,13 +33,13 @@
 		"axios": "^0.18.0",
 		"chart.js": "^2.8.0",
 		"clarifai": "^2.9.0",
-		"firebase": "^6.0.0",
+		"firebase": "^6.0.2",
 		"image-to-base64": "^2.0.1",
 		"jquery": "^3.4.1",
 		"lit-element": "^2.1.0",
 		"popper.js": "^1.15.0",
 		"react": "^16.8.6",
-		"react-scripts": "^3.0.0",
+		"react-scripts": "^3.0.1",
 		"request": "^2.88.0"
 	},
 	"browserslist": [
