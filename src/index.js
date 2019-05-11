@@ -141,6 +141,7 @@ function previewFile() {
       uid: user.uid,
       dateTime,
       image: reader.result,
+      group: localStorage.getItem('currentGroup'),
     };
     imageRef.push(imageInfo);
     image2base64(preview.src).then((image) => {
