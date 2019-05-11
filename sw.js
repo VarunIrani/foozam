@@ -1915,7 +1915,7 @@ if (workbox) {
   },
   {
     "url": "showFavorites.js",
-    "revision": "cd0de01b79cf231603cd98073a4a9ea9"
+    "revision": "d8660d154e3bf6422e3f6ae4c34c1a0b"
   },
   {
     "url": "static/js/2.0d8827a9.chunk.js",
