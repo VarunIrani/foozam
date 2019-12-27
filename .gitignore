@@ -3,3 +3,4 @@ src/api/keys.js
 build
 .DS_Store
 src/database/firebase-config.js
+.env
