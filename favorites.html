@@ -276,6 +276,8 @@
 				userProfilePhoto.setAttribute('src', user.photoURL);
 			} else if (userLoggedIn) {
 				const user = JSON.parse(localStorage.getItem('loggedInUser'));
+			} else {
+				redirectToMain();
 			}
 		}
 
@@ -293,6 +295,12 @@
 				}
 			});
 		}
+		function redirectToMain() {
+      const loggedIn = parseInt(localStorage.getItem('googleLoggedIn')) || parseInt(localStorage.getItem(
+        'userLoggedIn'));
+      if (loggedIn)
+        location.replace('../');
+    }
 		$(document).ready(function () {
 			$().ready(function () {
 				if (localStorage.getItem('white_color') === 'true') {

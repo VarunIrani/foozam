@@ -1839,7 +1839,7 @@ if (workbox) {
   },
   {
     "url": "favorites.html",
-    "revision": "e150c50a51a086a5f82568c121b6b5df"
+    "revision": "df587ac5d58d9877d01db631721fed34"
   },
   {
     "url": "home/images/icons/icon-128x128.png",
@@ -1927,7 +1927,7 @@ if (workbox) {
   },
   {
     "url": "user.html",
-    "revision": "c733b38402dfbceb3690d1ddf364157e"
+    "revision": "32879acfb31d3f4fb1e13cbbc75417a7"
   },
   {
     "url": "user.js",
