@@ -40,8 +40,8 @@ const pred = [];
 // Get Recipes for the predicted food item
 function recipes(prediction) {
 	getRecipes(
-		process.env.EDAMAM_API_KEY,
-		process.env.EDAMAM_APP_ID,
+		process.env.REACT_APP_EDAMAM_API_KEY,
+		process.env.REACT_APP_EDAMAM_APP_ID,
 		prediction.innerHTML,
 		0,
 		20,
@@ -60,7 +60,7 @@ function restaurants(prediction) {
 			lat = pos.coords.latitude;
 			long = pos.coords.longitude;
 			getRestaurants(
-				process.env.ZOMATO,
+				process.env.REACT_APP_ZOMATO,
 				prediction.innerHTML,
 				5,
 				"city",
@@ -116,7 +116,7 @@ function predict(image, callback) {
 	$(".lds-ring").css("display", "inline-block");
 
 	const currentIndex = GROUPS.indexOf(localStorage.getItem("currentGroup"));
-	const url = `https://foozam-${currentIndex}.serveo.net/predict`;
+	const url = `http://foozam-${currentIndex}.localtunnel.me/predict`;
 	console.log(url);
 	const settings = {
 		async: true,

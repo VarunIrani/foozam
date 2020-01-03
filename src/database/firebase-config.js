@@ -3,7 +3,7 @@
 
 require("dotenv").config();
 const config = {
-	apiKey: `${process.env.FOOZAM_FIREBASE}`,
+	apiKey: `${process.env.REACT_APP_FOOZAM_FIREBASE}`,
 	authDomain: "foozam-test.firebaseapp.com",
 	databaseURL: "https://foozam-test.firebaseio.com",
 	projectId: "foozam-test",
