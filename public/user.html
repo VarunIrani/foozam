@@ -325,6 +325,8 @@
         uname.setAttribute('value', user.displayName);
         email.setAttribute('value', user.email);
         phoneNumber.setAttribute('value', user.phoneNumber == null ? '' : user.phoneNumber);
+      } else {
+        redirectToMain();
       }
     }
 
@@ -341,6 +343,13 @@
           toggleFoozi = false;
         }
       });
+    }
+
+    function redirectToMain() {
+      const loggedIn = parseInt(localStorage.getItem('googleLoggedIn')) || parseInt(localStorage.getItem(
+        'userLoggedIn'));
+      if (loggedIn)
+        location.replace('../');
     }
 
     $(document).ready(function () {
